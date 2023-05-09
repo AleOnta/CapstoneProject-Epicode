@@ -8,11 +8,11 @@
 		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.capstone_project.be</groupId>
+	<groupId>com.epicode.capstone_project</groupId>
 	<artifactId>CinemaCapstoneBE</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CinemaCapstoneBE</name>
-	<description>Back-end side of my Epicode Capstone Project</description>
+	<description>This is the BE side of my Capstone Project with Epicode</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -91,6 +91,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
