@@ -23,7 +23,7 @@ public class CinemaUserService {
 	private CinemaUserRepository userRepository;
 	
 	@Autowired
-	private UserService userService;
+	private UserService userAuthService;
 	
 	@Autowired
 	private AuthServiceImpl authService;
@@ -69,7 +69,7 @@ public class CinemaUserService {
 		
 		authService.register(registerDto);
 		
-		User relatedUser = userService.findByUsername(registerDto.getUsername());
+		User relatedUser = userAuthService.findByUsername(registerDto.getUsername());
 		user.setRelatedUser(relatedUser);
 		user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
 		user.setCinemaPoints(0);
@@ -81,13 +81,41 @@ public class CinemaUserService {
 	
 	public String updateUser(CinemaUser user) {
 		
+		CinemaUser userFound = null;
+		
 		if (!userRepository.existsById(user.getId())) {
 			userIdNotExisting(user.getId());
 		} else if (userRepository.existsByEmail(user.getEmail())) {
-			userEmailExists(user.getEmail());
+			
+			userFound = findUserByEmail(user.getEmail());
+			
+			if (user.getId() != userFound.getId()) {
+				userEmailExists(user.getEmail());				
+			}
+		
 		} else if (userRepository.existsByUsername(user.getUsername())) {
-			userUsernameExists(user.getUsername());
+			
+			userFound = findUserByUsername(user.getUsername());
+			
+			if (user.getId() != userFound.getId()) {
+				userUsernameExists(user.getUsername());				
+			}
 		}
+
+		CinemaUser currentUser = findUserById(user.getId());
+		User relatedUser = currentUser.getRelatedUser();
+		
+		relatedUser.setFirstname(user.getFirstname());
+		relatedUser.setLastname(user.getLastname());
+		relatedUser.setUsername(user.getUsername());
+		relatedUser.setEmail(user.getEmail());
+		relatedUser.setPassword(passwordEncoder.encode(user.getPassword()));
+
+		userAuthService.updateUser(relatedUser);
+		
+		relatedUser = userAuthService.findByUsername(user.getUsername());
+		user.setRelatedUser(relatedUser);
+		user.setCinemaPoints(currentUser.getCinemaPoints());
 		
 		userRepository.save(user);
 		log.info("User with username: {" + user.getUsername() + "} correctly updated on database.");
@@ -100,8 +128,15 @@ public class CinemaUserService {
 			userIdNotExisting(id);
 		}
 		
+		// retrieve cinema user to access at the related auth user
+		CinemaUser user = findUserById(id);
+		
+		// delete the cinema user by id
 		userRepository.deleteById(id);
 		log.info("User with id: {" + id + "} correctly removed from database.");
+		
+		// delete the related auth user by id
+		userAuthService.deleteUserById(user.getRelatedUser().getId());
 		return "User with id: {" + id + "} correctly removed from database.";
 	}
 	
