@@ -122,7 +122,7 @@ public class CinemaConfiguration {
 				.toDate(toDate)
 				.status(status)
 				.price(price)
-				.film(film)
+				.movie(film)
 				.room(room)
 				.build();
 	}
@@ -132,6 +132,7 @@ public class CinemaConfiguration {
 	public CinemaTicket paramTicket(
 			LocalDate emitDate,
 			LocalDate perDate,
+			String hours,
 			String seatCode,
 			CinemaUser owner,
 			CinemaMovie boundFilm,
@@ -140,6 +141,7 @@ public class CinemaConfiguration {
 		return CinemaTicket.builder()
 				.emitDate(emitDate)
 				.perDate(perDate)
+				.hours(hours)
 				.seatCode(seatCode)
 				.owner(owner)
 				.boundFilm(boundFilm)

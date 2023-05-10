@@ -56,7 +56,7 @@ public class CinemaTicketController {
 	}
 	
 	@PostMapping("/{ownerId}/{movieId}/{roomId}")
-	public ResponseEntity<String> addNewCinemaTicket(@RequestBody CinemaTicket ticket, Long ownerId, Long movieId, Long roomId) {
+	public ResponseEntity<String> addNewCinemaTicket(@RequestBody CinemaTicket ticket, @PathVariable Long ownerId, @PathVariable Long movieId, @PathVariable Long roomId) {
 		return new ResponseEntity<String>(ticketService.persistTicket(ticket, ownerId, movieId, roomId), HttpStatus.CREATED);
 	}
 	

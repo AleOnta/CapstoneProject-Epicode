@@ -25,9 +25,14 @@ public class CinemaProgramController {
 	@Autowired 
 	private CinemaProgramService programService;
 	
-	@GetMapping
+	@GetMapping("/{id}")
 	public ResponseEntity<CinemaProgram> findProgramById(@PathVariable Long id) {
 		return new ResponseEntity<CinemaProgram>(programService.findProgramById(id), HttpStatus.OK);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<CinemaProgram>> findAllPrograms() {
+		return new ResponseEntity<List<CinemaProgram>>(programService.findAll(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/status/:status")
@@ -42,7 +47,7 @@ public class CinemaProgramController {
 		return new ResponseEntity<Page<CinemaProgram>>(programService.findAllProgramsPaged(pageable), HttpStatus.OK);
 	}
 	
-	@PostMapping("/{movieId}&{roomId}")
+	@PostMapping("/{movieId}/{roomId}")
 	public ResponseEntity<String> addNewCinemaProgram(@RequestBody CinemaProgram program, @PathVariable Long movieId, @PathVariable Long roomId) {
 		return new ResponseEntity<String>(programService.persistProgram(program, movieId, roomId), HttpStatus.CREATED);
 	}

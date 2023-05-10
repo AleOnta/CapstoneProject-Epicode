@@ -33,7 +33,7 @@ public class CinemaProgramService {
 		CinemaRoom room = roomService.findRoomById(roomId);
 		
 		// setting relation between program & movie/room
-		program.setFilm(movie);
+		program.setMovie(movie);
 		program.setRoom(room);
 		
 		// persisting the entity into the database
@@ -67,6 +67,10 @@ public class CinemaProgramService {
 	public CinemaProgram findProgramById(Long id) {
 		return programRepository.findById(id).orElseThrow(
 				() -> new EntityNotFoundException("Program with id: {" + id + "} doesn't exists on database."));
+	}
+	
+	public List<CinemaProgram> findAll() {
+		return (List<CinemaProgram>) programRepository.findAll();
 	}
 	
 	public List<CinemaProgram> findProgramsByStatus(E_ProgramStatus status) {
