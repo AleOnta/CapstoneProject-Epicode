@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,19 +47,24 @@ public class CinemaMovieController {
 		return new ResponseEntity<List<CinemaMovie>>(movieService.findMoviesByTitleLike(title), HttpStatus.OK);
 	}
 	
-	@GetMapping("genre/{genre}")
+	@GetMapping("/genre/{genre}")
 	public ResponseEntity<List<CinemaMovie>> findMoviesByGenre(@PathVariable String genre) {
 		return new ResponseEntity<List<CinemaMovie>>(movieService.findMoviesByGenre(genre), HttpStatus.OK);
 	}
 	
-	@GetMapping("p_company/{prodCompany}")
+	@GetMapping("/p_company/{prodCompany}")
 	public ResponseEntity<List<CinemaMovie>> findMoviesByProdCompany(@PathVariable String prodCompany) {
 		return new ResponseEntity<List<CinemaMovie>>(movieService.findMoviesByProdCompany(prodCompany), HttpStatus.OK);
 	}
 	
-	@GetMapping("release/{releaseDate}")
+	@GetMapping("/release/{releaseDate}")
 	public ResponseEntity<List<CinemaMovie>> findMoviesByReleaseDate(@PathVariable LocalDate releaseDate) {
 		return new ResponseEntity<List<CinemaMovie>>(movieService.findMoviesByReleaseDate(releaseDate), HttpStatus.OK);
+	}
+	
+	@GetMapping("/paged")
+	public ResponseEntity<Page<CinemaMovie>> findAllMoviesPaged(Pageable pageable) {
+		return new ResponseEntity<Page<CinemaMovie>>(movieService.findAllMoviePaged(pageable), HttpStatus.OK);
 	}
 	
 	@PostMapping
