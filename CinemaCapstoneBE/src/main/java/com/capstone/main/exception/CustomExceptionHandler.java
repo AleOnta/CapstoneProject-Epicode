@@ -1,5 +1,7 @@
 package com.capstone.main.exception;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,6 +25,11 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(NullPointerException.class)
 	ResponseEntity<String> manageNullPointerException(NullPointerException e) {
+		return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(NoSuchElementException.class)
+	ResponseEntity<String> manageNoSuchElementException(NoSuchElementException e) {
 		return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 	
