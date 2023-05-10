@@ -3,6 +3,8 @@ package com.capstone.main.controller;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.capstone.main.model.CinemaMovie;
 import com.capstone.main.model.CinemaTicket;
 import com.capstone.main.service.CinemaTicketService;
 
@@ -46,6 +50,11 @@ public class CinemaTicketController {
 	@GetMapping("/per_date/{perDate}")
 	public ResponseEntity<List<CinemaTicket>> findTicketsByEmitDate(@PathVariable LocalDate emitDate) {
 		return new ResponseEntity<List<CinemaTicket>>(ticketService.findTicketByEmitDate(emitDate), HttpStatus.OK);
+	}
+	
+	@GetMapping("/paged")
+	public ResponseEntity<Page<CinemaTicket>> findAllMoviesPaged(Pageable pageable) {
+		return new ResponseEntity<Page<CinemaTicket>>(ticketService.findAllTicketsPaged(pageable), HttpStatus.OK);
 	}
 	
 	@PostMapping("/{ownerId}/{movieId}/{roomId}")
