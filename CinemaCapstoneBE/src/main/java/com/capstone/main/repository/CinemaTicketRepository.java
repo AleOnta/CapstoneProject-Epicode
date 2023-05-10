@@ -8,14 +8,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-
+import com.capstone.auth.entity.User;
 import com.capstone.main.model.CinemaTicket;
-import com.capstone.main.model.CinemaUser;
+
 
 @Repository
 public interface CinemaTicketRepository extends CrudRepository<CinemaTicket, Long>, PagingAndSortingRepository<CinemaTicket, Long>{
 
-	List<CinemaTicket> findByOwner(CinemaUser owner);
+	List<CinemaTicket> findByOwner(User owner);
 	
 	List<CinemaTicket> findBySeatCode(String seatCode);
 	

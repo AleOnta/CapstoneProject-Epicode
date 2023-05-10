@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
+import com.capstone.auth.entity.User;
+import com.capstone.auth.service.UserService;
 import com.capstone.main.model.CinemaMovie;
 import com.capstone.main.model.CinemaRoom;
 import com.capstone.main.model.CinemaTicket;
-import com.capstone.main.model.CinemaUser;
 import com.capstone.main.repository.CinemaTicketRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class CinemaTicketService {
 	private CinemaTicketRepository ticketRepository;
 	
 	@Autowired 
-	private CinemaUserService userService;
+	private UserService userService;
 	
 	@Autowired 
 	private CinemaMovieService movieService;
@@ -33,7 +33,7 @@ public class CinemaTicketService {
 	
 	public String persistTicket(CinemaTicket ticket, Long ownerId, Long movieId, Long roomId){
 		
-		CinemaUser owner = userService.findUserById(ownerId);
+		User owner = userService.findUserById(ownerId);
 		CinemaMovie movie = movieService.findMovieById(movieId);
 		CinemaRoom room = roomService.findRoomById(roomId);
 		

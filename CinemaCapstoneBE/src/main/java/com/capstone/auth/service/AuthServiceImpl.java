@@ -1,8 +1,9 @@
 package com.capstone.auth.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -10,7 +11,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import com.capstone.auth.entity.ERole;
 import com.capstone.auth.entity.Role;
 import com.capstone.auth.entity.User;
@@ -20,8 +20,11 @@ import com.capstone.auth.payload.RegisterDto;
 import com.capstone.auth.repository.RoleRepository;
 import com.capstone.auth.repository.UserRepository;
 import com.capstone.auth.security.JwtTokenProvider;
+import com.capstone.main.model.CinemaTicket;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class AuthServiceImpl implements AuthService {
 
     private AuthenticationManager authenticationManager;
@@ -64,12 +67,12 @@ public class AuthServiceImpl implements AuthService {
 
         // add check for username exists in database
         if(userRepository.existsByUsername(registerDto.getUsername())){
-            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Username already exists on database.");
+            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Username: {" + registerDto.getUsername() + "} already exists on database.");
         }
 
         // add check for email exists in database
         if(userRepository.existsByEmail(registerDto.getEmail())){
-            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Email already exists on database.");
+            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Email: {" + registerDto.getEmail() + "} already exists on database.");
         }
 
         User user = new User();
@@ -78,8 +81,11 @@ public class AuthServiceImpl implements AuthService {
         user.setUsername(registerDto.getUsername());
         user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
-
+        user.setBirthdate(registerDto.getBirthdate());
+        user.setCinemaPoints(0);
+        
         Set<Role> roles = new HashSet<>();
+        List<CinemaTicket> tickets = new ArrayList<CinemaTicket>();
         
         
         // Per registrare tutti come USER di Default commentare IF
@@ -93,11 +99,11 @@ public class AuthServiceImpl implements AuthService {
         	roles.add(userRole);
         }
         
+        user.setTickets(tickets);
         user.setRoles(roles);
-        System.out.println(user);
         userRepository.save(user);
-
-        return "User registered successfully!.";
+        log.info("User with username: {" + user.getUsername() + "} correctly persisted on database." );
+        return "User with username: {" + user.getUsername() + "} correctly persisted on database.";
     }
     
     public ERole getRole(String role) {
