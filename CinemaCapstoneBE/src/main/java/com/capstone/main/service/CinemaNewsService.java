@@ -3,6 +3,8 @@ package com.capstone.main.service;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.capstone.main.model.CinemaMovie;
@@ -87,5 +89,9 @@ public class CinemaNewsService {
 	
 	public List<CinemaNews> findNewsByAuthor(String author) {
 		return (List<CinemaNews>) newsRepository.findByAuthor(author);
+	}
+	
+	public Page<CinemaNews> findAllNewsPaged(Pageable pageable) {
+		return (Page<CinemaNews>) newsRepository.findAllNewsPaged(pageable);
 	}
 }

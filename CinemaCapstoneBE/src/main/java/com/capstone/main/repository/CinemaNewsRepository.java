@@ -3,6 +3,9 @@ package com.capstone.main.repository;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -17,6 +20,8 @@ public interface CinemaNewsRepository extends CrudRepository<CinemaNews, Long>, 
 	List<CinemaNews> findByAuthor(String author);
 	
 	List<CinemaNews> findByRedactDate(LocalDate redactDate);
+	
+	Page<CinemaNews> findAllNewsPaged(Pageable pageable);
 	
 	Boolean existsByTitle(String title);
 	
