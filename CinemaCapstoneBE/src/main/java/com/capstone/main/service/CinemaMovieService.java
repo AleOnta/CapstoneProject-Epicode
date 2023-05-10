@@ -60,30 +60,42 @@ public class CinemaMovieService {
 	
 	public String updateMovie(CinemaMovie movie) {
 		
+		CinemaMovie toCheck = null;
+		
 		if (!movieRepository.existsById(movie.getId())) {
+			
 			log.warn("Movie with id: {" + movie.getId() + "} doesn't exirsts on database.");
 			log.warn("Movie with id: {" + movie.getId() + "} doesn't exists on database.");
 			throw new EntityNotFoundException("Movie with id: {" + movie.getId() + "} doesn't exists on database.");
+		
 		} else if (movieRepository.existsByTmdbId(movie.getTmdbId())) {
-			CinemaMovie toCheck = findMovieByTmdbId(movie.getTmdbId());
+			
+			toCheck = findMovieByTmdbId(movie.getTmdbId());
+			
 			if (movie.getId() == toCheck.getId()) {
 				movieTmdbIdExists(movie.getTmdbId());				
 			}
-			movieTmdbIdExists(movie.getTmdbId());
+			
 		} else if (movieRepository.existsByTitle(movie.getTitle())) {
-			CinemaMovie toCheck = findMovieByTitle(movie.getTitle());
+			
+			toCheck = findMovieByTitle(movie.getTitle());
+			
 			if (!movie.getId().equals(toCheck.getId())) {		
 				movieTitleExists(movie.getTitle());
 			}
-			movieTitleExists(movie.getTitle());
+			
 		} else if (movieRepository.existsByPosterPath(movie.getPosterPath())) {
-			CinemaMovie toCheck = findMovieByPosterPath(movie.getPosterPath());
+			
+			toCheck = findMovieByPosterPath(movie.getPosterPath());
+			
 			if (!movie.getId().equals(toCheck.getId())) {
 				moviePosterPathExists(movie.getPosterPath());			
 			}
-			moviePosterPathExists(movie.getPosterPath());
+			
 		} else if (movieRepository.existsByCastPath(movie.getCastPath())) {
-			CinemaMovie toCheck = findMovieByCastPath(movie.getCastPath());
+			
+			toCheck = findMovieByCastPath(movie.getCastPath());
+			
 			if (!movie.getId().equals(toCheck.getId())) {
 				movieCastPathExists(movie.getPosterPath());			
 			}
