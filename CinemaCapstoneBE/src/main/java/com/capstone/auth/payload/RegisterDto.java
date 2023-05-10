@@ -1,5 +1,6 @@
 package com.capstone.auth.payload;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,10 @@ public class RegisterDto {
     private String email;
     
     private String password;
- 
+    
+    private LocalDate birthdate;
+    
+    private Integer cinemaPoints;
+    
     private Set<String> roles;
 }

@@ -7,8 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import com.capstone.main.model.CinemaTicket;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Setter
@@ -38,9 +43,20 @@ public class User {
     @Column(nullable = false)
     private String password;
     
+    @Column(nullable = false)
+    private LocalDate birthdate;
+    
+    @Column(nullable = false) 
+    private Integer cinemaPoints;
+    
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles = new HashSet<>();
+    
+    @OneToMany(mappedBy="owner")
+	@JsonIgnoreProperties({"emitDate", "seatCode", "owner", "boundRoom"})
+    private List<CinemaTicket> tickets;
+
 }
