@@ -3,6 +3,8 @@ package com.capstone.main.service;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.capstone.main.model.CinemaMovie;
 import com.capstone.main.repository.CinemaMovieRepository;
@@ -160,5 +162,9 @@ public class CinemaMovieService {
 	
 	public List<CinemaMovie> findMoviesByReleaseDate(LocalDate releaseDate) {
 		return (List<CinemaMovie>) movieRepository.findByReleaseDate(releaseDate);
+	}
+	
+	public Page<CinemaMovie> findAllMoviePaged(Pageable pageable) {
+		return (Page<CinemaMovie>) movieRepository.findAllMoviePaged(pageable);
 	}
 }
