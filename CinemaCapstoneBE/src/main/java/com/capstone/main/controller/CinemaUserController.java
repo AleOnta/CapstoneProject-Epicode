@@ -3,6 +3,8 @@ package com.capstone.main.controller;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.capstone.main.model.CinemaMovie;
 import com.capstone.main.model.CinemaUser;
 import com.capstone.main.service.CinemaUserService;
 
@@ -46,6 +50,11 @@ public class CinemaUserController {
 	@GetMapping("/bday/{birthdate}")
 	public ResponseEntity<List<CinemaUser>> findUserByBirthDate(@PathVariable LocalDate birthdate) {
 		return new ResponseEntity<List<CinemaUser>>(c_userService.findUsersByBirthdate(birthdate), HttpStatus.OK);
+	}
+	
+	@GetMapping("/paged")
+	public ResponseEntity<Page<CinemaUser>> findAllUsersPaged(Pageable pageable) {
+		return new ResponseEntity<Page<CinemaUser>>(c_userService.findAllUsersPaged(pageable), HttpStatus.OK);
 	}
 	
 	@PostMapping
