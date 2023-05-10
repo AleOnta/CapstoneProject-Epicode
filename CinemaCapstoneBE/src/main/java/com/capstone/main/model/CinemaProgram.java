@@ -1,6 +1,9 @@
 package com.capstone.main.model;
 
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -44,9 +47,11 @@ public class CinemaProgram {
 	private Double price;
 	
 	@OneToOne
-	private CinemaMovie film;
+	@JsonIgnoreProperties({"plot", "releaseDate", "budget", "revenue", "popularity", "vote", "news"})
+	private CinemaMovie movie;
 	
 	@ManyToOne
+	@JsonIgnoreProperties({"normalSeats", "vipSeats", "programs", "tickets"})
 	private CinemaRoom room;
 	
 }

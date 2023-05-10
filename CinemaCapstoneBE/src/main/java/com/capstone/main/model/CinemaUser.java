@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.capstone.auth.entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -53,9 +54,11 @@ public class CinemaUser {
 	private Integer cinemaPoints;
 	
 	@OneToOne
+	@JsonIgnoreProperties({"firstname", "lastname", "username", "email", "password", })
 	private User relatedUser;
 	
 	@OneToMany(mappedBy="owner")
+	@JsonIgnoreProperties({"emitDate", "seatCode", "owner", "boundRoom"})
 	private List<CinemaTicket> tickets;
 	
 }

@@ -1,6 +1,9 @@
 package com.capstone.main.model;
 
 import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,16 +37,48 @@ public class CinemaTicket {
 	@Column(nullable = false)
 	private LocalDate perDate;
 	
+	@Column(nullable = false, length = 5)
+	private String hours;
+	
 	@Column(nullable = false)
 	private String seatCode;
 	
 	@ManyToOne
+	@JsonIgnoreProperties(
+			{"firstname", 
+			"lastname", 
+			"email", 
+			"password", 
+			"cinemaPoints", 
+			"relatedUser", 
+			"tickets"})
 	private CinemaUser owner;
 	
 	@OneToOne
+	@JsonIgnoreProperties(
+			{"tmdbId", 
+			"plot", 
+			"genre", 
+			"prodCompany", 
+			"releaseDate", 
+			"filmLength", 
+			"posterPath", 
+			"castPath", 
+			"budget", 
+			"revenue", 
+			"popularity", 
+			"vote", 
+			"news"})
 	private CinemaMovie boundFilm;
 	
 	@ManyToOne
+	@JsonIgnoreProperties(
+			{"totalSeats", 
+			"normalSeats", 
+			"vipSeats", 
+			"timeTables", 
+			"programs", 
+			"tickets"})
 	private CinemaRoom boundRoom;
 	
 }
