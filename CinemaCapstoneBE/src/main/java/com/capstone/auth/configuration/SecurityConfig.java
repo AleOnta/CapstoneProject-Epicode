@@ -20,6 +20,7 @@ import com.capstone.auth.security.JwtAuthenticationFilter;
 @EnableMethodSecurity
 public class SecurityConfig {
 
+	@SuppressWarnings("unused")
 	private UserDetailsService userDetailsService;
 
 	private JwtAuthenticationEntryPoint authenticationEntryPoint;

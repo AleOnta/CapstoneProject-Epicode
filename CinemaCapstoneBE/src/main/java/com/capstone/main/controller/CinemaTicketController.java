@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.capstone.main.model.CinemaMovie;
 import com.capstone.main.model.CinemaTicket;
 import com.capstone.main.service.CinemaTicketService;
 

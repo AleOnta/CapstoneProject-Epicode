@@ -2,6 +2,7 @@ package com.capstone.auth.exception;
 
 import org.springframework.http.HttpStatus;
 
+@SuppressWarnings("serial")
 public class MyAPIException extends RuntimeException {
 	
 	private HttpStatus status;
