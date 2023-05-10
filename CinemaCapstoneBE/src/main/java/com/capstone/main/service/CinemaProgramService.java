@@ -2,6 +2,8 @@ package com.capstone.main.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.capstone.main.model.CinemaMovie;
@@ -72,4 +74,9 @@ public class CinemaProgramService {
 	}
 	
 	// ADD FIND BY ROOM
+
+	public Page<CinemaProgram> findAllProgramsPaged(Pageable pageable) {
+		return (Page<CinemaProgram>) programRepository.findAllProgramsPaged(pageable);
+	}
+	
 }
