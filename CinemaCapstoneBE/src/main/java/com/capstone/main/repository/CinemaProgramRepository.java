@@ -21,6 +21,6 @@ public interface CinemaProgramRepository extends CrudRepository<CinemaProgram, L
 	
 	List<CinemaProgram> findByStatus(E_ProgramStatus status);
 	
-	Page<CinemaProgram> findAllProgramsPaged(Pageable pageable);
+	Page<CinemaProgram> findAll(Pageable pageable);
 	
 }

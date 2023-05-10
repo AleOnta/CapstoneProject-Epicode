@@ -90,6 +90,6 @@ public class CinemaTicketService {
 	}
 	
 	public Page<CinemaTicket> findAllTicketsPaged(Pageable pageable) {
-		return (Page<CinemaTicket>) ticketRepository.findAllTicketsPaged(pageable);
+		return (Page<CinemaTicket>) ticketRepository.findAll(pageable);
 	}
 }

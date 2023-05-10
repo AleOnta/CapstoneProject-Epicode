@@ -92,6 +92,6 @@ public class CinemaNewsService {
 	}
 	
 	public Page<CinemaNews> findAllNewsPaged(Pageable pageable) {
-		return (Page<CinemaNews>) newsRepository.findAllNewsPaged(pageable);
+		return (Page<CinemaNews>) newsRepository.findAll(pageable);
 	}
 }

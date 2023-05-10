@@ -34,7 +34,7 @@ public interface CinemaMovieRepository extends CrudRepository<CinemaMovie, Long>
 	@Query("SELECT m FROM CinemaMovie m WHERE LOWER(m.title) LIKE LOWER(CONCAT('%', :title, '%'))")
 	List<CinemaMovie> findByTitleLike(@Param("title") String title);
 	
-	Page<CinemaMovie> findAllMoviePaged(Pageable pageable);
+	Page<CinemaMovie> findAll(Pageable pageable);
 	
 	Boolean existsByTmdbId(Long tmdbId);
 	

@@ -20,7 +20,7 @@ public interface CinemaUserRepository extends CrudRepository<CinemaUser, Long>, 
 	
 	List<CinemaUser> findByBirthdate(LocalDate birthdate);
 	
-	Page<CinemaUser> findAllUsersPaged(Pageable pageable);
+	Page<CinemaUser> findAll(Pageable pageable);
 	
 	Boolean existsByEmail(String email);
 	

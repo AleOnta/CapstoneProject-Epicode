@@ -76,7 +76,7 @@ public class CinemaProgramService {
 	// ADD FIND BY ROOM
 
 	public Page<CinemaProgram> findAllProgramsPaged(Pageable pageable) {
-		return (Page<CinemaProgram>) programRepository.findAllProgramsPaged(pageable);
+		return (Page<CinemaProgram>) programRepository.findAll(pageable);
 	}
 	
 }

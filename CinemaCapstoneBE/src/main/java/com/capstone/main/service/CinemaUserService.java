@@ -166,6 +166,6 @@ public class CinemaUserService {
 	}
 	
 	public Page<CinemaUser> findAllUsersPaged(Pageable pageable) {
-		return (Page<CinemaUser>) userRepository.findAllUsersPaged(pageable);
+		return (Page<CinemaUser>) userRepository.findAll(pageable);
 	}
 }

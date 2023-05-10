@@ -21,7 +21,7 @@ public interface CinemaNewsRepository extends CrudRepository<CinemaNews, Long>, 
 	
 	List<CinemaNews> findByRedactDate(LocalDate redactDate);
 	
-	Page<CinemaNews> findAllNewsPaged(Pageable pageable);
+	Page<CinemaNews> findAll(Pageable pageable);
 	
 	Boolean existsByTitle(String title);
 	

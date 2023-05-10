@@ -23,6 +23,6 @@ public interface CinemaTicketRepository extends CrudRepository<CinemaTicket, Lon
 	
 	List<CinemaTicket> findByEmitDate(LocalDate emitDate);
 	
-	Page<CinemaTicket> findAllTicketsPaged(Pageable pageable);
+	Page<CinemaTicket> findAll(Pageable pageable);
 	
 }

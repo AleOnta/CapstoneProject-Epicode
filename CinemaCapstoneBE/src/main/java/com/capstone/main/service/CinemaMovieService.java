@@ -165,6 +165,6 @@ public class CinemaMovieService {
 	}
 	
 	public Page<CinemaMovie> findAllMoviePaged(Pageable pageable) {
-		return (Page<CinemaMovie>) movieRepository.findAllMoviePaged(pageable);
+		return (Page<CinemaMovie>) movieRepository.findAll(pageable);
 	}
 }
