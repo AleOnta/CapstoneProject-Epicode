@@ -2,6 +2,7 @@ package com.capstone.main.model;
 
 import java.time.LocalDate;
 
+import com.capstone.auth.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -50,9 +51,9 @@ public class CinemaTicket {
 			"email", 
 			"password", 
 			"cinemaPoints", 
-			"relatedUser", 
+			"roles",
 			"tickets"})
-	private CinemaUser owner;
+	private User owner;
 	
 	@OneToOne
 	@JsonIgnoreProperties(

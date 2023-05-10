@@ -68,7 +68,7 @@ public class CinemaMovie {
 	@Column(nullable = false)
 	private Double vote;
 	
-	@OneToMany(mappedBy="relatedFilm")
+	@OneToMany(mappedBy="relatedMovie")
 	private List<CinemaNews> news;
 	
 }

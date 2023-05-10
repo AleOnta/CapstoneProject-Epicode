@@ -40,6 +40,6 @@ public class CinemaNews {
 	private String article;
 	
 	@ManyToOne
-	private CinemaMovie relatedFilm;
+	private CinemaMovie relatedMovie;
 	
 }	

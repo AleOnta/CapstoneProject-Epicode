@@ -36,7 +36,7 @@ public class CinemaNewsService {
 		}
 		
 		CinemaMovie movie = movieService.findMovieById(movieId);
-		news.setRelatedFilm(movie);
+		news.setRelatedMovie(movie);
 		
 		newsRepository.save(news);
 		log.info("News with title: {" + news.getTitle() + "} correctly persisted on database.");
