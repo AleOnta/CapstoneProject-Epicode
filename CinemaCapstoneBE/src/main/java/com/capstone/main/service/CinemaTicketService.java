@@ -3,6 +3,8 @@ package com.capstone.main.service;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.capstone.main.model.CinemaMovie;
@@ -85,5 +87,9 @@ public class CinemaTicketService {
 	
 	public List<CinemaTicket> findTicketBySeatCode(String seatCode) {
 		return (List<CinemaTicket>)ticketRepository.findBySeatCode(seatCode);
+	}
+	
+	public Page<CinemaTicket> findAllTicketsPaged(Pageable pageable) {
+		return (Page<CinemaTicket>) ticketRepository.findAllTicketsPaged(pageable);
 	}
 }

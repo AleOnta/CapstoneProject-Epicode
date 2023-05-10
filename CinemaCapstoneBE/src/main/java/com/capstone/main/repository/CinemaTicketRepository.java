@@ -2,6 +2,9 @@ package com.capstone.main.repository;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -19,5 +22,7 @@ public interface CinemaTicketRepository extends CrudRepository<CinemaTicket, Lon
 	List<CinemaTicket> findByPerDate(LocalDate perDate);
 	
 	List<CinemaTicket> findByEmitDate(LocalDate emitDate);
+	
+	Page<CinemaTicket> findAllTicketsPaged(Pageable pageable);
 	
 }
