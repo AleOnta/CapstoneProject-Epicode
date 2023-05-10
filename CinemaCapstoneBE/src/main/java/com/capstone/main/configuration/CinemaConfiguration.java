@@ -9,7 +9,6 @@ import com.capstone.main.model.CinemaNews;
 import com.capstone.main.model.CinemaProgram;
 import com.capstone.main.model.CinemaRoom;
 import com.capstone.main.model.CinemaTicket;
-import com.capstone.main.model.CinemaUser;
 import com.capstone.main.model.E_ProgramStatus;
 
 @Configuration
@@ -41,11 +40,11 @@ public class CinemaConfiguration {
 		return new CinemaTicket();
 	}
 	
-	@Bean("customUser")
-	@Scope("singleton")
-	public CinemaUser customUser() {
-		return new CinemaUser();
-	}
+//	@Bean("customUser")
+//	@Scope("singleton")
+//	public CinemaUser customUser() {
+//		return new CinemaUser();
+//	}
 	
 	@Bean("customNews")
 	@Scope("singleton")
@@ -127,49 +126,49 @@ public class CinemaConfiguration {
 				.build();
 	}
 	
-	@Bean("paramTicket")
-	@Scope("prototype")
-	public CinemaTicket paramTicket(
-			LocalDate emitDate,
-			LocalDate perDate,
-			String hours,
-			String seatCode,
-			CinemaUser owner,
-			CinemaMovie boundFilm,
-			CinemaRoom boundRoom) {
-		
-		return CinemaTicket.builder()
-				.emitDate(emitDate)
-				.perDate(perDate)
-				.hours(hours)
-				.seatCode(seatCode)
-				.owner(owner)
-				.boundFilm(boundFilm)
-				.boundRoom(boundRoom)
-				.build();
-	}
-	
-	@Bean("paramUser")
-	@Scope("prototype")
-	public CinemaUser paramUser(
-			String firstname,
-			String lastname,
-			String username,
-			String email,
-			String password,
-			LocalDate birthdate
-			) {
-		
-		return CinemaUser.builder()
-				.firstname(firstname)
-				.lastname(lastname)
-				.username(username)
-				.email(email)
-				.password(password)
-				.birthdate(birthdate)
-				.cinemaPoints(0)
-				.build();
-	}
+//	@Bean("paramTicket")
+//	@Scope("prototype")
+//	public CinemaTicket paramTicket(
+//			LocalDate emitDate,
+//			LocalDate perDate,
+//			String hours,
+//			String seatCode,
+//			CinemaUser owner,
+//			CinemaMovie boundFilm,
+//			CinemaRoom boundRoom) {
+//		
+//		return CinemaTicket.builder()
+//				.emitDate(emitDate)
+//				.perDate(perDate)
+//				.hours(hours)
+//				.seatCode(seatCode)
+//				.owner(owner)
+//				.boundFilm(boundFilm)
+//				.boundRoom(boundRoom)
+//				.build();
+//	}
+//	
+//	@Bean("paramUser")
+//	@Scope("prototype")
+//	public CinemaUser paramUser(
+//			String firstname,
+//			String lastname,
+//			String username,
+//			String email,
+//			String password,
+//			LocalDate birthdate
+//			) {
+//		
+//		return CinemaUser.builder()
+//				.firstname(firstname)
+//				.lastname(lastname)
+//				.username(username)
+//				.email(email)
+//				.password(password)
+//				.birthdate(birthdate)
+//				.cinemaPoints(0)
+//				.build();
+//	}
 	
 	@Bean("paramNews")
 	@Scope("prototype")
@@ -186,7 +185,7 @@ public class CinemaConfiguration {
 				.author(author)
 				.title(title)
 				.article(article)
-				.relatedFilm(film)
+				.relatedMovie(film)
 				.build();
 	}
 	
