@@ -6,12 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import com.capstone.main.model.CinemaTicket;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -30,8 +28,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(nullable = false)
     private String firstname;
     
+    @Column(nullable = false)
     private String lastname;
     
     @Column(nullable = false, unique = true)
