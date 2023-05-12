@@ -1,16 +1,17 @@
 import "./Navbar.scss"
 import avatar from "../../assets/imgs/avatar_placeholder.svg"
-import { Card } from "react-bootstrap"
+import { Card, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 export const UserCardComponent = () => {
     return (
-        <>
+        <Col xs={2}>
             <div className="d-flex ">
                 <h5 className="navbar-userLinks"><Link to="#">Sign-up</Link></h5>
                 <h5 className="px-2 divider"> | </h5>
                 <h5 className="navbar-userLinks"><Link to="#">Login</Link></h5>
             </div>
+            
 
             {/* <Link to={"#"}>
             <Card
@@ -28,7 +29,7 @@ export const UserCardComponent = () => {
             </Card.Body>
             </Card>
             </Link> */}
-        </>
+        </Col>
     )
 }
 
