@@ -2,6 +2,9 @@ package com.capstone.main.model;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -68,6 +71,7 @@ public class CinemaMovie {
 	@Column(nullable = false)
 	private Double vote;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="relatedMovie")
 	private List<CinemaNews> news;
 	

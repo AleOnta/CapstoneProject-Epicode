@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.capstone.main.model.CinemaProgram;
 import com.capstone.main.model.E_ProgramStatus;
 import com.capstone.main.service.CinemaProgramService;
 
+@CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:3000/"}, maxAge = 3600)
 @RestController
 @RequestMapping("/api/programs")
 public class CinemaProgramController {
