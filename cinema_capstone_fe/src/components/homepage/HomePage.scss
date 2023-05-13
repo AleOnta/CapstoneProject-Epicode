@@ -1,0 +1,13 @@
+.slider-image {
+  max-height: 500px !important;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 14px 8px 24px 0px rgba(67, 68, 80, 1);
+  -moz-box-shadow: 14px 8px 24px 0px rgba(67, 68, 80, 1);
+  box-shadow: 14px 8px 24px 0px rgba(67, 68, 80, 1);
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+  }
+}
