@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    allprograms: [],
-    onGoing: [],
-    incoming: []
+  allprograms: [],
+  onGoing: [],
+  incoming: [],
 };
 
 export const programsSlice = createSlice({
-    name: "programs",
-    initialState,
-    reducers: {},
+  name: "programs",
+  initialState,
+  reducers: {},
 });
 
 export default programsSlice.reducer;
