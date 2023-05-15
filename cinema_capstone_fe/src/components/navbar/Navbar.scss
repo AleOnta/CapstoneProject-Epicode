@@ -9,26 +9,106 @@
   -moz-box-shadow: 0px 11px 21px -7px rgba(66, 66, 66, 1);
   box-shadow: 0px 11px 21px -7px rgba(66, 66, 66, 1);
 
-  .navbar-search {
+  .search-main-container {
+    position: absolute;
+    top: 25px;
+    width: 40em;
+    left: 33%;
+    right: 33%;
+    background-color: white;
+    padding: 0;
+    z-index: 999;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .results-container {
+      .movie-img {
+        width: 45px;
+      }
+
+      .card-title {
+        font-size: 1em;
+        margin-bottom: 5px;
+      }
+
+      .card-text {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .searchbar-container {
+    background-color: lightgray;
+    transition: 0.1s;
+    width: 100%;
+
+    &:hover {
+      background-color: rgb(179, 179, 179);
+
+      input {
+        background-color: rgb(179, 179, 179);
+      }
+    }
+
+    &:focus {
+      border: none;
+      scale: none;
+      outline: none;
+      transform: scale(1.02);
+      transition: 0.1s;
+    }
+
+    span {
+      font-size: 18px;
+      margin-bottom: 5px;
+      padding: 1px 5px;
+
+      .search-close-icon {
+        opacity: 0;
+        transition: 0.2s;
+        &:hover {
+          color: $dim-gray;
+          transition: 0.2s;
+        }
+      }
+
+      .is-shown {
+        opacity: 1 !important;
+        transition: 0.2s;
+      }
+    }
+
     input {
-      width: 80%;
+      width: 100%;
       background-color: lightgray;
       padding: 5px;
+      padding-left: 0;
       border: none;
       font-size: 0.9em;
       transition: 0.1s;
-
-      &:hover {
-        background-color: rgb(155, 155, 155);
-      }
 
       &:focus {
         border: none;
         scale: none;
         outline: none;
-        transform: scale(1.02);
         transition: 0.1s;
+        &::placeholder {
+          transition: 0.1s;
+          opacity: 0;
+        }
       }
+    }
+
+    .search-results-container {
+      position: absolute;
+      bottom: -72px;
+      right: 45px;
+      background-color: aliceblue;
+      width: 80%;
     }
   }
 
