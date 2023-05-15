@@ -1,0 +1,200 @@
+@import "../../../assets/style/variables.scss";
+
+.homepage-main-content-column {
+  background-color: rgba(15, 15, 15, 0.7);
+  border-radius: 20px;
+}
+
+// Movie card section:
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  height: 450px;
+  margin: 50px auto;
+  background: $main-blue;
+  border: 3px solid $ph-darker-orange;
+  border-radius: 15px;
+  -webkit-box-shadow: 7px 7px 16px 0px rgba(80, 61, 30, 1);
+  -moz-box-shadow: 7px 7px 16px 0px rgba(80, 61, 30, 1);
+  box-shadow: 7px 7px 16px 0px rgba(80, 61, 30, 1);
+
+  .card-img-one {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .card-title {
+    height: 22%;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+    color: #fffc;
+    padding: 15px 10px;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    box-shadow: 0 -95px 28px -25px #000 inset;
+  }
+
+  .card-text {
+    position: absolute;
+    bottom: 100px;
+    height: 95px;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #fff;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    transform: rotate(90deg);
+    transform-origin: 0 100px;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .card-text::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card-category {
+    position: absolute;
+    left: 10px;
+    top: 140px;
+    padding: 3px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    background: #8b2463;
+    color: #fff;
+    border-radius: 5px;
+    transform: translate(-160px, 0);
+    transition: all 0.5s ease;
+  }
+
+  .card-views {
+    position: absolute;
+    left: 10px;
+    top: 175px;
+    padding: 3px 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    background: #18206f;
+    color: #fff;
+    border-radius: 5px;
+    transform: translate(-160px, 0);
+    transition: all 0.5s ease 0.15s;
+  }
+
+  .green {
+    background: #61c9a8 !important;
+  }
+
+  .blue {
+    background: #18206f !important;
+  }
+
+  .red {
+    background: #941b0c !important;
+  }
+
+  &:hover {
+    .card-img-one {
+      transform: rotate(10deg) scale(1.3) translate(20px, 0);
+      transform-origin: 300px 300px;
+      opacity: 0.5;
+    }
+
+    .card-text {
+      font-size: 0.8em;
+      opacity: 0.8;
+      transform: rotate(0deg);
+    }
+
+    .card-views,
+    .card-category {
+      transform: translate(0);
+    }
+  }
+}
+
+// Card news section:
+
+.card-newsContainer {
+  width: 14rem;
+  background-color: $night;
+  -webkit-box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
+  -moz-box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
+  box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
+  transition: 0.5s;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card-header {
+    font-size: 1em;
+    font-weight: 500;
+    border-color: $ph-darker-orange;
+
+    .card-credits-circle {
+      background-color: $ph-orange;
+      width: 40px;
+      height: 40px;
+      p {
+        color: black;
+      }
+    }
+
+    .news-credits-container {
+      padding-left: 6px;
+      width: 80%;
+
+      .news-credits {
+        margin: 0;
+        color: $silver;
+        font-size: 0.6em;
+      }
+
+      .news-title {
+        color: $silver;
+        font-size: 0.8em;
+        font-weight: 700;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        padding-bottom: 3px;
+      }
+    }
+  }
+
+  .news-article {
+    color: #fff;
+    font-size: 0.8em;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-bottom: 3px;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+  }
+}

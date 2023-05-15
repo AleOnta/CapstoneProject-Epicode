@@ -1,12 +1,12 @@
 import "swiper/scss";
-import "./HomePage.scss";
+import "../HomePage.scss";
 import "swiper/scss/autoplay";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
-import { RootState } from "../../app/store";
+import { RootState } from "../../../app/store";
 
 export const SwiperComponent = () => {
   const movieStore = useSelector((state: RootState) => state.movies);
