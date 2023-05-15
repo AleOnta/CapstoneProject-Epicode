@@ -9,6 +9,7 @@ import { fetchPrograms } from "../../features/programSlice";
 import { fetchNews } from "../../features/newsSlice";
 import { IMovie } from "../../interfaces/iMovies";
 import { setInRoomMovies } from "../../features/movieSlice";
+import { FooterComponent } from "../footer/FooterComponent";
 
 export const HomepageComponent = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -60,6 +61,9 @@ export const HomepageComponent = () => {
       </Col>
       <Col xs={12}>
         <HomepageMainComponent />
+      </Col>
+      <Col xs={12}>
+        <FooterComponent />
       </Col>
     </Row>
   );

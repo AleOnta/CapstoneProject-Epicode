@@ -1,0 +1,33 @@
+@import "../../assets/style/variables.scss";
+
+.footer-top-row {
+  border-top: 1px solid $davys-gray;
+
+  .footer-col-title {
+    color: white;
+  }
+
+  .list-group {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+
+    .social {
+      .list-group-item {
+        width: 100%;
+      }
+    }
+
+    .list-group-item {
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      color: $dim-gray;
+      text-align: center;
+      transition: 0.1s;
+      &:hover {
+        transition: 0.1s;
+        text-decoration: underline;
+        color: $ph-orange;
+      }
+    }
+  }
+}
