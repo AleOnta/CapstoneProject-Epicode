@@ -10,8 +10,8 @@ export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
   };
 
   const formatReleaseDate = (releaseDate: Date) => {
-    let convertedDate = new Date(releaseDate);
-    return `${convertedDate.getFullYear()}/${convertedDate.getMonth()}/${convertedDate.getDay()}`;
+    let convertedDate = new Date(releaseDate).toISOString().slice(0, 10);
+    return convertedDate;
   };
 
   return (
