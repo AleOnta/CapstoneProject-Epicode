@@ -11,10 +11,13 @@
 
   .search-main-container {
     position: absolute;
-    top: 25px;
-    width: 40em;
-    left: 33%;
-    right: 33%;
+    margin-left: auto;
+    margin-right: auto;
+    top: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 640px;
     background-color: white;
     padding: 0;
     z-index: 999;
@@ -39,6 +42,12 @@
         font-size: 0.8em;
       }
     }
+  }
+
+  .search-main-container.expanded {
+    position: absolute;
+    left: 33%;
+    right: 33%;
   }
 
   .searchbar-container {

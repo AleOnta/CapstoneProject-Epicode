@@ -11,7 +11,7 @@ export const MovieSearchBarComponent = ({ movie }: IMovieProps) => {
   };
 
   return (
-    <Card className="d-flex flex-row align-items-center w-100">
+    <Card className="d-flex flex-row align-items-center w-100 card-container">
       <Card.Header className="p-0">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}

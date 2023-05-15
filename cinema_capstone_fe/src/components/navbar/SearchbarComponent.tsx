@@ -58,7 +58,7 @@ export const SearchbarComponent = () => {
 
   const containerVariants = {
     expanded: {
-      height: "19.8em",
+      height: "auto",
     },
     collapsed: {
       height: "auto",
@@ -73,7 +73,7 @@ export const SearchbarComponent = () => {
 
   return (
     <motion.div
-      className="col-6 rounded search-main-container"
+      className={"col-6 rounded search-main-container"}
       animate={isExpanded ? "expanded" : "collapsed"}
       variants={containerVariants}
       ref={ref}
