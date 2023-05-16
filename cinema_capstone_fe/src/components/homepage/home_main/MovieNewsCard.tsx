@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 export const MovieNewsCard = ({ news }: INewsProps) => {
   const formatRedactDate = (redactDate: Date) => {
-    let convertedDate = new Date(redactDate);
-    return `${convertedDate.getFullYear()}/${convertedDate.getMonth()}/${convertedDate.getDay()}`;
+    let convertedDate = new Date(redactDate).toISOString().slice(0, 10);
+    return convertedDate;
   };
 
   const getAuthorInitials = (author: string) => {
@@ -21,7 +21,6 @@ export const MovieNewsCard = ({ news }: INewsProps) => {
     }
   };
 
-  formatRedactDate(news.redactDate);
   return (
     <Card text="dark" className="mb-2 card-newsContainer">
       <Link to="/">

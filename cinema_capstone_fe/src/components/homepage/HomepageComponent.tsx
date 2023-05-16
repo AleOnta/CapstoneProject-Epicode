@@ -1,15 +1,15 @@
-import { Col, Row } from "react-bootstrap";
-import { SwiperComponent } from "./home_swiper/SwiperComponent";
-import { HomepageMainComponent } from "./home_main/HomepageMainComponent";
 import { useEffect } from "react";
+import { Col, Row } from "react-bootstrap";
+import { IMovie } from "../../interfaces/iMovies";
+import { fetchNews } from "../../features/newsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
-import { fetchMovies, setIncomingMovies } from "../../features/movieSlice";
 import { fetchPrograms } from "../../features/programSlice";
-import { fetchNews } from "../../features/newsSlice";
-import { IMovie } from "../../interfaces/iMovies";
 import { setInRoomMovies } from "../../features/movieSlice";
 import { FooterComponent } from "../footer/FooterComponent";
+import { SwiperComponent } from "./home_swiper/SwiperComponent";
+import { HomepageMainComponent } from "./home_main/HomepageMainComponent";
+import { fetchMovies, setIncomingMovies } from "../../features/movieSlice";
 
 export const HomepageComponent = () => {
   const dispatch: AppDispatch = useDispatch();
