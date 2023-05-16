@@ -1,0 +1,163 @@
+@import "../../assets/style/variables.scss";
+
+.title-program-section {
+  font-size: 3em;
+  color: $ph-orange;
+  margin: 120px 0 48px 0;
+}
+
+.card-column {
+  h4 {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  h4.blue {
+    color: $white;
+    background-color: $blue-th;
+    padding: 3px 8px;
+  }
+  h4.red {
+    color: $white;
+    background-color: $red-th;
+    padding: 3px 8px;
+  }
+  h4.green {
+    color: $white;
+    background-color: $green-th;
+    padding: 3px 8px;
+  }
+
+  .program-card {
+    border-color: $ph-darker-orange;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: $night;
+    color: white;
+
+    .card-img {
+      width: 25%;
+    }
+
+    .card-title {
+      font-size: 1.6em;
+      margin-bottom: 18px;
+    }
+
+    .card-hr {
+      color: $ph-orange;
+      margin-top: 0;
+      margin-bottom: 34px;
+    }
+
+    .card-text {
+      span {
+        font-weight: 700;
+      }
+    }
+
+    .card-button {
+      border-color: $black;
+      background-color: $ph-orange;
+      margin: 20px 0;
+
+      &:hover {
+        background-color: $ph-darker-orange;
+
+        .card-btn-icon {
+          transform: scale(1.2);
+          transition: 0.2s;
+        }
+      }
+
+      .card-btn-icon {
+        color: $black;
+        font-size: 1.2em;
+        margin-bottom: 3px;
+        transition: 0.2s;
+      }
+    }
+  }
+
+  .divisor {
+    color: $silver;
+    margin: 48px 0;
+  }
+}
+
+.news-programs-container {
+  margin-top: 238px;
+
+  h4 {
+    color: $ph-orange;
+  }
+
+  .card {
+    background-color: $night;
+    color: lightgray;
+    border: 1px solid $ph-darker-orange;
+    margin-bottom: 20px;
+
+    .card-credits-circle {
+      background-color: $ph-orange;
+      width: 40px !important;
+      height: 40px !important;
+
+      p {
+        color: $black;
+        font-weight: 500;
+      }
+    }
+
+    .card-body {
+      position: relative;
+      transition: 0.2s;
+      &:hover {
+        .card-subtitle {
+          color: $silver !important;
+          transition: 0.2s;
+        }
+      }
+    }
+
+    .card-title {
+      font-size: 1em;
+      max-width: 290px;
+      color: $ph-orange;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: 0.2s;
+      &:hover {
+        color: $ph-darker-orange;
+        transition: 0.2s;
+      }
+    }
+
+    .card-subtitle {
+      font-size: 0.8em;
+    }
+
+    .card-text.plot {
+      font-size: 0.8em;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    a.card-link {
+      color: $ph-orange;
+      font-size: 0.8em;
+      position: absolute;
+      bottom: 5px;
+      right: 15px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
