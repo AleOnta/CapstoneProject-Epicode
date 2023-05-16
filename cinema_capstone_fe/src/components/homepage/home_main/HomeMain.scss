@@ -92,7 +92,7 @@ a {
     font-size: 15px;
     font-weight: 700;
     text-align: center;
-    background: #18206f;
+    background: $blue-th;
     color: #fff;
     border-radius: 5px;
     transform: translate(-160px, 0);
@@ -100,15 +100,15 @@ a {
   }
 
   .green {
-    background: #61c9a8 !important;
+    background: $green-th !important;
   }
 
   .blue {
-    background: #18206f !important;
+    background: $blue-th !important;
   }
 
   .red {
-    background: #941b0c !important;
+    background: $red-th !important;
   }
 
   &:hover {
