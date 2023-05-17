@@ -2,6 +2,7 @@ import { BsCart4 } from "react-icons/bs";
 import { GrSearchAdvanced } from "react-icons/gr";
 import { Button, Card, CardImg, Col } from "react-bootstrap";
 import { IMovieProps } from "../../interfaces/CommonInterfaces";
+import { Link } from "react-router-dom";
 
 export const ProgramsCard = ({ program, movie }: IMovieProps) => {
   return (
@@ -16,7 +17,7 @@ export const ProgramsCard = ({ program, movie }: IMovieProps) => {
           className="card-img"
         ></CardImg>
         <Card.Body className="d-flex flex-column justify-content-around">
-          <Card.Title className="">{movie.title}</Card.Title>
+          <Card.Title>{movie.title}</Card.Title>
           <hr className="card-hr" />
           <div className="d-flex flex-column justify-content-end">
             <Card.Text className="m-0">
@@ -35,7 +36,9 @@ export const ProgramsCard = ({ program, movie }: IMovieProps) => {
             <BsCart4 className="card-btn-icon" />
           </Button>
           <Button className="p-3 card-button go-spec">
-            <GrSearchAdvanced className="card-btn-icon" />
+            <Link to={`/focus-movie/${movie.id}`}>
+              <GrSearchAdvanced className="card-btn-icon" />
+            </Link>
           </Button>
         </Card.Footer>
       </Card>

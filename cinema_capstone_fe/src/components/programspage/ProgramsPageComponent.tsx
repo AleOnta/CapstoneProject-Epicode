@@ -64,7 +64,7 @@ export const ProgramsPageComponent = () => {
               <h4>NEWS</h4>
               {store.news.status === "fulfilled"
                 ? store.news.allNews.map((news) => (
-                    <ProgramsNewsCard news={news} />
+                    <ProgramsNewsCard news={news} key={news.id} />
                   ))
                 : null}
             </Col>
