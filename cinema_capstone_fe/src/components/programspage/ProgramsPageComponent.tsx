@@ -24,6 +24,7 @@ export const ProgramsPageComponent = () => {
         posterPath:
           "https://events.isc2.org/assets/images/image_placeholder.jpg",
         castPath: "to be defined",
+        trailerID: "notFound",
         budget: 0,
         revenue: 0,
         filmLength: 0,
