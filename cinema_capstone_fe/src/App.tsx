@@ -5,6 +5,7 @@ import { NavbarComponent } from "./components/navbar/NavbarComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomepageComponent } from "./components/homepage/HomepageComponent";
 import { ProgramsPageComponent } from "./components/programspage/ProgramsPageComponent";
+import { MoviePageComponent } from "./components/moviepage/MoviePageComponent";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<HomepageComponent />} />
           <Route path="/programs" element={<ProgramsPageComponent />} />
+          <Route path="/focus-movie/:id" element={<MoviePageComponent />} />
         </Routes>
       </Container>
     </BrowserRouter>
