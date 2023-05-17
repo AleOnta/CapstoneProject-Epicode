@@ -59,6 +59,9 @@ public class CinemaMovie {
 	@Column(nullable = false, unique = true)
 	private String castPath;
 	
+	@Column(nullable = false, unique = true)
+	private String trailerID;
+	
 	@Column(nullable = false)
 	private Integer budget;
 	
