@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { RootState } from "../../../app/store";
+import { Link } from "react-router-dom";
 
 export const SwiperComponent = () => {
   const movieStore = useSelector((state: RootState) => state.movies);
@@ -30,13 +31,15 @@ export const SwiperComponent = () => {
     >
       {movieStore.allMovies.map((movie, index) => {
         return (
-          <SwiperSlide key={index}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
-              alt=""
-              className="slider-image"
-            />
-          </SwiperSlide>
+          <Link to={`/movie-focus/${movie.id}`}>
+            <SwiperSlide key={index}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
+                alt="movie poster"
+                className="slider-image"
+              />
+            </SwiperSlide>
+          </Link>
         );
       })}
       ...
