@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { RootState } from "../../app/store";
-import { IMovie } from "../../interfaces/iMovies";
+import { RootState } from "../../../app/store";
+import { IMovie } from "../../../interfaces/iMovies";
 import { useClickOutside } from "react-click-outside-hook";
 import { MovieSearchBarComponent } from "./MovieSearchbarComponent";
 import { AiOutlineSearch, AiOutlineCloseCircle } from "react-icons/ai";

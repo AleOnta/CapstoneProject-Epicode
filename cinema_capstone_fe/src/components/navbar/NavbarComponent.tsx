@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 import { Navbar, Container, Row } from "react-bootstrap";
 import { UserCardComponent } from "./UserCardComponent";
-import { SearchbarComponent } from "./SearchbarComponent";
+import { SearchbarComponent } from "./searchbar/SearchbarComponent";
 import { LogoComponent } from "./LogoComponent";
 import { useEffect } from "react";
 

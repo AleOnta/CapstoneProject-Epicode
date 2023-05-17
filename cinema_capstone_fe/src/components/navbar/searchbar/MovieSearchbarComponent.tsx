@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { SearchBarCardProps } from "../../interfaces/CommonInterfaces";
+import { SearchBarCardProps } from "../../../interfaces/CommonInterfaces";
 import { BsFillPeopleFill, BsFillStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
