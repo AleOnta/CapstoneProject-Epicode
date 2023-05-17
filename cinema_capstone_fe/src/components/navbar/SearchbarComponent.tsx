@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import { RootState } from "../../app/store";
 import { IMovie } from "../../interfaces/iMovies";
-import { AiOutlineSearch, AiOutlineCloseCircle } from "react-icons/ai";
-import { motion } from "framer-motion";
 import { useClickOutside } from "react-click-outside-hook";
 import { MovieSearchBarComponent } from "./MovieSearchbarComponent";
+import { AiOutlineSearch, AiOutlineCloseCircle } from "react-icons/ai";
 
 export const SearchbarComponent = () => {
   const moviesStore = useSelector((state: RootState) => state.movies.allMovies);
@@ -100,7 +100,11 @@ export const SearchbarComponent = () => {
       <div className="results-container d-flex flex-column align-items-start">
         {isExpanded && moviesFound.length > 0 ? (
           moviesFound.map((movie) => (
-            <MovieSearchBarComponent movie={movie} key={movie.tmdbId} />
+            <MovieSearchBarComponent
+              movie={movie}
+              function={collapseContainer}
+              key={movie.tmdbId}
+            />
           ))
         ) : notFoundReturn && isExpanded ? (
           <p>No movie found searching for "{inputSearch}"</p>

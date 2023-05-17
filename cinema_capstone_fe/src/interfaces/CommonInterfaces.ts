@@ -10,3 +10,8 @@ export interface IMovieProps {
 export interface INewsProps {
   news: INews;
 }
+
+export interface SearchBarCardProps {
+  movie: IMovie;
+  function: () => void;
+}
