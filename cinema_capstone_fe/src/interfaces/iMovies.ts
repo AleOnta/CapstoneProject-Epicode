@@ -9,6 +9,7 @@ export interface IMovie {
   filmLength: number;
   posterPath: string;
   castPath: string;
+  trailerID: string;
   budget: number;
   revenue: number;
   popularity: number;
