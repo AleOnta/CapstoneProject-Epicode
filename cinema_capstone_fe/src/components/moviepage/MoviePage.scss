@@ -1,0 +1,153 @@
+@import "../../assets/style/variables.scss";
+
+.movie-card-container {
+  margin-top: 120px;
+
+  .card {
+    color: $white;
+    background-color: inherit !important;
+
+    .row-content {
+      color: $silver;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+
+    .movie-poster {
+      width: 28%;
+    }
+
+    .card-body {
+      .card-title {
+        font-size: 2.5em;
+        font-weight: 700;
+        color: $ph-orange;
+        margin-bottom: 15px;
+      }
+
+      .movie-company {
+        font-size: 0.9em;
+        font-weight: 500;
+        color: #6c757d;
+      }
+
+      .card-text.genres-container {
+        margin-bottom: 50px;
+        .movie-genre {
+          font-size: 1em;
+          color: $ph-orange;
+          background-color: $black;
+        }
+      }
+
+      h6 {
+        font-size: 1.1em;
+        color: $silver !important;
+        span.movie-cast-member {
+          color: #6c757d !important;
+          font-size: 0.81em;
+        }
+      }
+
+      p.actual-plot {
+        color: #a4adb4;
+      }
+    }
+
+    // CSS for dynamic specs
+
+    .specs-container {
+      overflow: hidden;
+    }
+
+    .card-specs {
+      background-color: #fff;
+      border-radius: 10px;
+      border: none;
+      position: relative;
+      margin-bottom: 30px;
+      box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+        0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+        0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+        0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+
+      .card-title {
+        font-size: 1.3em;
+        color: $white;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h2.release {
+        font-size: 1.2em;
+      }
+
+      .percentage {
+        font-size: 0.9em;
+      }
+
+      .card-statistic-3 .card-icon-large .icon-font,
+      .card-statistic-3 .card-icon-large .far,
+      .card-statistic-3 .card-icon-large .fab,
+      .card-statistic-3 .card-icon-large .fal {
+        font-size: 100px;
+      }
+
+      .card-statistic-3 .card-icon {
+        text-align: center;
+        line-height: 50px;
+        margin-left: 15px;
+        color: #000;
+        position: absolute;
+        right: -5px;
+        top: 20px;
+        opacity: 0.1;
+      }
+
+      .progress {
+        height: 8px;
+      }
+    }
+    .l-bg-cherry {
+      background: linear-gradient(to right, #493240, #f09) !important;
+      color: #fff;
+    }
+
+    .l-bg-blue-dark {
+      background: linear-gradient(to right, #373b44, #4286f4) !important;
+      color: #fff;
+    }
+
+    .l-bg-green-dark {
+      background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+      color: #fff;
+    }
+
+    .l-bg-orange-dark {
+      background: linear-gradient(to right, #683d09, #ffba56) !important;
+      color: #fff;
+    }
+
+    .l-bg-cyan {
+      background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+      color: #fff;
+    }
+
+    .l-bg-green {
+      background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+      color: #fff;
+    }
+
+    .l-bg-orange {
+      background: linear-gradient(to right, #f9900e, #ffba56) !important;
+      color: #fff;
+    }
+
+    .l-bg-cyan {
+      background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+      color: #fff;
+    }
+  }
+}
