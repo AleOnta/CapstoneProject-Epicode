@@ -5,6 +5,8 @@ import { IMovieProps } from "../../interfaces/CommonInterfaces";
 import { Link } from "react-router-dom";
 
 export const ProgramsCard = ({ program, movie }: IMovieProps) => {
+  // fare funzione per retrieve room
+
   return (
     <Col xs={12} className="card-column">
       <h4 className={`py-2 rounded ${program?.room.name}`}>
@@ -33,7 +35,9 @@ export const ProgramsCard = ({ program, movie }: IMovieProps) => {
         </Card.Body>
         <Card.Footer>
           <Button className="p-3 card-button cart">
-            <BsCart4 className="card-btn-icon" />
+            <Link to={`/check-out/${program?.id}`}>
+              <BsCart4 className="card-btn-icon" />
+            </Link>
           </Button>
           <Button className="p-3 card-button go-spec">
             <Link to={`/focus-movie/${movie.id}`}>

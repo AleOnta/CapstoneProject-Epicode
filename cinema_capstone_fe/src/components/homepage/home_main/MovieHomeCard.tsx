@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { IMovieProps } from "../../../interfaces/CommonInterfaces";
-import { BsCalendarWeek, BsFilm, BsFillStarFill } from "react-icons/bs";
+import { BsCalendarWeek, BsFilm } from "react-icons/bs";
 
 export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
   const getGenres = (genres: string) => {
@@ -16,7 +16,7 @@ export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
 
   return (
     <Card className="movie-card">
-      <Link to="/home">
+      <Link to="/programs">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
           alt="movie poster"
@@ -29,16 +29,14 @@ export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
           <>
             <span>
               <div className="card-category d-flex align-items-center">
-                <BsFillStarFill />
-                <p className="m-0 ps-2">{movie.popularity}</p>
+                <p className="m-0 ">{movie.popularity}</p>
               </div>
             </span>
             <span>
               <div
                 className={`card-views d-flex align-items-center ${program.room.name}`}
               >
-                <BsCalendarWeek />
-                <p className="m-0 ps-2">Theather: {program.room.name}</p>
+                <p className="m-0 ">Theather: {program.room.name}</p>
               </div>
             </span>
           </>
