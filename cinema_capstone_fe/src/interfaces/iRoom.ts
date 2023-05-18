@@ -1,3 +1,5 @@
+import { ITicket } from "./iTicket";
+
 export interface IRoom {
   id: number;
   name: string;
@@ -6,7 +8,7 @@ export interface IRoom {
   vipSeats: number;
   timetables: string;
   programs: IRoomProgram[];
-  tickets: any[]; // to be defined
+  tickets: ITicket[];
 }
 
 export interface IRoomProgram {

@@ -4,11 +4,13 @@ export interface IProgramMovie {
   id: number;
   tmdbId: number;
   title: string;
+  plot: string;
   genre: string;
   prodCompany: string;
   filmLength: number;
   posterPath: string;
   castPath: string;
+  trailerID: string;
 }
 
 export interface IProgramRoom {
