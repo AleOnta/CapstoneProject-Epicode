@@ -1,0 +1,41 @@
+@import "../../assets/style/variables.scss";
+
+.check-out-container {
+  min-height: 100vh;
+
+  .check-out-title {
+    color: $white;
+  }
+
+  hr {
+    color: $silver;
+  }
+
+  .check-out-card {
+    color: $white;
+    background-color: rgba(211, 211, 211, 0.445);
+    .card-img {
+      width: 15%;
+    }
+    .card-body {
+      .card-title {
+        font-size: 1.3em;
+      }
+      .card-text {
+        font-size: 1em;
+      }
+
+      .card-data {
+        font-size: 12px;
+      }
+
+      .movie-data {
+        width: 90%;
+      }
+    }
+  }
+
+  .check-out-main {
+    background-color: white;
+  }
+}
