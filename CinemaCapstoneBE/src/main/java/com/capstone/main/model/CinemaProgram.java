@@ -47,7 +47,7 @@ public class CinemaProgram {
 	private Double price;
 	
 	@OneToOne
-	@JsonIgnoreProperties({"plot", "releaseDate", "budget", "revenue", "popularity", "vote", "news"})
+	@JsonIgnoreProperties({"releaseDate", "budget", "revenue", "popularity", "vote", "news"})
 	private CinemaMovie movie;
 	
 	@ManyToOne

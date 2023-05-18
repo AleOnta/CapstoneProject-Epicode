@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.capstone.auth.entity.User;
 import com.capstone.auth.service.UserService;
 import com.capstone.main.model.CinemaMovie;
+import com.capstone.main.model.CinemaProgram;
 import com.capstone.main.model.CinemaRoom;
 import com.capstone.main.model.CinemaTicket;
 import com.capstone.main.repository.CinemaTicketRepository;
@@ -31,11 +32,19 @@ public class CinemaTicketService {
 	@Autowired
 	private CinemaRoomService roomService;
 	
-	public String persistTicket(CinemaTicket ticket, Long ownerId, Long movieId, Long roomId){
+	@Autowired
+	private CinemaProgramService programService;
+	
+	public String persistTicket(CinemaTicket ticket, Long ownerId, Long programId){
 		
 		User owner = userService.findUserById(ownerId);
-		CinemaMovie movie = movieService.findMovieById(movieId);
-		CinemaRoom room = roomService.findRoomById(roomId);
+		CinemaProgram program = programService.findProgramById(programId);
+		
+		// from program get ids of related movie and room
+		CinemaMovie movie = movieService.findMovieById(program.getMovie().getId());
+		System.out.println(movie.toString());
+		CinemaRoom room = roomService.findRoomById(program.getRoom().getId());
+		System.out.println(room.toString());
 		
 		ticket.setOwner(owner);
 		ticket.setBoundFilm(movie);

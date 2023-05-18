@@ -57,9 +57,9 @@ public class CinemaTicketController {
 		return new ResponseEntity<Page<CinemaTicket>>(ticketService.findAllTicketsPaged(pageable), HttpStatus.OK);
 	}
 	
-	@PostMapping("/{ownerId}/{movieId}/{roomId}")
-	public ResponseEntity<String> addNewCinemaTicket(@RequestBody CinemaTicket ticket, @PathVariable Long ownerId, @PathVariable Long movieId, @PathVariable Long roomId) {
-		return new ResponseEntity<String>(ticketService.persistTicket(ticket, ownerId, movieId, roomId), HttpStatus.CREATED);
+	@PostMapping("/{ownerId}/{programId}")
+	public ResponseEntity<String> addNewCinemaTicket(@RequestBody CinemaTicket ticket, @PathVariable Long ownerId, @PathVariable Long programId) {
+		return new ResponseEntity<String>(ticketService.persistTicket(ticket, ownerId, programId), HttpStatus.CREATED);
 	}
 	
 	@PutMapping
