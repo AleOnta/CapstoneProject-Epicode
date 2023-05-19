@@ -1,6 +1,6 @@
 import { IMovie } from "./iMovies";
 import { INews } from "./iNews";
-import { IProgram } from "./iProgram";
+import { IProgram, IProgramMovie } from "./iProgram";
 import { IRoom } from "./iRoom";
 
 export interface IMovieProps {
@@ -21,4 +21,22 @@ export interface CheckOutProps {
   movieId: number;
   relatedProgram: IProgram;
   relatedRoom: IRoom;
+}
+
+export interface SeatMapProps {
+  selectedMovie: IProgramMovie;
+  occupiedSeats: number[];
+  selectedSeats: number[];
+  seats: number[];
+  setSelectedSeats: (param: number[]) => void;
+}
+
+export interface DateAndTime {
+  date: Date | null;
+  time: string;
+}
+
+export interface SerializableDateAndTime {
+  date: string;
+  time: string;
 }
