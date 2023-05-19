@@ -1,0 +1,96 @@
+@import "../../assets/style/variables.scss";
+
+.auth-logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17%;
+
+  @media screen and (max-width: 1199px) {
+    top: 25px;
+  }
+}
+
+.register-column {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  margin: auto;
+  color: white;
+  background-color: $light;
+  width: 35vw;
+  height: 40vh;
+
+  @media screen and (max-width: 1199px) {
+    height: 65%;
+  }
+
+  @media screen and (max-width: 920px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 95%;
+  }
+
+  .register-title {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  .form-label {
+    font-size: 14px;
+    margin-top: 18px;
+    margin-bottom: 3px;
+
+    @media screen and (min-width: 1800px) {
+      width: 100%;
+    }
+  }
+
+  .form-control {
+    font-size: 14px;
+    height: 38px;
+    background-color: $input_bg;
+  }
+
+  .birthdate-input {
+    @media screen and (max-width: 1199px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+
+      .form-label {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+    font-size: 14px;
+    height: 38px;
+    padding: 0 10px;
+    background-color: $input_bg;
+    border-radius: 5px;
+  }
+  .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 0;
+  }
+
+  .register-button {
+    font-size: 15px;
+    margin-top: 25px;
+    max-width: 97%;
+  }
+}
