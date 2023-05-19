@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { NavbarComponent } from "./components/navbar/NavbarComponent";
 import { HomepageComponent } from "./components/homepage/HomepageComponent";
+import { AuthPageComponent } from "./components/authpage/AuthPageComponent";
 import { MoviePageComponent } from "./components/moviepage/MoviePageComponent";
 import { ProgramsPageComponent } from "./components/programspage/ProgramsPageComponent";
 import { CheckoutPageComponent } from "./components/checkoutpage/CheckoutPageComponent";
@@ -76,6 +77,7 @@ function App() {
             <Route path="/programs" element={<ProgramsPageComponent />} />
             <Route path="/focus-movie/:id" element={<MoviePageComponent />} />
             <Route path="/check-out/:id" element={<CheckoutPageComponent />} />
+            <Route path="/auth/:type" element={<AuthPageComponent />} />
           </Routes>
         </Container>
       </LocalizationProvider>
