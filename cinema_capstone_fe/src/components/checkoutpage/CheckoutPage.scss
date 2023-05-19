@@ -19,10 +19,16 @@
     }
     .card-body {
       .card-title {
-        font-size: 1.3em;
+        font-size: 1.5em;
       }
       .card-text {
         font-size: 1em;
+      }
+
+      .genre {
+        font-size: 0.9em;
+        color: $ph-orange;
+        background-color: $black;
       }
 
       .card-data {
@@ -36,6 +42,175 @@
   }
 
   .check-out-main {
-    background-color: white;
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+
+    .movie-spec {
+      background-color: rgba(211, 211, 211, 0.116);
+
+      p.movie-name {
+        color: white;
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+    }
+
+    ul {
+      color: white;
+      background-color: rgba(211, 211, 211, 0.116);
+
+      li {
+        font-size: 0.8em;
+      }
+    }
+
+    .Cinema {
+      background-color: rgba(211, 211, 211, 0.116);
+      perspective: 430px;
+      padding-bottom: 30px;
+      display: grid;
+      place-items: center;
+      grid-gap: 24px;
+    }
+
+    .Cinema .screen {
+      height: 70px;
+      background: white;
+      width: 80%;
+      transform: rotateX(-30deg) scale(1.1);
+      box-shadow: 0 3px 10px 2px;
+    }
+
+    .Cinema .seats {
+      display: grid;
+      grid-gap: 4px;
+      grid-template-columns: repeat(8, min-content);
+      align-items: center;
+    }
+
+    .Cinema .seats .seat:nth-of-type(8n + 2) {
+      margin-right: 12px;
+    }
+
+    .Cinema .seats .seat:nth-of-type(8n + 6) {
+      margin-right: 12px;
+    }
+
+    .Cinema .seats .seat:not(.occupied):hover,
+    .Cinema .seats .seat:not(.occupied):focus {
+      cursor: pointer;
+      background: #c1eac5;
+      transform: scale(1.2);
+    }
+
+    .Cinema .seats .seat.selected::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 2px;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      background: transparent;
+      border: 1px solid #7bc47f;
+      animation: show-off 0.8s;
+      visibility: hidden;
+    }
+
+    @keyframes show-off {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      100% {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+
+    .seat {
+      display: inline-block;
+      background: #626262;
+      width: 16px;
+      height: 12px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+
+      position: relative;
+      top: 1px;
+    }
+
+    .seat.selected {
+      background: #7bc47f !important;
+    }
+
+    .seat.occupied {
+      background: #cfcfcf;
+    }
+
+    .info .count {
+      color: #7bc47f;
+    }
+
+    .info .total {
+      color: #7bc47f;
+    }
+
+    .date-container,
+    .recap-container {
+      color: white;
+      background-color: rgba(211, 211, 211, 0.116);
+
+      .hour-select {
+        width: 60%;
+        font-size: 0.9em;
+        border-radius: 5px;
+        padding: 4.8px;
+        background-color: rgb(221, 221, 221);
+      }
+
+      .date-picker-custom {
+        width: 60%;
+      }
+
+      .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+        font-size: 0.9em;
+      }
+
+      .css-i4bv87-MuiSvgIcon-root {
+        font-size: 0.8em;
+      }
+
+      .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+        width: 60%;
+        margin-bottom: 0 !important;
+        border-radius: 5px;
+        background-color: rgb(221, 221, 221);
+      }
+
+      label {
+        font-size: 0.9em;
+        font-weight: 500;
+      }
+
+      h6,
+      p {
+        font-size: 0.9em;
+      }
+
+      .mapped-seat {
+      }
+
+      .check-out-button {
+        font-weight: 500;
+        font-size: 0.9em;
+      }
+    }
   }
 }
