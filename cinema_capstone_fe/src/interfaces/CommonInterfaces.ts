@@ -40,3 +40,8 @@ export interface SerializableDateAndTime {
   date: string;
   time: string;
 }
+
+export interface AuthComponentProps {
+  successCallback: (message: string) => void;
+  failureCallback: (message: string) => void;
+}

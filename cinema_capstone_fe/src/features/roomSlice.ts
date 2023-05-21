@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IRoom } from "../interfaces/iRoom";
 import axios from "axios";
-import { error } from "console";
 
 const roomsURL = "http://localhost:8080/api/rooms";
 
