@@ -29,14 +29,16 @@ export const MovieSearchBarComponent = (props: SearchBarCardProps) => {
             <Card.Title>{props.movie.title}</Card.Title>
             <Card.Text>{getGenres(props.movie.genre)}</Card.Text>
           </span>
-          <span>
+          <span className="search-data-container">
             <Card.Text className="d-flex align-items-center">
               <BsFillStarFill className="me-2" />
-              <span>{props.movie.vote}</span>
+              <span className="search-movie-data">{props.movie.vote}</span>
             </Card.Text>
             <Card.Text className="d-flex align-items-center">
               <BsFillPeopleFill className="me-2" />
-              <span>{props.movie.popularity}</span>
+              <span className="search-movie-data">
+                {props.movie.popularity}
+              </span>
             </Card.Text>
           </span>
         </Card.Body>

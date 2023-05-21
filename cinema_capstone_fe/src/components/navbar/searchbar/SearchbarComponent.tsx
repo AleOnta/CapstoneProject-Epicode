@@ -49,7 +49,6 @@ export const SearchbarComponent = () => {
         setNotFoundReturn(true);
       } else {
         setMoviesFound(result);
-        console.log(moviesFound);
       }
     } else {
       setMoviesFound([]);
