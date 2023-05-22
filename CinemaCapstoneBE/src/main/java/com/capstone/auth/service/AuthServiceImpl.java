@@ -67,12 +67,12 @@ public class AuthServiceImpl implements AuthService {
 
         // add check for username exists in database
         if(userRepository.existsByUsername(registerDto.getUsername())){
-            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Username: {" + registerDto.getUsername() + "} already exists on database.");
+            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Username: '" + registerDto.getUsername() + "' already exists.");
         }
 
         // add check for email exists in database
         if(userRepository.existsByEmail(registerDto.getEmail())){
-            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Email: {" + registerDto.getEmail() + "} already exists on database.");
+            throw new MyAPIException(HttpStatus.BAD_REQUEST, "Email already exists.");
         }
 
         User user = new User();
@@ -103,7 +103,7 @@ public class AuthServiceImpl implements AuthService {
         user.setRoles(roles);
         userRepository.save(user);
         log.info("User with username: {" + user.getUsername() + "} correctly persisted on database." );
-        return "User with username: {" + user.getUsername() + "} correctly persisted on database.";
+        return "User successfully registered.";
     }
     
     public ERole getRole(String role) {
