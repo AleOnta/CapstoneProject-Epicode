@@ -112,7 +112,7 @@ public class CinemaConfiguration {
 			LocalDate fromDate, 
 			LocalDate toDate, 
 			E_ProgramStatus status, 
-			Double price, 
+			String price, 
 			CinemaMovie film, 
 			CinemaRoom room) {
 		

@@ -44,7 +44,7 @@ public class CinemaProgram {
 	private E_ProgramStatus status;
 	
 	@Column(nullable = false)
-	private Double price;
+	private String price;
 	
 	@OneToOne
 	@JsonIgnoreProperties({"releaseDate", "budget", "revenue", "popularity", "vote", "news"})
