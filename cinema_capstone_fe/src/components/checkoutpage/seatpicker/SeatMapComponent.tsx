@@ -1,12 +1,15 @@
 import { Col } from "react-bootstrap";
 import clsx from "clsx";
 import { SeatMapProps } from "../../../interfaces/CommonInterfaces";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import {
   addPickedSeats,
   removePickedSeats,
+  setPickedDate,
+  setPickedTime,
 } from "../../../features/checkoutSlice";
+import { useEffect } from "react";
 
 export const SeatMapComponent = ({
   seats,
@@ -15,6 +18,7 @@ export const SeatMapComponent = ({
   setSelectedSeats,
 }: SeatMapProps) => {
   const dispatch: AppDispatch = useDispatch();
+  const userStore = useSelector((state: RootState) => state.user.logged_in);
 
   const handleSelectedSeats = (seat: number) => {
     const isSelected = selectedSeats.includes(seat);
@@ -36,6 +40,14 @@ export const SeatMapComponent = ({
       handleSelectedSeats(seat);
     }
   };
+
+  useEffect(() => {
+    setSelectedSeats([]);
+    dispatch(removePickedSeats([]));
+    dispatch(setPickedDate(""));
+    dispatch(setPickedTime(""));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userStore]);
 
   return (
     <Col xs={6} className="Cinema p-4 rounded">

@@ -56,6 +56,7 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   };
 
   useEffect(() => {
+    setSelectedSeats([]);
     setRelatedMovie(program.movie);
     setRelatedRoom(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps

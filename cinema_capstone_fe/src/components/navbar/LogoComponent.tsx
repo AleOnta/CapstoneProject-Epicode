@@ -1,10 +1,11 @@
-import { Col, Navbar } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import logo from "../../assets/imgs/cinemaLogo.png";
+import { Link } from "react-router-dom";
 
 export const LogoComponent = () => {
   return (
     <Col xs={2}>
-      <Navbar.Brand href="/home">
+      <Link to="/home" className="navbar-brand">
         <img
           src={logo}
           width="125"
@@ -12,7 +13,7 @@ export const LogoComponent = () => {
           className="d-inline-block align-top"
           alt="React Bootstrap logo"
         />
-      </Navbar.Brand>
+      </Link>
     </Col>
   );
 };
