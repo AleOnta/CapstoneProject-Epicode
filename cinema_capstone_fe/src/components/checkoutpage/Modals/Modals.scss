@@ -1,0 +1,93 @@
+@import "../../../assets/style/variables.scss";
+
+.confirmation-modal {
+  background-color: $modals-bg;
+
+  .btn-close {
+    background-color: $white;
+  }
+
+  .modal-content {
+    color: $white;
+    background-color: $main-blue;
+
+    h4.modal-section {
+      font-size: 1.1em;
+    }
+
+    .movie-section-container {
+      background-color: $extra_light;
+      .small-img-modal {
+        width: 50px;
+        border-radius: 15px;
+      }
+
+      .modal-data.movie {
+        font-size: 0.8em;
+        margin-bottom: 3px;
+        margin-left: 6px;
+      }
+
+      .modal-data.movie.title {
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .modal-data.movie.plot {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 0;
+      }
+    }
+
+    .picks-section-container {
+      background-color: $extra_light;
+      .modal-data.picks {
+        margin-bottom: 3px;
+        font-size: 0.8em;
+      }
+
+      .modal-data.picks.green {
+        padding: 0 5px;
+        background-color: $green-th;
+      }
+
+      .modal-data.picks.blue {
+        padding: 0 5px;
+        background-color: $blue-th;
+      }
+
+      .modal-data.picks.red {
+        padding: 0 5px;
+        background-color: $red-th;
+      }
+
+      .modal-data.picks.title {
+        font-weight: 700;
+      }
+
+      .picked-seat {
+        margin-left: 5px;
+        font-weight: 400;
+      }
+      .picked-date {
+        font-weight: 400;
+      }
+      .picked-time {
+        font-weight: 400;
+      }
+    }
+
+    .recap-table-container {
+      th {
+        font-size: 0.9em;
+      }
+
+      td {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

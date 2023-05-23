@@ -211,3 +211,16 @@
     }
   }
 }
+
+.authModal {
+  width: 45%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  .modal-title {
+    font-size: 1.3em;
+  }
+}

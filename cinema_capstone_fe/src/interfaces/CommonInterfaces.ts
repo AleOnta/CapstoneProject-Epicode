@@ -44,4 +44,14 @@ export interface SerializableDateAndTime {
 export interface AuthComponentProps {
   successCallback: (message: string) => void;
   failureCallback: (message: string) => void;
+  redirectCallback?: (message: string) => void;
+}
+
+export interface ModalProps {
+  show: boolean;
+  setShow: (bool: boolean) => void;
+}
+
+export interface ModalConfirmationMovieSection {
+  movie: IProgramMovie;
 }
