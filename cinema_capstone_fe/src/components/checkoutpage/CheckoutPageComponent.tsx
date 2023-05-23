@@ -1,3 +1,4 @@
+import "./Modals/Modals.scss";
 import "./CheckoutPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
@@ -14,11 +15,15 @@ import {
   setPickedProgram,
   setPickedTime,
 } from "../../features/checkoutSlice";
+import { AuthenticationModal } from "./Modals/AuthenticationModal";
+import { ConfirmationModal } from "./Modals/ConfirmationModal";
 
 export const CheckoutPageComponent = () => {
   const { id } = useParams();
   const dispatch: AppDispatch = useDispatch();
   const store = useSelector((state: RootState) => state);
+  const [modalShow, setModalShow] = useState<boolean>(false);
+  const [confModalShow, setConfModalShow] = useState<boolean>(false);
   const [selectedProgram, setSelectedProgram] = useState<IProgram>();
   const [toProceed, setToProceed] = useState<Boolean>(false);
   const [selectedDateAndTime, setSelectedDateAndTime] = useState<DateAndTime>({
@@ -59,6 +64,10 @@ export const CheckoutPageComponent = () => {
     dispatch(setPickedProgram(program));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    setSelectedDateAndTime({ date: null, time: "" });
+  }, [store.user.logged_in]);
 
   return (
     <Row>
@@ -216,6 +225,11 @@ export const CheckoutPageComponent = () => {
                         variant={`secondary w-100 mt-3 check-out-button ${
                           !toProceed && "disabled"
                         }`}
+                        onClick={() => {
+                          !store.user.logged_in
+                            ? setModalShow(true)
+                            : setConfModalShow(true);
+                        }}
                       >
                         Confirm and pay
                       </Button>
@@ -237,6 +251,11 @@ export const CheckoutPageComponent = () => {
       </Col>
       <Col xs={12}>
         <FooterComponent />
+        <AuthenticationModal show={modalShow} setShow={setModalShow} />
+        <ConfirmationModal
+          show={confModalShow}
+          setShow={() => setConfModalShow(false)}
+        />
       </Col>
     </Row>
   );
