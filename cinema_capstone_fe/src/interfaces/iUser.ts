@@ -12,6 +12,7 @@ export interface IUser {
 }
 
 export interface IUserSafe {
+  id: number;
   firstname: string;
   lastname: string;
   birthdate: string;
@@ -34,4 +35,5 @@ export interface UserDto {
 export interface LoginDto {
   username: string;
   password: string;
+  remember: boolean;
 }

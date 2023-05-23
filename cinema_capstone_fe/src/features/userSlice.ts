@@ -6,12 +6,14 @@ const usersURL = "http://localhost:8080/api/users";
 
 interface IUserState {
   logged_in: IUserSafe | null;
+  remember: boolean;
   status: string;
   error: string | null;
 }
 
 const initialState: IUserState = {
   logged_in: null,
+  remember: false,
   status: "idle",
   error: null,
 };
@@ -32,7 +34,11 @@ export const fetchUser = createAsyncThunk(
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    setRemember: (state, action) => {
+      state.remember = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchUser.pending, (state) => {
       state.status = "loading";
@@ -41,6 +47,7 @@ export const userSlice = createSlice({
     builder.addCase(fetchUser.fulfilled, (state, action) => {
       const data = action.payload;
       const user: IUserSafe = {
+        id: data.id,
         firstname: data.firstname,
         lastname: data.lastname,
         birthdate: new Date(data.birthdate).toISOString().slice(0, 10),
@@ -61,4 +68,5 @@ export const userSlice = createSlice({
   },
 });
 
+export const { setRemember } = userSlice.actions;
 export default userSlice.reducer;
