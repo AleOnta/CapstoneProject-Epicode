@@ -22,6 +22,19 @@ export const AuthPageComponent = () => {
     });
   };
 
+  const notifyRedirect = (message: string) => {
+    toast.success(message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   const notifyFailure = (message: string) => {
     toast.error(message, {
       position: "top-right",
@@ -40,7 +53,8 @@ export const AuthPageComponent = () => {
       <img src={logo} alt="cinema logo" className="auth-logo" />
       <div
         className={`register-column rounded p-4 d-flex flex-column justify-content-start ${
-          location === "/auth/login" && "login"
+          (location === "/auth/login" || location.includes("/auth/login-ch")) &&
+          "login"
         }`}
       >
         <span>
@@ -58,6 +72,7 @@ export const AuthPageComponent = () => {
           <LoginComponent
             successCallback={notifySuccess}
             failureCallback={notifyFailure}
+            redirectCallback={notifyRedirect}
           />
         )}
       </div>

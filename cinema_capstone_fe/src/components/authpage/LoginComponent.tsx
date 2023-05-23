@@ -1,27 +1,35 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 import { LoginDto } from "../../interfaces/iUser";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { AuthComponentProps } from "../../interfaces/CommonInterfaces";
-import { fetchUser } from "../../features/userSlice";
+import { fetchUser, setRemember } from "../../features/userSlice";
 
 export const LoginComponent = ({
   successCallback,
   failureCallback,
+  redirectCallback,
 }: AuthComponentProps) => {
+  const location = useLocation().pathname;
+  const navigate = useNavigate();
   const loginURL = "http://localhost:8080/api/auth/login";
   const dispatch: AppDispatch = useDispatch();
   const [validated, setValidated] = useState<boolean | undefined>(false);
   const [loginDto, setLoginDto] = useState<LoginDto>({
     username: "",
     password: "",
+    remember: false,
   });
 
-  const handleStorage = (propName: string, value: string) => {
+  const handleLocalStorage = (propName: string, value: string) => {
     localStorage.setItem(propName, JSON.stringify(value));
+  };
+
+  const handleSessionStorage = (propName: string, value: string) => {
+    sessionStorage.setItem(propName, JSON.stringify(value));
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,6 +41,7 @@ export const LoginComponent = ({
     }
     // validation
     setValidated(true);
+    dispatch(setRemember(loginDto.remember));
     await axios
       .post(
         loginURL,
@@ -48,16 +57,34 @@ export const LoginComponent = ({
         if (response?.status === 200) {
           console.log(response);
           successCallback("Logged in!");
+          redirectCallback &&
+            redirectCallback("You'll be redirected in a few moments");
           const data = response.data;
-          let expiration = new Date();
-          expiration.setDate(expiration.getDate() + 7);
-          handleStorage("user", loginDto.username);
-          handleStorage("tkn", data.accessToken);
-          handleStorage("expiration", expiration.toISOString().slice(0, 10));
+          // always save username in LS
+          handleLocalStorage("user", loginDto.username);
+
+          switch (loginDto.remember) {
+            case true: {
+              let expiration = new Date();
+              expiration.setDate(expiration.getDate() + 7);
+              handleLocalStorage("tkn", data.accessToken);
+              handleLocalStorage("exp", expiration.toISOString().slice(0, 10));
+              break;
+            }
+            case false: {
+              handleSessionStorage("user", loginDto.username);
+              handleSessionStorage("tkn", data.accessToken);
+            }
+          }
         }
       })
       .then(() => {
         dispatch(fetchUser(loginDto.username));
+        if (location.includes("/auth/login-ch")) {
+          setTimeout(() => {
+            navigate(-1);
+          }, 5000);
+        }
       })
       .catch((error) => {
         if (axios.isAxiosError(error)) {
@@ -108,6 +135,28 @@ export const LoginComponent = ({
         </Form.Group>
       </Row>
       <Row>
+        <Form.Group
+          as={Col}
+          controlId="formGridRemember"
+          className="mb-1 mt-3 d-flex aling-items-center"
+        >
+          <InputGroup.Checkbox
+            className="m-0"
+            aria-label="Checkbox for following text input"
+            value={loginDto.remember}
+            onChange={() => {
+              setLoginDto({
+                ...loginDto,
+                remember: !loginDto.remember,
+              });
+            }}
+          />
+          <Form.Label className="m-0 ps-2 checkbox-label">
+            Remember me
+          </Form.Label>
+        </Form.Group>
+      </Row>
+      <Row>
         <Col className="d-flex flex-column justify-content-center" xs={12}>
           <Button
             variant="outline-light"
@@ -116,8 +165,8 @@ export const LoginComponent = ({
           >
             Login
           </Button>
-          <p className="mt-4 paragraph-link">
-            Don't have an account? Click{" "}
+          <p className="mt-3 paragraph-link">
+            Don't have an account? Click
             <Link to="/auth/register" className="link-to-login">
               here to register
             </Link>
