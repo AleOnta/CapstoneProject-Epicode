@@ -34,13 +34,15 @@ export const CheckoutPageComponent = () => {
   const dateAndTimeToString = ({ date, time }: DateAndTime) => {
     if (date) {
       const convertedDate = new Date(date).toISOString().slice(0, 10);
-      let convertedTime = time;
-      if (Number(time.slice(0, 1)) > 12) {
-        convertedTime += " PM";
+      let convertedTime = time.slice(0, 2);
+      console.log(convertedTime);
+      console.log(time);
+
+      if (Number(convertedTime) > 12) {
+        return `${convertedDate} | ${time} PM`;
       } else {
-        convertedTime += " AM";
+        return `${convertedDate} | ${time} AM`;
       }
-      return convertedDate + " | " + convertedTime;
     }
   };
 
@@ -189,7 +191,8 @@ export const CheckoutPageComponent = () => {
                       <div className="d-flex align-items-center justify-content-between mb-2">
                         <h6 className="me-2 mb-0">Selected date:</h6>
                         <p className="mb-0">
-                          {dateAndTimeToString(selectedDateAndTime)}
+                          {selectedDateAndTime.time.length > 0 &&
+                            dateAndTimeToString(selectedDateAndTime)}
                         </p>
                       </div>
                       <div className="d-flex align-items-center justify-content-between">

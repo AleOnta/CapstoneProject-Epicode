@@ -6,6 +6,16 @@ import { ConfirmationMovieSection } from "./confirmation/ConfirmationMovieSectio
 import { ConfirmationPicksSection } from "./confirmation/ConfirmationPicksSection";
 import { ConfirmationTableSection } from "./confirmation/ConfirmationTableSection";
 import { ConfirmationPayment } from "./confirmation/ConfirmationPayment";
+import { Stripe, loadStripe } from "@stripe/stripe-js";
+
+let stripePromise: Promise<Stripe | null>;
+
+const getStripe = () => {
+  if (!stripePromise) {
+    stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUB_KEY}`);
+  }
+  return stripePromise;
+};
 
 export const ConfirmationModal = ({ show, setShow }: ModalProps) => {
   const checkoutStore = useSelector((state: RootState) => state.checkout);
