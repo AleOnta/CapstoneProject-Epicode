@@ -1,10 +1,10 @@
+import axios from "axios";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { UserDto } from "../../interfaces/iUser";
 import { DatePicker } from "@mui/x-date-pickers";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import { useState } from "react";
-import { UserDto } from "../../interfaces/iUser";
-import axios from "axios";
 import { AuthComponentProps } from "../../interfaces/CommonInterfaces";
-import { Link } from "react-router-dom";
 
 export const RegisterComponent = ({
   successCallback,
@@ -194,6 +194,13 @@ export const RegisterComponent = ({
                 Register now
               </Button>
             </Col>
+            <p className="mt-3 paragraph-link">
+              Already have an account? Click
+              <Link to="/auth/login" className="link-to-login ms-1">
+                here to login
+              </Link>
+              .
+            </p>
           </Row>
         </>
       )}
