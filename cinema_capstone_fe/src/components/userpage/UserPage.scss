@@ -1,1 +1,164 @@
 @import "../../assets/style/variables.scss";
+
+.user-col-container {
+  background-color: $extra_light;
+
+  .accordion-button {
+    background-color: $modals-bg;
+    color: white;
+  }
+  .accordion-item {
+    background-color: $modals-bg;
+  }
+}
+
+.user-ticket-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    font-weight: 400;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    color: $ph-orange;
+  }
+
+  .user-movie-card {
+    background: #ffffff;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+    min-width: 210px;
+    max-width: 210px;
+    margin: 1em;
+    border-radius: 10px;
+    display: inline-block;
+    transition: 0.2s;
+
+    &:hover {
+      -webkit-transform: scale(1.03);
+      transform: scale(1.03);
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+      transition: 0.2s;
+    }
+
+    @media screen and (min-width: 768px) {
+      min-width: none;
+      max-width: none;
+      width: 250px;
+    }
+    .user-movie-img {
+      max-width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+
+  .user-movie-header {
+    padding: 0;
+    margin: 0;
+    height: 367px;
+    width: 100%;
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .header-icon-container {
+    position: relative;
+  }
+
+  .user-movie-content {
+    padding: 18px 18px 20px 18px;
+    margin: 0;
+  }
+
+  .user-movie-content-header,
+  .user-movie-info {
+    display: table;
+    width: 100%;
+  }
+
+  .user-movie-title {
+    font-size: 16px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      font-size: 17px;
+    }
+  }
+
+  .our-logo {
+    width: 50px;
+    height: 25px;
+    background: url("../../assets/imgs/cinemaLogo.png") no-repeat;
+    background-size: contain;
+    display: table-cell;
+    float: right;
+    position: relative;
+    margin-top: 5px;
+  }
+
+  .user-movie-info {
+    margin-top: 1em;
+  }
+
+  .user-info-section {
+    display: table-cell;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .user-info-section:first-of-type {
+    text-align: left;
+  }
+
+  .user-info-section:last-of-type {
+    text-align: right;
+  }
+
+  .user-info-section label {
+    display: block;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+    font-size: 10px;
+    font-weight: 600;
+
+    @media screen and (min-width: 768px) {
+      font-size: 11px;
+    }
+  }
+
+  .user-info-section span {
+    font-weight: 700;
+    font-size: 11px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .user-movie-card {
+      width: 95%;
+      max-width: 95%;
+      margin: 1em;
+      display: block;
+    }
+  }
+}

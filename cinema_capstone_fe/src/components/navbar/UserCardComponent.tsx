@@ -11,7 +11,7 @@ export const UserCardComponent = () => {
   return (
     <Col xs={2} className="d-flex justify-content-center">
       {user ? (
-        <Link to={"#"}>
+        <Link to={"/reserved-area/user"}>
           <Card className="navbar-userCard p-1">
             <Card.Body className="d-flex align-items-center justify-content-around p-0">
               <img
