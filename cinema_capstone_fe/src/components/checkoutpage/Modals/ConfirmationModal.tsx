@@ -1,12 +1,17 @@
 import { Button, Modal } from "react-bootstrap";
 import { ModalProps } from "../../../interfaces/CommonInterfaces";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import { ConfirmationMovieSection } from "./confirmation/ConfirmationMovieSection";
 import { ConfirmationPicksSection } from "./confirmation/ConfirmationPicksSection";
 import { ConfirmationTableSection } from "./confirmation/ConfirmationTableSection";
 import { ConfirmationPayment } from "./confirmation/ConfirmationPayment";
-import { Stripe, loadStripe } from "@stripe/stripe-js";
+import {
+  RedirectToCheckoutOptions,
+  Stripe,
+  loadStripe,
+} from "@stripe/stripe-js";
+import { setPassThrough } from "../../../features/checkoutSlice";
 
 let stripePromise: Promise<Stripe | null>;
 
@@ -18,7 +23,35 @@ const getStripe = () => {
 };
 
 export const ConfirmationModal = ({ show, setShow }: ModalProps) => {
+  const dispatch: AppDispatch = useDispatch();
   const checkoutStore = useSelector((state: RootState) => state.checkout);
+
+  const item = {
+    price: checkoutStore.pickedProgram?.price,
+    quantity: checkoutStore.pickedSeats.length,
+  };
+
+  const options: RedirectToCheckoutOptions = {
+    lineItems: [item],
+    mode: "payment",
+    successUrl: `${window.location.origin}/success`,
+    cancelUrl: `${window.location.origin}/cancelled`,
+  };
+
+  const redirectToCheckout = async () => {
+    const stripe = await getStripe();
+    dispatch(setPassThrough(true));
+    if (stripe) {
+      const { error } = await stripe.redirectToCheckout(options);
+      dispatch(setPassThrough(false));
+      console.log(error);
+    }
+  };
+
+  const saveCheckoutData = () => {
+    const JsonCheckoutStore = JSON.stringify(checkoutStore);
+    sessionStorage.setItem("checkoutData", JsonCheckoutStore);
+  };
 
   return (
     <Modal
@@ -48,7 +81,15 @@ export const ConfirmationModal = ({ show, setShow }: ModalProps) => {
         <Button variant={"outline-light"} onClick={() => setShow(false)}>
           Close
         </Button>
-        <Button variant="secondary">Proceed to payment</Button>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            saveCheckoutData();
+            redirectToCheckout();
+          }}
+        >
+          Proceed to payment
+        </Button>
       </Modal.Footer>
     </Modal>
   );
