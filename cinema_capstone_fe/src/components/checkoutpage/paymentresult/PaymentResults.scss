@@ -166,3 +166,34 @@
     }
   }
 }
+
+.cancel-page-container {
+  color: white;
+  border: none;
+  background-color: $extra_light;
+  margin-top: 50px;
+  height: 80vh;
+
+  .cancel-title {
+    font-weight: 700;
+    @media screen and (min-width: 992px) {
+      font-size: 2.5em;
+    }
+  }
+
+  .cancel-desc {
+    font-size: 0.9em;
+
+    @media screen and (min-width: 576px) {
+      font-size: 1em;
+    }
+
+    @media screen and (min-width: 992px) {
+      font-size: 1.2em;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 1.4em;
+    }
+  }
+}
