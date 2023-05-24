@@ -83,13 +83,20 @@ export const LoginComponent = ({
         if (location.includes("/auth/login-ch")) {
           setTimeout(() => {
             navigate(-1);
-          }, 5000);
+          }, 5200);
+        } else {
+          setTimeout(() => {
+            navigate("/home");
+          }, 5200);
         }
       })
       .catch((error) => {
         if (axios.isAxiosError(error)) {
           console.log(error);
-          failureCallback(error.response?.data.message);
+          error.response?.status === 401 &&
+            failureCallback("Wrong username or password!");
+          error.response?.status !== 401 &&
+            failureCallback("Error has occured, try again!");
         }
       });
   };
