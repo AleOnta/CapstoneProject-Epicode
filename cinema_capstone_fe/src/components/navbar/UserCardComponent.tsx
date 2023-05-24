@@ -22,7 +22,9 @@ export const UserCardComponent = () => {
                 className="userCard-pic"
               />
               <div className="userCard-data">
-                <Card.Title className="userCard-title">AleOnta</Card.Title>
+                <Card.Title className="userCard-title">
+                  {user.username}
+                </Card.Title>
                 <Card.Text className="userCard-paragraphs">
                   <p>{`${user.firstname} ${user.lastname}`}</p>
                   <p>Points: {user.cinemaPoints}</p>
