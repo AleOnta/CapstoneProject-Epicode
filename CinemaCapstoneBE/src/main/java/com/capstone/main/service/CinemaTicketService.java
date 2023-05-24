@@ -86,6 +86,10 @@ public class CinemaTicketService {
 		return (List<CinemaTicket>) ticketRepository.findAll();
 	}
 	
+	public List<CinemaTicket> findTicketByUserId(Long userId) {
+		return (List<CinemaTicket>) ticketRepository.getTicketByUserId(userId);
+	}
+	
 	public List<CinemaTicket> findTicketByEmitDate(LocalDate emitDate) {
 		return (List<CinemaTicket>) ticketRepository.findByEmitDate(emitDate);
 	}

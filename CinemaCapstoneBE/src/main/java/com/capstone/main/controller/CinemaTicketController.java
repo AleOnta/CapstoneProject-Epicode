@@ -52,6 +52,11 @@ public class CinemaTicketController {
 		return new ResponseEntity<List<CinemaTicket>>(ticketService.findTicketByEmitDate(emitDate), HttpStatus.OK);
 	}
 	
+	@GetMapping("/user_id/{userId}")
+	public ResponseEntity<List<CinemaTicket>> findTicketsByUserId(@PathVariable Long userId) {
+		return new ResponseEntity<List<CinemaTicket>>(ticketService.findTicketByUserId(userId), HttpStatus.OK);
+	}
+	
 	@GetMapping("/paged")
 	public ResponseEntity<Page<CinemaTicket>> findAllMoviesPaged(Pageable pageable) {
 		return new ResponseEntity<Page<CinemaTicket>>(ticketService.findAllTicketsPaged(pageable), HttpStatus.OK);
