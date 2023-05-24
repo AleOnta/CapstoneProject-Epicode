@@ -1,0 +1,168 @@
+@import "../../../assets/style/variables.scss";
+
+.success-container {
+  color: white;
+  border: none;
+  background-color: $extra_light;
+  margin-top: 50px;
+
+  h2 {
+    font-weight: 700;
+    font-size: 1em;
+    @media screen and (min-width: 500px) {
+      font-size: 1.4em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.8em;
+    }
+
+    @media screen and (min-width: 992px) {
+      font-size: 2.2em;
+    }
+  }
+
+  .recap-card-container {
+    h4 {
+      font-size: 1em;
+
+      @media screen and (min-width: 500px) {
+        font-size: 1.2em;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.5em;
+      }
+
+      @media screen and (min-width: 992px) {
+        font-size: 1.6em;
+        margin-bottom: 45px;
+      }
+    }
+
+    .recap-card {
+      max-width: 400px;
+      background-color: $modals-bg;
+
+      @media screen and (min-width: 768px) {
+        max-width: 550px;
+      }
+
+      @media screen and (min-width: 992px) {
+        max-width: none;
+      }
+
+      .card-img {
+        margin: 20px 0;
+        width: 40%;
+
+        @media screen and (min-width: 992px) {
+          width: 25%;
+          margin: 0;
+        }
+      }
+
+      .movie-data {
+        width: 80%;
+        margin-bottom: 10px;
+
+        @media screen and (min-width: 992px) {
+          margin: 0;
+        }
+
+        h5 {
+          font-size: 0.9em;
+          font-weight: 700;
+
+          @media screen and (min-width: 768px) {
+            font-size: 1.2em;
+          }
+
+          @media screen and (min-width: 992px) {
+            font-size: 1.3em;
+          }
+
+          @media screen and (min-width: 1200px) {
+            font-size: 1.8em;
+          }
+        }
+
+        .card-text {
+          font-size: 0.9em;
+          font-weight: 600;
+
+          @media screen and (min-width: 768px) {
+            font-size: 1em;
+          }
+
+          @media screen and (min-width: 1200px) {
+            font-size: 1.2em;
+          }
+
+          span {
+            font-weight: 400;
+            font-size: 0.8em;
+
+            @media screen and (min-width: 768px) {
+              font-size: 0.9em;
+            }
+
+            @media screen and (min-width: 1200px) {
+              font-size: 1em;
+            }
+          }
+
+          .mapped-seat {
+            margin-left: 4px;
+          }
+
+          .green {
+            background-color: $green-th;
+          }
+
+          .red {
+            background-color: $red-th;
+          }
+
+          .blue {
+            background-color: $blue-th;
+          }
+        }
+      }
+    }
+  }
+
+  .qr-code-container {
+    .qr-code-card {
+      max-width: 400px;
+      background-color: $modals-bg;
+
+      @media screen and (min-width: 768px) {
+        max-width: 550px;
+      }
+
+      .card-header {
+        h6 {
+          font-size: 1.5em;
+          font-weight: 700;
+
+          @media screen and (min-width: 1200px) {
+            font-size: 1.8em;
+          }
+        }
+
+        p {
+          font-size: 0.9em;
+
+          @media screen and (min-width: 1200px) {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .card-body {
+        background-color: $extra_light;
+      }
+    }
+  }
+}
