@@ -91,3 +91,26 @@
     }
   }
 }
+
+.auth-modal {
+  color: $white;
+  background-color: $modals-bg;
+
+  .btn-close {
+    background-color: $white;
+    margin-right: 7px;
+    transform: translateY(-10px);
+  }
+
+  .modal-content {
+    background-color: $main-blue;
+
+    .modal-title {
+      font-weight: 700;
+    }
+  }
+  .desc {
+    font-size: 0.9em;
+    margin-top: 6px;
+  }
+}
