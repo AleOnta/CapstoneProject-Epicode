@@ -25,6 +25,7 @@ import {
 } from "./features/movieSlice";
 import { CancelPageComponent } from "./components/checkoutpage/paymentresult/CancelPageComponent";
 import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/SuccessPageComponent";
+import { UserPageComponent } from "./components/userpage/UserPageComponent";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -80,8 +81,9 @@ function App() {
             <Route path="/home" element={<HomepageComponent />} />
             <Route path="/programs" element={<ProgramsPageComponent />} />
             <Route path="/focus-movie/:id" element={<MoviePageComponent />} />
-            <Route path="/check-out/:id" element={<CheckoutPageComponent />} />
             <Route path="/auth/:type" element={<AuthPageComponent />} />
+            <Route path="/reserved-area/user" element={<UserPageComponent />} />
+            <Route path="/check-out/:id" element={<CheckoutPageComponent />} />
             <Route path="/success" element={<SuccessPageComponent />} />
             <Route path="/cancelled" element={<CancelPageComponent />} />
           </Routes>
