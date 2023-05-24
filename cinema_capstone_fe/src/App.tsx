@@ -10,7 +10,7 @@ import { AppDispatch, RootState } from "./app/store";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPrograms } from "./features/programSlice";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { NavbarComponent } from "./components/navbar/NavbarComponent";
 import { HomepageComponent } from "./components/homepage/HomepageComponent";
@@ -76,6 +76,7 @@ function App() {
         <Container fluid className="p-0 app-container">
           <NavbarComponent />
           <Routes>
+            <Route path="/" element={<Navigate to="/home" replace={true} />} />
             <Route path="/home" element={<HomepageComponent />} />
             <Route path="/programs" element={<ProgramsPageComponent />} />
             <Route path="/focus-movie/:id" element={<MoviePageComponent />} />
