@@ -55,7 +55,12 @@ export const ConfirmationTableSection = () => {
               ]
             </td>
             <td>{store.checkout.pickedSeats.length}</td>
-            <td>€ {store.checkout.pickedProgram?.price}0</td>
+            <td>
+              €{" "}
+              {store.checkout.pickedProgram?.price &&
+                determinePrice(store.checkout.pickedProgram.price)}
+              0
+            </td>
             <td>{store.user.logged_in?.username}</td>
             <td>
               €{" "}

@@ -61,6 +61,13 @@ export const CheckoutPageComponent = () => {
     }
   };
 
+  const handlePickedData = (pick: Date) => {
+    const rawDate = new Date(pick);
+    rawDate.setDate(rawDate.getDate() + 1);
+    const toDispatch = rawDate.toISOString().slice(0, 10);
+    dispatch(setPickedDate(toDispatch));
+  };
+
   useEffect(() => {
     if (
       selectedDateAndTime.date &&
@@ -170,11 +177,7 @@ export const CheckoutPageComponent = () => {
                               date: newValue,
                               time: "",
                             });
-                            dispatch(
-                              setPickedDate(
-                                newValue?.toISOString().slice(0, 10)
-                              )
-                            );
+                            newValue && handlePickedData(newValue);
                           }}
                         />
                       </span>
