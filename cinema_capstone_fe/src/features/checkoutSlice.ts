@@ -2,16 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { SerializableDateAndTime } from "../interfaces/CommonInterfaces";
 import { IProgram } from "../interfaces/iProgram";
 
-interface CheckOutState {
+export interface CheckOutState {
   pickedDateAndTime: SerializableDateAndTime;
   pickedSeats: string[];
   pickedProgram: IProgram | null;
+  passThrough: boolean;
 }
 
 const initialState: CheckOutState = {
   pickedDateAndTime: { date: "", time: "" },
   pickedSeats: [],
   pickedProgram: null,
+  passThrough: false,
 };
 
 export const checkoutSlice = createSlice({
@@ -39,6 +41,9 @@ export const checkoutSlice = createSlice({
     removePickedSeats: (state, action) => {
       state.pickedSeats = action.payload;
     },
+    setPassThrough: (state, action) => {
+      state.passThrough = action.payload;
+    },
   },
   extraReducers(builder) {},
 });
@@ -49,5 +54,6 @@ export const {
   setPickedProgram,
   addPickedSeats,
   removePickedSeats,
+  setPassThrough,
 } = checkoutSlice.actions;
 export default checkoutSlice.reducer;
