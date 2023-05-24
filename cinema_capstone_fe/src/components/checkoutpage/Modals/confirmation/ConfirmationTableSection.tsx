@@ -5,6 +5,23 @@ import { RootState } from "../../../../app/store";
 export const ConfirmationTableSection = () => {
   const store = useSelector((state: RootState) => state);
 
+  const determinePrice = (priceId: string) => {
+    switch (priceId) {
+      case "price_1NArYmIBuKJCZStF7phyinwz": {
+        return 7.5;
+      }
+      case "price_1NArZwIBuKJCZStF2JFdiB1J": {
+        return 7.5;
+      }
+      case "price_1NAracIBuKJCZStFRyyt96J1": {
+        return 8.2;
+      }
+      default: {
+        return 0.0;
+      }
+    }
+  };
+
   return (
     <>
       <h4 className="modal-section mt-3">Recap</h4>
@@ -43,7 +60,7 @@ export const ConfirmationTableSection = () => {
             <td>
               €{" "}
               {store.checkout.pickedProgram?.price &&
-                store.checkout.pickedProgram?.price *
+                determinePrice(store.checkout.pickedProgram.price) *
                   store.checkout.pickedSeats.length}
             </td>
           </tr>
