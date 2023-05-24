@@ -1,5 +1,3 @@
-import { IMovie } from "./iMovies";
-
 export interface IProgramMovie {
   id: number;
   tmdbId: number;
@@ -25,7 +23,7 @@ export interface IProgram {
   fromDate: Date;
   toDate: Date;
   status: string;
-  price: number;
+  price: string;
   movie: IProgramMovie;
   room: IProgramRoom;
 }

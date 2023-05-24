@@ -44,6 +44,8 @@ public class CinemaTicket {
 	@Column(nullable = false)
 	private String seatCode;
 	
+	private double price;
+	
 	@ManyToOne
 	@JsonIgnoreProperties(
 			{"firstname", 
