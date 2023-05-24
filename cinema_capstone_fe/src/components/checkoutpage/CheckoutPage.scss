@@ -74,6 +74,13 @@
       display: grid;
       place-items: center;
       grid-gap: 24px;
+      transition: 0.2s;
+    }
+
+    .Cinema.unclickable {
+      transition: 0.2s;
+      pointer-events: none;
+      opacity: 0.3;
     }
 
     .Cinema .screen {

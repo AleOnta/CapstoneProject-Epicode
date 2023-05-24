@@ -23,9 +23,9 @@ export const CheckoutPageComponent = () => {
   const dispatch: AppDispatch = useDispatch();
   const store = useSelector((state: RootState) => state);
   const [modalShow, setModalShow] = useState<boolean>(false);
+  const [toProceed, setToProceed] = useState<Boolean>(false);
   const [confModalShow, setConfModalShow] = useState<boolean>(false);
   const [selectedProgram, setSelectedProgram] = useState<IProgram>();
-  const [toProceed, setToProceed] = useState<Boolean>(false);
   const [selectedDateAndTime, setSelectedDateAndTime] = useState<DateAndTime>({
     date: new Date(),
     time: "",
@@ -35,13 +35,28 @@ export const CheckoutPageComponent = () => {
     if (date) {
       const convertedDate = new Date(date).toISOString().slice(0, 10);
       let convertedTime = time.slice(0, 2);
-      console.log(convertedTime);
-      console.log(time);
 
       if (Number(convertedTime) > 12) {
         return `${convertedDate} | ${time} PM`;
       } else {
         return `${convertedDate} | ${time} AM`;
+      }
+    }
+  };
+
+  const determinePrice = (priceId: string) => {
+    switch (priceId) {
+      case "price_1NArYmIBuKJCZStF7phyinwz": {
+        return 7.5;
+      }
+      case "price_1NArZwIBuKJCZStF2JFdiB1J": {
+        return 7.5;
+      }
+      case "price_1NAracIBuKJCZStFRyyt96J1": {
+        return 8.2;
+      }
+      default: {
+        return 0.0;
       }
     }
   };
@@ -216,11 +231,10 @@ export const CheckoutPageComponent = () => {
                         <h6 className="me-2 mb-0">Total costs:</h6>
                         <p className="mb-0">
                           €
-                          {store.checkout.pickedSeats.length > 0 &&
-                          selectedProgram
-                            ? store.checkout.pickedSeats.length *
-                              selectedProgram?.price
-                            : "0.00"}
+                          {selectedProgram?.price &&
+                            store.checkout.pickedSeats.length > 0 &&
+                            determinePrice(selectedProgram.price) *
+                              store.checkout.pickedSeats.length}
                         </p>
                       </div>
 
