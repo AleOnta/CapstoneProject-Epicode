@@ -12,6 +12,7 @@ export interface ITicket {
 export interface BoundFilm {
   id: number;
   title: string;
+  posterPath: string;
   trailerID: string;
 }
 

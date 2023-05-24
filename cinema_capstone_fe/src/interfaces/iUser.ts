@@ -37,3 +37,7 @@ export interface LoginDto {
   password: string;
   remember: boolean;
 }
+
+export interface UserTicketProps {
+  ticket: ITicket;
+}
