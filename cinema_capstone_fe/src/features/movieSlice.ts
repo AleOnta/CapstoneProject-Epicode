@@ -50,15 +50,13 @@ export const movieSlice = createSlice({
     builder.addCase(fetchMovies.pending, (state) => {
       state.status = "loading";
     });
-
-    builder.addCase(fetchMovies.fulfilled, (state, action) => {
-      state.allMovies = action.payload;
-      state.status = "fulfilled";
-    });
-
     builder.addCase(fetchMovies.rejected, (state) => {
       state.status = "failed";
       state.error = "define how";
+    });
+    builder.addCase(fetchMovies.fulfilled, (state, action) => {
+      state.allMovies = action.payload;
+      state.status = "fulfilled";
     });
   },
 });

@@ -10,6 +10,7 @@ export const CancelPageComponent = () => {
     setTimeout(() => {
       navigate("/home");
     }, 6000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
