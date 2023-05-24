@@ -23,6 +23,8 @@ import {
   setInRoomMovies,
   setIncomingMovies,
 } from "./features/movieSlice";
+import { CancelPageComponent } from "./components/checkoutpage/paymentresult/CancelPageComponent";
+import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/SuccessPageComponent";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -79,6 +81,8 @@ function App() {
             <Route path="/focus-movie/:id" element={<MoviePageComponent />} />
             <Route path="/check-out/:id" element={<CheckoutPageComponent />} />
             <Route path="/auth/:type" element={<AuthPageComponent />} />
+            <Route path="/success" element={<SuccessPageComponent />} />
+            <Route path="/cancelled" element={<CancelPageComponent />} />
           </Routes>
         </Container>
       </LocalizationProvider>
