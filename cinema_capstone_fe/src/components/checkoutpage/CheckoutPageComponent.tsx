@@ -196,8 +196,10 @@ export const CheckoutPageComponent = () => {
                           <option>available hours</option>
                           {selectedProgram?.room.timetables
                             .split("|")
-                            .map((time) => (
-                              <option value={time}>{time}</option>
+                            .map((time, index) => (
+                              <option value={time} key={index}>
+                                {time}
+                              </option>
                             ))}
                         </Form.Select>
                       </span>

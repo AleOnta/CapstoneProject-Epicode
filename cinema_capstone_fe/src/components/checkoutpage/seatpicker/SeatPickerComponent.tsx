@@ -13,11 +13,14 @@ interface SeatPickerProps {
 
 export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   const roomsStore = useSelector((state: RootState) => state.rooms.allRooms);
+  const pickedDateAndTime = useSelector(
+    (state: RootState) => state.checkout.pickedDateAndTime
+  );
   const [relatedMovie, setRelatedMovie] = useState<IProgramMovie>();
   const [relatedRoom, setRelatedRoom] = useState<IRoom | null>();
   const [seats, setSeats] = useState<number[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
-  const [occupiedSeats, setOccupiedSeats] = useState<number[]>([]);
+  const [occupiedSeats, setOccupiedSeats] = useState<number[]>();
   const [isLoading, setIsLoading] = useState<Boolean>(true);
 
   const generateMapArray = (totalSeats: number) => {
@@ -41,14 +44,20 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   };
 
   const findOccupiedSeats = (ticketsArray: ITicket[]) => {
-    setOccupiedSeats([]);
-    ticketsArray.forEach((ticket) => {
-      const seatCodeArray = ticket.seatCode.split("-");
-      const newOccupiedSeatsArray = occupiedSeats;
-      newOccupiedSeatsArray.push(Number(seatCodeArray[2]));
-      setOccupiedSeats(newOccupiedSeatsArray);
-    });
-    setIsLoading(false);
+    const newOccupiedSeatsArray: number[] = [];
+    ticketsArray
+      .filter(
+        (ticket) =>
+          new Date(ticket.perDate).toISOString().slice(0, 10) ===
+          pickedDateAndTime.date
+      )
+      .filter((ticket) => ticket.hours === pickedDateAndTime.time)
+      .forEach((ticket) => {
+        const seatCodeArray = ticket.seatCode.split("-");
+        newOccupiedSeatsArray.push(Number(seatCodeArray[1]));
+        setOccupiedSeats(newOccupiedSeatsArray);
+      });
+    console.log("new", newOccupiedSeatsArray);
   };
 
   const handleSelectedSeats = (seatsArray: number[]) => {
@@ -56,7 +65,6 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   };
 
   useEffect(() => {
-    setSelectedSeats([]);
     setRelatedMovie(program.movie);
     setRelatedRoom(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -74,10 +82,16 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   useEffect(() => {
     if (relatedRoom) {
       generateMapArray(relatedRoom.totalSeats);
-      findOccupiedSeats(relatedRoom.tickets);
+      setIsLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [relatedRoom]);
+
+  useEffect(() => {
+    setOccupiedSeats([]);
+    relatedRoom && findOccupiedSeats(relatedRoom.tickets);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pickedDateAndTime]);
 
   return (
     <Row className="d-flex justify-content-center">
@@ -109,15 +123,19 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
           </li>
         </ul>
       </Col>
-      {relatedMovie && selectedSeats && seats.length > 0 && !isLoading && (
-        <SeatMapComponent
-          seats={seats}
-          selectedMovie={relatedMovie}
-          occupiedSeats={occupiedSeats}
-          selectedSeats={selectedSeats}
-          setSelectedSeats={handleSelectedSeats}
-        />
-      )}
+      {relatedMovie &&
+        selectedSeats &&
+        occupiedSeats &&
+        seats.length > 0 &&
+        !isLoading && (
+          <SeatMapComponent
+            seats={seats}
+            selectedMovie={relatedMovie}
+            occupiedSeats={occupiedSeats}
+            selectedSeats={selectedSeats}
+            setSelectedSeats={handleSelectedSeats}
+          />
+        )}
     </Row>
   );
 };
