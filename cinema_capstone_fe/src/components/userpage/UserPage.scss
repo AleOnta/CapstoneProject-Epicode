@@ -12,6 +12,76 @@
   }
 }
 
+// USER FORM SECTION
+
+.user-form-container {
+  .user-form {
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      width: 90%;
+    }
+    @media screen and (min-width: 992px) {
+      width: 70%;
+    }
+    .form-floating {
+      .form-control {
+        background-color: $input_bg;
+      }
+    }
+
+    .username-input {
+      width: 55%;
+      @media screen and (min-width: 768px) {
+        width: 74%;
+      }
+    }
+
+    .user-date-picker {
+      width: 43%;
+
+      @media screen and (min-width: 768px) {
+        width: 25%;
+      }
+      .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+        background-color: $input_bg;
+      }
+    }
+
+    .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+      background-color: #ffffff00;
+      top: 12px;
+    }
+
+    .bottom-form-section {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: 460px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .form-check {
+        color: white;
+        font-size: 0.9em;
+        margin: 0;
+      }
+
+      .form-button {
+        font-size: 1em;
+        margin-top: 10px;
+
+        @media screen and (min-width: 460px) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+// USER TICKETS SECTION
+
 .user-ticket-container {
   display: flex;
   align-items: center;
@@ -37,8 +107,8 @@
   }
 
   .user-movie-card {
-    background: #ffffff;
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+    background: $input_bg;
+    box-shadow: 0px 6px 18px rgba(190, 190, 190, 0.199);
     min-width: 210px;
     max-width: 210px;
     margin: 1em;

@@ -6,6 +6,7 @@ import { RootState } from "../../app/store";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ITicket } from "../../interfaces/iTicket";
+import { UserForm } from "./sections/UserForm";
 
 export const UserPageComponent = () => {
   const ticketURL = "http://localhost:8080/api/tickets";
@@ -29,13 +30,24 @@ export const UserPageComponent = () => {
 
   useEffect(() => {
     getUserTickets();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <Row className="mt-5 d-flex justify-content-center">
       <Col xs={11} className="mt-3 py-5 user-col-container rounded">
         <Container>
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
+              <Accordion.Header>Personal Info</Accordion.Header>
+              <Accordion.Body>
+                <p>In this section you can update your account informations:</p>
+                <Row>
+                  <UserForm />
+                </Row>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
               <Accordion.Header>Your Tickets</Accordion.Header>
               <Accordion.Body>
                 <Row className="user-ticket-container">
@@ -46,13 +58,11 @@ export const UserPageComponent = () => {
                 </Row>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Personal Info</Accordion.Header>
-              <Accordion.Body></Accordion.Body>
-            </Accordion.Item>
             <Accordion.Item eventKey="2">
               <Accordion.Header>Preferences</Accordion.Header>
-              <Accordion.Body></Accordion.Body>
+              <Accordion.Body>
+                <Row></Row>
+              </Accordion.Body>
             </Accordion.Item>
           </Accordion>
         </Container>
