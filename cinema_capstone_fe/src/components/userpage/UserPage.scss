@@ -232,3 +232,111 @@
     }
   }
 }
+
+// USER PREFERENCES SECTION
+
+.preferences-container {
+  color: $white;
+
+  h5.preferences-title {
+    font-size: 0.9em;
+
+    @media screen and (min-width: 576px) {
+      font-size: 1.2em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.4em;
+    }
+
+    @media screen and (min-width: 992px) {
+      font-size: 1.5em;
+    }
+  }
+
+  h6.preference-item,
+  h6.switch-items-title {
+    font-size: 0.8em;
+    width: fit-content;
+    padding: 3px 6px;
+    background-color: $davys-gray;
+
+    @media screen and (min-width: 576px) {
+      font-size: 1em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.2em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.4em;
+    }
+  }
+
+  p.preference-desc {
+    font-size: 0.7em;
+
+    @media screen and (min-width: 576px) {
+      font-size: 0.8em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 0.9em;
+    }
+  }
+
+  label.color-picker {
+    font-size: 0.7em;
+    text-decoration: underline;
+
+    @media screen and (min-width: 576px) {
+      font-size: 0.8em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 0.9em;
+    }
+  }
+
+  .form-check {
+    @media screen and (min-width: 768px) {
+      margin-top: 10px;
+    }
+
+    .form-check-label {
+      font-size: 0.68em;
+
+      @media screen and (min-width: 576px) {
+        font-size: 0.9em;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 1em;
+      }
+    }
+
+    .form-check-input {
+      &:checked {
+        background-color: $ph-orange !important;
+        border-color: $white;
+        box-shadow: none;
+      }
+
+      &:focus {
+        -webkit-box-shadow: 0px 0px 12px 1px rgba(180, 141, 0, 1);
+        -moz-box-shadow: 0px 0px 12px 1px rgba(180, 141, 0, 1);
+        box-shadow: 0px 0px 12px 1px rgba(180, 141, 0, 1);
+        color: black;
+      }
+    }
+
+    &:first-of-type label::after {
+      @media screen and (min-width: 768px) {
+        font-size: 0.8em;
+        color: $silver;
+        content: "  -  with toggle on, you accept our terms and conditions policy";
+      }
+    }
+  }
+}

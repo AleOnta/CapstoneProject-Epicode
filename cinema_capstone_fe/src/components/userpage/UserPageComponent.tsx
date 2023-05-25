@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ITicket } from "../../interfaces/iTicket";
 import { UserForm } from "./sections/UserForm";
+import { UserPreferences } from "./sections/UserPreferences";
 
 export const UserPageComponent = () => {
   const ticketURL = "http://localhost:8080/api/tickets";
@@ -61,7 +62,9 @@ export const UserPageComponent = () => {
             <Accordion.Item eventKey="2">
               <Accordion.Header>Preferences</Accordion.Header>
               <Accordion.Body>
-                <Row></Row>
+                <Row>
+                  <UserPreferences />
+                </Row>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
