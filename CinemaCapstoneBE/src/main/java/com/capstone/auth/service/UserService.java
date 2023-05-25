@@ -31,14 +31,14 @@ public class UserService {
 	private void userEmailExists(String email) {
 		
 		log.warn("Email: {" + email + "} already exists in the system.");
-		throw new EntityExistsException("Email: {" + email + "} already exists in the system.");
+		throw new EntityExistsException("Email: " + email + " already exists in the system.");
 	}
 	
 	// user username must be unique!
 	private void userUsernameExists(String username) {
 		
 		log.warn("Username: {" + username + "} already exists in the system.");
-		throw new EntityExistsException("Username: {" + username + "} already exists in the system.");
+		throw new EntityExistsException("Username: " + username + " already exists in the system.");
 	}	
 
 	public String updateUser(User user) {
