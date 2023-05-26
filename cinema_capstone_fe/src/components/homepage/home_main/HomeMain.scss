@@ -3,6 +3,12 @@
 .on-going-card-container {
   background-color: $extra-light;
   border-radius: 10px;
+  transition: 0.5s;
+  &:hover {
+    transition: 0.5s;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
 // Movie card section:
