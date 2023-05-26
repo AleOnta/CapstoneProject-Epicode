@@ -1,13 +1,18 @@
 @import "../../../assets/style/variables.scss";
 
 .on-going-card-container {
-  background-color: $extra-light;
   border-radius: 10px;
   transition: 0.5s;
   &:hover {
     transition: 0.5s;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    background-color: $extra-light;
+  }
+
+  @media screen and (min-width: 992px) {
+    &:hover {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
   }
 }
 
@@ -21,9 +26,17 @@ a {
 .movie-card {
   position: relative;
   overflow: hidden;
-  width: 320px;
-  height: 450px;
-  margin: 40px auto;
+  width: 270px;
+  height: 400px;
+  margin: 20px auto;
+
+  @media screen and (min-width: 1200px) {
+    width: 320px;
+    height: 450px;
+    margin: 40px auto;
+  }
+
+  overflow: hidden;
   background: $main-blue;
   border: 2px solid $dim-gray;
   border-radius: 15px;
@@ -141,8 +154,22 @@ a {
 // Card news section:
 
 .news-container {
-  background-color: $extra-light;
   border-radius: 10px;
+  transition: 0.5s;
+  &:hover {
+    background-color: $extra-light;
+    transition: 0.5s;
+  }
+
+  .swiper-slide,
+  swiper-slide {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: 500px) {
+      justify-content: space-evenly;
+    }
+  }
 
   .card-newsContainer {
     width: 14rem;

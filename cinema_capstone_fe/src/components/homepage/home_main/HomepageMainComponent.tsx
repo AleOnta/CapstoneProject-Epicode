@@ -2,9 +2,9 @@ import "../HomePage.scss";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
-import { MovieNewsCard } from "./MovieNewsCard";
 import { MovieHomeCard } from "./MovieHomeCard";
 import { Link } from "react-router-dom";
+import { NewsSwiper } from "../home_swiper/NewsSwiper";
 
 export const HomepageMainComponent = () => {
   const store = useSelector((state: RootState) => state);
@@ -24,7 +24,7 @@ export const HomepageMainComponent = () => {
             </Col>
             <Col
               xs={12}
-              className="d-flex justify-content-around on-going-card-container"
+              className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"
             >
               {store.movies.inRoom.length > 0 &&
               store.programs.status === "fulfilled"
@@ -49,13 +49,9 @@ export const HomepageMainComponent = () => {
             </Col>
             <Col
               xs={12}
-              className="d-flex justify-content-around px-4 py-5 news-container"
+              className="d-flex justify-content-center px-4 py-5 news-container"
             >
-              {store.news.status === "fulfilled"
-                ? store.news.allNews.map((news) => (
-                    <MovieNewsCard news={news} key={news.id} />
-                  ))
-                : null}
+              <NewsSwiper />
             </Col>
           </Row>
         </Col>
@@ -65,7 +61,10 @@ export const HomepageMainComponent = () => {
             <hr className="m-0 " />
           </h5>
           <Row>
-            <Col xs={12} className="d-flex justify-content-around">
+            <Col
+              xs={12}
+              className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"
+            >
               {store.movies.incoming.length > 0 &&
               store.programs.status === "fulfilled"
                 ? store.movies.incoming.map((movie) => (
