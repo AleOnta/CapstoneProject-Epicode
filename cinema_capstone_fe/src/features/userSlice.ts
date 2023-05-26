@@ -7,6 +7,8 @@ const usersURL = "http://localhost:8080/api/users";
 interface IUserState {
   logged_in: IUserSafe | null;
   remember: boolean;
+  showCP: boolean;
+  bg: string;
   status: string;
   error: string | null;
 }
@@ -14,6 +16,8 @@ interface IUserState {
 const initialState: IUserState = {
   logged_in: null,
   remember: false,
+  showCP: true,
+  bg: "#000000",
   status: "idle",
   error: null,
 };
@@ -37,6 +41,12 @@ export const userSlice = createSlice({
   reducers: {
     setRemember: (state, action) => {
       state.remember = action.payload;
+    },
+    setShowCP: (state, action) => {
+      state.showCP = action.payload;
+    },
+    setBg: (state, action) => {
+      state.bg = action.payload;
     },
   },
   extraReducers(builder) {
@@ -68,5 +78,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setRemember } = userSlice.actions;
+export const { setRemember, setShowCP, setBg } = userSlice.actions;
 export default userSlice.reducer;

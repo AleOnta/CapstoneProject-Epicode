@@ -297,18 +297,18 @@ export const UserForm = () => {
         </FloatingLabel>
         <span className="bottom-form-section ">
           <div>
-            <div key={"default-checkbox1"} className="mb-2 ">
+            <div key={"terms-checkbox"} className="mb-2 ">
               <Form.Check
                 type={"checkbox"}
-                id={"default-checkbox"}
+                id={"terms-checkbox"}
                 label={"Accept Terms & Conditions"}
                 required
               />
             </div>
-            <div key={"default-checkbox2"}>
+            <div key={"news-checkbox"}>
               <Form.Check
                 type={"checkbox"}
-                id={"default-checkbox"}
+                id={"news-checkbox"}
                 label={"Subscribe to our newsletter!"}
               />
             </div>

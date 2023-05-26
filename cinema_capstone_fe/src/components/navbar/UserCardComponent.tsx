@@ -1,33 +1,36 @@
 import "./Navbar.scss";
-import avatar from "../../assets/imgs/avatar_placeholder.svg";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
 export const UserCardComponent = () => {
-  const user = useSelector((state: RootState) => state.user.logged_in);
-
+  const userStore = useSelector((state: RootState) => state.user);
   return (
     <Col xs={2} className="d-flex justify-content-center">
-      {user ? (
+      {userStore.logged_in ? (
         <Link to={"/reserved-area/user"}>
           <Card className="navbar-userCard p-1">
             <Card.Body className="d-flex align-items-center justify-content-around p-0">
-              <img
-                src={avatar}
-                alt="user-pic"
-                height={45}
-                width={45}
-                className="userCard-pic"
-              />
+              <div
+                className="userCard-pic d-flex align-items-center justify-content-center"
+                style={{ backgroundColor: userStore.bg }}
+              >
+                <span>
+                  {userStore.logged_in.firstname.charAt(0) +
+                    " " +
+                    userStore.logged_in.lastname.charAt(0)}
+                </span>
+              </div>
               <div className="userCard-data">
                 <Card.Title className="userCard-title">
-                  {user.username}
+                  {userStore.logged_in.username}
                 </Card.Title>
                 <Card.Text className="userCard-paragraphs">
-                  <p>{`${user.firstname} ${user.lastname}`}</p>
-                  <p>Points: {user.cinemaPoints}</p>
+                  <p>{`${userStore.logged_in.firstname} ${userStore.logged_in.lastname}`}</p>
+                  {userStore.showCP && (
+                    <p>Points: {userStore.logged_in.cinemaPoints}</p>
+                  )}
                 </Card.Text>
               </div>
             </Card.Body>
