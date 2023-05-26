@@ -1,69 +1,100 @@
 @import "../../assets/style/variables.scss";
 
-.swiper-horizontal {
-  background-color: $light;
-  padding-top: 40px;
-  margin-top: 50px;
-  border-radius: 8px;
-}
-
-.slider-image {
-  max-height: 200px;
-  margin-bottom: 35px;
-  margin-left: 5px;
-  border-radius: 10px;
-  -webkit-box-shadow: 11px 9px 20px 2px rgba(37, 37, 55, 1);
-  -moz-box-shadow: 11px 9px 20px 2px rgba(37, 37, 55, 1);
-  box-shadow: 11px 9px 20px 2px rgba(37, 37, 55, 1);
-  transition: 0.2s;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: 0.2s;
-  }
-
-  @media screen and (min-width: 380px) {
-    margin-left: 15px;
-  }
-  @media screen and (min-width: 420px) {
-    margin-left: 30px;
-  }
-  @media screen and (min-width: 480px) {
-    margin-left: 0px;
-  }
-  @media screen and (min-width: 768px) {
-    margin-left: 15px;
-    max-height: 225px;
-  }
-  @media screen and (min-width: 1400px) {
-    margin-left: 15px;
-    max-height: 250px;
-  }
-}
-
 .container.homepage {
-  //padding: 15px;
-
   .homepage-mainTitle {
     width: fit-content;
     font-family: $caption;
-    font-size: 4em;
+    font-size: 2em;
     font-weight: 700;
     color: $white;
     border-radius: 10px;
     background-color: $light;
     text-shadow: 5px 4px 2px rgba(66, 68, 90, 1);
+
+    @media screen and (min-width: 576px) {
+      font-size: 2.5em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 3.2em;
+    }
+
+    @media screen and (min-width: 992px) {
+      font-size: 4em;
+    }
   }
 
   .homepage-secondTitle {
     width: fit-content;
     font-family: $caption;
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-weight: 700;
     color: $white;
     border-radius: 10px;
     background-color: $light;
     text-shadow: 5px 4px 2px rgba(66, 68, 90, 1);
+
+    @media screen and (min-width: 576px) {
+      font-size: 2.1em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.5em;
+    }
+
+    @media screen and (min-width: 992px) {
+      font-size: 3em;
+    }
+  }
+}
+
+.swiper-button-prev:after {
+  transform: translateX(-10px);
+}
+.swiper-button-next:after {
+  transform: translateX(10px);
+}
+
+.movie-swiper-container {
+  .swiper-horizontal {
+    background-color: $light;
+    padding-top: 40px;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+
+  .slider-image {
+    max-height: 200px;
+    margin-bottom: 35px;
+    margin-left: 5px;
+    border-radius: 10px;
+    -webkit-box-shadow: 11px 9px 20px 2px rgba(37, 37, 55, 1);
+    -moz-box-shadow: 11px 9px 20px 2px rgba(37, 37, 55, 1);
+    box-shadow: 11px 9px 20px 2px rgba(37, 37, 55, 1);
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+
+    @media screen and (min-width: 380px) {
+      margin-left: 15px;
+    }
+    @media screen and (min-width: 420px) {
+      margin-left: 30px;
+    }
+    @media screen and (min-width: 480px) {
+      margin-left: 0px;
+    }
+    @media screen and (min-width: 768px) {
+      margin-left: 15px;
+      max-height: 225px;
+    }
+    @media screen and (min-width: 1400px) {
+      margin-left: 15px;
+      max-height: 250px;
+    }
   }
 }
 

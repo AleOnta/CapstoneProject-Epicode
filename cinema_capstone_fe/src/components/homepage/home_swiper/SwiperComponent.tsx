@@ -27,22 +27,18 @@ export const SwiperComponent = () => {
               slidesPerView: 3,
               spaceBetween: 40,
             },
-
             660: {
               slidesPerView: 4,
               spaceBetween: 40,
             },
-
             900: {
               slidesPerView: 5,
               spaceBetween: 40,
             },
-
             1200: {
               slidesPerView: 6,
               spaceBetween: 40,
             },
-
             1450: {
               slidesPerView: 7,
               spaceBetween: 40,
