@@ -72,7 +72,7 @@ export const SearchbarComponent = () => {
 
   return (
     <motion.div
-      className={"col-6 rounded search-main-container"}
+      className={"rounded search-main-container d-none d-md-block"}
       animate={isExpanded ? "expanded" : "collapsed"}
       variants={containerVariants}
       ref={ref}

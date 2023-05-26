@@ -7,7 +7,10 @@ export const MovieSearchBarComponent = (props: SearchBarCardProps) => {
   const getGenres = (genres: string) => {
     let toReturn = "";
     const genresArray = genres.split("|");
-    genresArray.forEach((genre) => (toReturn += genre + " - "));
+    genresArray.forEach(
+      (genre, index) =>
+        (toReturn += genre + (index !== genres.length - 1 ? ", " : "."))
+    );
     return toReturn.substring(0, toReturn.length - 2);
   };
 
@@ -37,7 +40,7 @@ export const MovieSearchBarComponent = (props: SearchBarCardProps) => {
             <Card.Text className="d-flex align-items-center">
               <BsFillPeopleFill className="me-2" />
               <span className="search-movie-data">
-                {props.movie.popularity}
+                {Math.trunc(props.movie.popularity)}
               </span>
             </Card.Text>
           </span>

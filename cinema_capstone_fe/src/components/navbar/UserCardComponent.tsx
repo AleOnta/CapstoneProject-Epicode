@@ -7,13 +7,17 @@ import { RootState } from "../../app/store";
 export const UserCardComponent = () => {
   const userStore = useSelector((state: RootState) => state.user);
   return (
-    <Col xs={2} className="d-flex justify-content-center">
+    <Col
+      xs={6}
+      md={2}
+      className="d-flex justify-content-center aling-items-center p-0"
+    >
       {userStore.logged_in ? (
-        <Link to={"/reserved-area/user"}>
-          <Card className="navbar-userCard p-1">
-            <Card.Body className="d-flex align-items-center justify-content-around p-0">
+        <Link to={"/reserved-area/user"} className="user-card-a-wrapper ">
+          <Card className="navbar-userCard">
+            <Card.Body className="d-flex align-items-center justify-content-around p-0 p-xl-1">
               <div
-                className="userCard-pic d-flex align-items-center justify-content-center"
+                className="userCard-pic mx-1 mx-md-0 d-flex align-items-center justify-content-center"
                 style={{ backgroundColor: userStore.bg }}
               >
                 <span>
@@ -37,7 +41,7 @@ export const UserCardComponent = () => {
           </Card>
         </Link>
       ) : (
-        <div className="d-flex ">
+        <div className="d-flex align-items-center">
           <h5 className="navbar-userLinks mb-0">
             <Link to="/auth/register">Sign-up</Link>
           </h5>

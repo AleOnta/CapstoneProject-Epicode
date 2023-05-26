@@ -1,6 +1,7 @@
 @import "../../assets/style/variables.scss";
 
 .globalNavbar {
+  height: 80px;
   background-color: $night;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -9,16 +10,30 @@
   -moz-box-shadow: 0px 11px 21px -7px rgba(66, 66, 66, 1);
   box-shadow: 0px 11px 21px -7px rgba(66, 66, 66, 1);
 
+  .navbar-brand {
+    width: fit-content;
+  }
+
+  .logo {
+    width: 85px;
+    height: 50px;
+
+    @media screen and (min-width: 480px) {
+      width: 100px;
+      height: 55px;
+    }
+  }
+
   .search-main-container {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
+    width: 380px;
     max-height: 316px;
-    top: 30px;
+    top: 23px;
     left: 0;
     right: 0;
     text-align: center;
-    width: 640px;
     background-color: white;
     padding: 0;
     z-index: 999;
@@ -29,18 +44,41 @@
       display: none;
     }
 
+    @media screen and (min-width: 992px) {
+      width: 500px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 600px;
+    }
+
     .results-container {
       .movie-img {
-        width: 45px;
+        width: 50px;
+        @media screen and (min-width: 1200px) {
+          width: 60px;
+        }
       }
 
       .card-title {
-        font-size: 1em;
+        font-size: 0.8em;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
         margin-bottom: 5px;
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.85em;
+        }
       }
 
       .card-text {
-        font-size: 0.8em;
+        font-size: 0.7em;
+        @media screen and (min-width: 992px) {
+          font-size: 0.76em;
+        }
       }
 
       .search-data-container {
@@ -48,6 +86,9 @@
         .search-movie-data {
           font-family: "Gill Sans", "Gill Sans MT", sans-serif;
           font-size: 0.9em;
+          @media screen and (min-width: 992px) {
+            font-size: 1em;
+          }
         }
       }
     }
@@ -136,14 +177,30 @@
     text-decoration: none;
   }
 
+  .user-card-a-wrapper {
+    width: 100%;
+  }
+
   .divider {
     color: rgb(196, 196, 196);
   }
 
   .navbar-userLinks {
-    font-size: 1em;
+    font-size: 0.9em;
     color: rgb(196, 196, 196);
     transition: 0.3s;
+
+    @media screen and (min-width: 576px) {
+      font-size: 1em;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 0.8em;
+    }
+
+    @media screen and (min-width: 1200px) {
+      font-size: 0.9em;
+    }
 
     &:hover {
       color: rgb(172, 172, 172);
@@ -159,6 +216,13 @@
     color: lightgray;
     transition: 0.3s;
 
+    @media screen and (min-width: 400px) {
+      width: 168px;
+    }
+    @media screen and (min-width: 768px) {
+      width: 100%;
+    }
+
     &:hover {
       border-color: $ph-darker-orange;
       color: white;
@@ -167,21 +231,36 @@
     }
 
     .userCard-pic {
-      width: 45px;
-      height: 45px;
+      width: 35px;
+      height: 35px;
+      font-size: 0.8em;
       border-radius: 50%;
       transition: 0.2s;
+
+      @media screen and (min-width: 1200px) {
+        width: 40px;
+        height: 40px;
+        margin: auto;
+      }
     }
 
     .userCard-data {
       border-left: 1px solid $ph-darker-orange;
       padding-left: 8px;
-      width: 70%;
+      width: 65%;
+
+      @media screen and (min-width: 400px) {
+        width: 70%;
+      }
     }
 
     .userCard-title {
-      font-size: 0.9em;
+      font-size: 0.75em;
+      font-weight: 600;
       margin-bottom: 3px;
+      @media screen and (min-width: 400px) {
+        font-size: 0.8em;
+      }
     }
 
     p {
@@ -190,6 +269,12 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      @media screen and (min-width: 400px) {
+        font-size: 0.77em;
+      }
+      @media screen and (min-width: 992px) {
+        font-size: 0.8em;
+      }
     }
   }
 }

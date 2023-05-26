@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 
 export const LogoComponent = () => {
   return (
-    <Col xs={2}>
-      <Link to="/home" className="navbar-brand">
+    <Col xs={4} md={2} className="d-flex justify-content-center">
+      <Link to="/home" className="navbar-brand m-0">
         <img
           src={logo}
-          width="125"
-          height="70"
-          className="d-inline-block align-top"
+          className="d-inline-block align-top logo"
           alt="React Bootstrap logo"
         />
       </Link>
