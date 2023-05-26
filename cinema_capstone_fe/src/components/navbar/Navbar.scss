@@ -166,6 +166,13 @@
       transition: 0.3s;
     }
 
+    .userCard-pic {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
     .userCard-data {
       border-left: 1px solid $ph-darker-orange;
       padding-left: 8px;
