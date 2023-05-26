@@ -22,7 +22,7 @@ export const MovieNewsCard = ({ news }: INewsProps) => {
   };
 
   return (
-    <Card text="dark" className="mb-2 card-newsContainer">
+    <Card text="dark" className=" card-newsContainer">
       <Link to="/">
         <Card.Header className="d-flex align-items-center">
           <div className="card-credits-circle rounded-circle d-flex align-items-center justify-content-center">
