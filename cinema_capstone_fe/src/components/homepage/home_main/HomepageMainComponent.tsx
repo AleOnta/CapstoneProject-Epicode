@@ -11,13 +11,21 @@ export const HomepageMainComponent = () => {
 
   return (
     <Container className="homepage">
-      <Row>
+      <Row className="mt-5">
         <Col xs={12} className="homepage-main-content-column mb-5 py-5">
-          <Link to="/programs">
-            <h2 className="homepage-mainTitle  pb-4">Ongoing Projections</h2>
-          </Link>
           <Row>
-            <Col xs={12} className="d-flex justify-content-around">
+            <Col xs={12} className="p-0">
+              <Link to="/programs">
+                <h2 className="homepage-mainTitle mb-5 p-3">
+                  ON-GOING PROJECTIONS
+                  <hr className="m-0 " />
+                </h2>
+              </Link>
+            </Col>
+            <Col
+              xs={12}
+              className="d-flex justify-content-around on-going-card-container"
+            >
               {store.movies.inRoom.length > 0 &&
               store.programs.status === "fulfilled"
                 ? store.movies.inRoom.map((movie, index) => (
@@ -32,9 +40,17 @@ export const HomepageMainComponent = () => {
           </Row>
         </Col>
         <Col xs={12} className="homepage-main-content-column mb-5 py-5">
-          <h5 className="homepage-secondTitle pb-4">News</h5>
           <Row>
-            <Col xs={12} className="d-flex justify-content-around">
+            <Col xs={12} className="p-0">
+              <h5 className="homepage-secondTitle mb-5 p-3">
+                NEWS
+                <hr className="m-0 " />
+              </h5>
+            </Col>
+            <Col
+              xs={12}
+              className="d-flex justify-content-around px-4 py-5 news-container"
+            >
               {store.news.status === "fulfilled"
                 ? store.news.allNews.map((news) => (
                     <MovieNewsCard news={news} key={news.id} />
@@ -44,7 +60,10 @@ export const HomepageMainComponent = () => {
           </Row>
         </Col>
         <Col xs={12} className="homepage-main-content-column mb-5 py-5">
-          <h5 className="homepage-secondTitle  pb-4">Incoming</h5>
+          <h5 className="homepage-secondTitle mb-5 p-3">
+            INCOMING
+            <hr className="m-0 " />
+          </h5>
           <Row>
             <Col xs={12} className="d-flex justify-content-around">
               {store.movies.incoming.length > 0 &&

@@ -1,8 +1,8 @@
 @import "../../../assets/style/variables.scss";
 
-.homepage-main-content-column {
-  background-color: rgba(15, 15, 15, 0.7);
-  border-radius: 20px;
+.on-going-card-container {
+  background-color: $extra-light;
+  border-radius: 10px;
 }
 
 // Movie card section:
@@ -17,13 +17,13 @@ a {
   overflow: hidden;
   width: 320px;
   height: 450px;
-  margin: 50px auto;
+  margin: 40px auto;
   background: $main-blue;
-  border: 3px solid $ph-darker-orange;
+  border: 2px solid $dim-gray;
   border-radius: 15px;
-  -webkit-box-shadow: 7px 7px 16px 0px rgba(80, 61, 30, 1);
-  -moz-box-shadow: 7px 7px 16px 0px rgba(80, 61, 30, 1);
-  box-shadow: 7px 7px 16px 0px rgba(80, 61, 30, 1);
+  -webkit-box-shadow: 11px 11px 32px 0px rgba(84, 84, 84, 1);
+  -moz-box-shadow: 11px 11px 32px 0px rgba(84, 84, 84, 1);
+  box-shadow: 11px 11px 32px 0px rgba(84, 84, 84, 1);
 
   .card-img-one {
     position: absolute;
@@ -41,11 +41,12 @@ a {
     text-align: center;
     font-weight: 700;
     color: #fffc;
-    padding: 15px 10px;
+    padding: 35px 10px;
     position: absolute;
     bottom: -15px;
     left: 0;
-    box-shadow: 0 -95px 28px -25px #000 inset;
+    overflow: hidden;
+    box-shadow: 0 -95px 35px -25px #000 inset;
   }
 
   .card-text {
@@ -133,68 +134,73 @@ a {
 
 // Card news section:
 
-.card-newsContainer {
-  width: 14rem;
-  background-color: $night;
-  -webkit-box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
-  -moz-box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
-  box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
-  transition: 0.5s;
+.news-container {
+  background-color: $extra-light;
+  border-radius: 10px;
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .card-header {
-    font-size: 1em;
-    font-weight: 500;
-    border-color: $ph-darker-orange;
-
-    .card-credits-circle {
-      background-color: $ph-orange;
-      width: 40px;
-      height: 40px;
-      p {
-        color: black;
-      }
-    }
-
-    .news-credits-container {
-      padding-left: 6px;
-      width: 80%;
-
-      .news-credits {
-        margin: 0;
-        color: $silver;
-        font-size: 0.6em;
-      }
-
-      .news-title {
-        color: $silver;
-        font-size: 0.8em;
-        font-weight: 700;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        padding-bottom: 3px;
-      }
-    }
-  }
-
-  .news-article {
-    color: #fff;
-    font-size: 0.8em;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    padding-bottom: 3px;
-  }
-
-  &:hover {
-    transform: scale(1.02);
+  .card-newsContainer {
+    width: 14rem;
+    background-color: $night;
+    -webkit-box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
+    -moz-box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
+    box-shadow: 8px 7px 13px -8px rgba(72, 60, 40, 1);
     transition: 0.5s;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-header {
+      font-size: 1em;
+      font-weight: 500;
+      border-color: $ph-darker-orange;
+
+      .card-credits-circle {
+        background-color: $ph-orange;
+        width: 40px;
+        height: 40px;
+        p {
+          color: black;
+        }
+      }
+
+      .news-credits-container {
+        padding-left: 6px;
+        width: 80%;
+
+        .news-credits {
+          margin: 0;
+          color: $silver;
+          font-size: 0.6em;
+        }
+
+        .news-title {
+          color: $silver;
+          font-size: 0.8em;
+          font-weight: 700;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          padding-bottom: 3px;
+        }
+      }
+    }
+
+    .news-article {
+      color: #fff;
+      font-size: 0.8em;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      padding-bottom: 3px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.5s;
+    }
   }
 }

@@ -42,20 +42,28 @@
 }
 
 .container.homepage {
-  padding: 15px;
+  //padding: 15px;
 
   .homepage-mainTitle {
+    width: fit-content;
     font-family: $caption;
-    font-size: 4.2em;
-    font-weight: 500;
-    color: $ph-orange;
+    font-size: 4em;
+    font-weight: 700;
+    color: $white;
+    border-radius: 10px;
+    background-color: $light;
+    text-shadow: 5px 4px 2px rgba(66, 68, 90, 1);
   }
 
   .homepage-secondTitle {
+    width: fit-content;
     font-family: $caption;
     font-size: 2.5em;
     font-weight: 700;
-    color: $ph-orange;
+    color: $white;
+    border-radius: 10px;
+    background-color: $light;
+    text-shadow: 5px 4px 2px rgba(66, 68, 90, 1);
   }
 }
 

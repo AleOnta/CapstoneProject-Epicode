@@ -14,6 +14,14 @@ export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
     return convertedDate;
   };
 
+  const formatTitle = (title: string) => {
+    if (title.length > 21) {
+      return title.slice(0, 21) + "...";
+    } else {
+      return title;
+    }
+  };
+
   return (
     <Card className="movie-card">
       <Link to="/programs">
@@ -23,7 +31,7 @@ export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
           className="card-img-one"
         />
 
-        <div className="card-title">{movie.title}</div>
+        <div className="card-title">{formatTitle(movie.title)}</div>
         <div className="card-text">{movie.plot}</div>
         {program !== undefined ? (
           <>
