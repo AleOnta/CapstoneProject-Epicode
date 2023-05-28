@@ -1,5 +1,10 @@
 import "./App.scss";
 import "@stripe/stripe-js";
+import {
+  fetchMovies,
+  setInRoomMovies,
+  setIncomingMovies,
+} from "./features/movieSlice";
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,11 +23,6 @@ import { AuthPageComponent } from "./components/authpage/AuthPageComponent";
 import { MoviePageComponent } from "./components/moviepage/MoviePageComponent";
 import { ProgramsPageComponent } from "./components/programspage/ProgramsPageComponent";
 import { CheckoutPageComponent } from "./components/checkoutpage/CheckoutPageComponent";
-import {
-  fetchMovies,
-  setInRoomMovies,
-  setIncomingMovies,
-} from "./features/movieSlice";
 import { CancelPageComponent } from "./components/checkoutpage/paymentresult/CancelPageComponent";
 import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/SuccessPageComponent";
 import { UserPageComponent } from "./components/userpage/UserPageComponent";
