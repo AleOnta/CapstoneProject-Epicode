@@ -5,6 +5,7 @@ import { ProgramsCard } from "./ProgramsCard";
 import { IMovie } from "../../interfaces/iMovies";
 import { Col, Container, Row } from "react-bootstrap";
 import { ProgramsNewsCard } from "./ProgramsNewsCard";
+import { FooterComponent } from "../footer/FooterComponent";
 
 export const ProgramsPageComponent = () => {
   const store = useSelector((state: RootState) => state);
@@ -39,14 +40,14 @@ export const ProgramsPageComponent = () => {
 
   return (
     <Row>
-      <Col xs={12}>
-        <Container>
-          <Row>
-            <Col xs={8}>
-              <h2 className="py-5 title-program-section">
-                CURRENTLY IN PROJECTION:
-              </h2>
-              <Row>
+      <Col xs={12} className="p-0">
+        <Container className="p-0 mb-5">
+          <h2 className="title-program-section p-3">
+            CURRENTLY IN PROJECTION:
+          </h2>
+          <Row className="row-container-program m-0 d-flex justify-content-center justify-content-lg-between">
+            <Col xs={12} lg={8} className="programs-container px-4 rounded">
+              <Row className="p-0 d-flex flex-column align-items-center">
                 {store.programs.status === "fulfilled"
                   ? store.programs.onGoing.map((program) => (
                       <ProgramsCard
@@ -59,10 +60,12 @@ export const ProgramsPageComponent = () => {
               </Row>
             </Col>
             <Col
-              xs={4}
-              className=" py-5 d-flex flex-column news-programs-container"
+              xs={10}
+              md={8}
+              lg={4}
+              className="d-flex flex-column aling-items-center news-programs-container py-3 px-4 mt-4 mt-lg-0 rounded"
             >
-              <h4>NEWS</h4>
+              <h4 className="px-2 py-1 mb-3 rounded">NEWS</h4>
               {store.news.status === "fulfilled"
                 ? store.news.allNews.map((news) => (
                     <ProgramsNewsCard news={news} key={news.id} />
@@ -71,6 +74,7 @@ export const ProgramsPageComponent = () => {
             </Col>
           </Row>
         </Container>
+        <FooterComponent />
       </Col>
     </Row>
   );
