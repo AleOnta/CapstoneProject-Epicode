@@ -1,5 +1,5 @@
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import "./ProgramsPage.scss";
+import { Card, Col, Row } from "react-bootstrap";
 import { INewsProps } from "../../interfaces/CommonInterfaces";
 
 export const ProgramsNewsCard = ({ news }: INewsProps) => {
@@ -21,26 +21,28 @@ export const ProgramsNewsCard = ({ news }: INewsProps) => {
   };
 
   return (
-    <>
-      <Card>
-        <Card.Body className="card-block rounded pb-4">
-          <div className="d-flex align-items-center mb-2 credits-container">
-            <div className="card-credits-circle rounded-circle d-flex align-items-center justify-content-center me-2">
-              <p className="m-0">{getAuthorInitials(news.author)}</p>
-            </div>
-            <span>
-              <Card.Title>{news.title}</Card.Title>
-              <h6 className="card-subtitle text-muted">
-                {news.author + " - " + formatRedactDate(news.redactDate)}
-              </h6>
-            </span>
+    <Card className="programs-news-card mb-3">
+      <Row className="d-flex aling-items-center m-0">
+        <Col
+          xs={2}
+          className="p-0 ps-2 d-flex align-items-center justify-content-center"
+        >
+          <div className="auth-credits-circle d-flex aling-items-center justify-content-center">
+            <p className="m-0 d-flex align-items-center">
+              {getAuthorInitials(news.author)}
+            </p>
           </div>
-          <Card.Text className="py-1 m-0 plot">{news.article}</Card.Text>
-          <Link to="/programs" className="card-link">
-            Read all
-          </Link>
-        </Card.Body>
-      </Card>
-    </>
+        </Col>
+        <Col xs={10} className="py-2">
+          <div>
+            <Card.Title className="mb-1">{news.title}</Card.Title>
+            <Card.Subtitle>
+              {`${formatRedactDate(news.redactDate)} - ${news.author}`}
+            </Card.Subtitle>
+            <Card.Text>{news.article}</Card.Text>
+          </div>
+        </Col>
+      </Row>
+    </Card>
   );
 };
