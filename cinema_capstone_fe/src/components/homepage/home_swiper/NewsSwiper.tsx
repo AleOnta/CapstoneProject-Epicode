@@ -40,7 +40,7 @@ export const NewsSwiper = () => {
           className="mySwiper"
         >
           {newsStore.allNews.map((news) => (
-            <SwiperSlide>
+            <SwiperSlide key={news.id + "news-swiper"}>
               <MovieNewsCard news={news} />
             </SwiperSlide>
           ))}

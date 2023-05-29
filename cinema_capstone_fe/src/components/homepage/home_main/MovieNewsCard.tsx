@@ -30,9 +30,8 @@ export const MovieNewsCard = ({ news }: INewsProps) => {
           </div>
           <span className="news-credits-container">
             <div className="d-flex justify-content-between news-credits">
-              <Link to="/">
-                <Card.Text className="news-author">{news.author}</Card.Text>
-              </Link>
+              <Card.Text className="news-author mb-0">{news.author}</Card.Text>
+
               <Card.Text className="news-date">
                 {formatRedactDate(news.redactDate)}
               </Card.Text>

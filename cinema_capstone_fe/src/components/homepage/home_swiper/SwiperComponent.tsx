@@ -55,10 +55,13 @@ export const SwiperComponent = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          {movieStore.allMovies.map((movie, index) => {
+          {movieStore.allMovies.map((movie) => {
             return (
-              <Link to={`/movie-focus/${movie.id}`}>
-                <SwiperSlide key={index}>
+              <Link
+                to={`/movie-focus/${movie.id}`}
+                key={movie.tmdbId + "movie-link"}
+              >
+                <SwiperSlide key={movie.tmdbId + "movie-slide"}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
                     alt="movie poster"

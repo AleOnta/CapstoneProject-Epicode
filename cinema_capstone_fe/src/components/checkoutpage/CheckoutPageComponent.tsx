@@ -87,7 +87,7 @@ export const CheckoutPageComponent = () => {
     setSelectedProgram(program);
     dispatch(setPickedProgram(program));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [store.programs.onGoing]);
 
   useEffect(() => {
     setSelectedDateAndTime({ date: null, time: "" });
@@ -95,190 +95,208 @@ export const CheckoutPageComponent = () => {
 
   return (
     <Row>
-      <Col xs={12}>
-        <Container className="check-out-container">
-          <Row>
-            <Col xs={12} className="mt-5">
-              <h3 className="check-out-title mt-3">Check-Out:</h3>
-              <hr />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              {selectedProgram && (
-                <Card className="check-out-card d-flex flex-row align-items-center">
-                  <Card.Img
-                    src={`https://image.tmdb.org/t/p/w500${selectedProgram.movie.posterPath}`}
-                    alt="movie poster"
-                  />
-                  <Card.Body className="movie-data h-100">
-                    <Card.Title>{selectedProgram.movie.title}</Card.Title>
-                    <Card.Text className="card-genres mb-5">
-                      {selectedProgram.movie.genre
-                        .split("|")
-                        .map((genre, index) => (
-                          <span className="genre mx-1 p-1 rounded">
-                            {genre +
-                              (index !==
-                              selectedProgram.movie.genre.split("|").length - 1
-                                ? ", "
-                                : ".")}
-                          </span>
-                        ))}
-                    </Card.Text>
-                    <Card.Text className="card-data ">
-                      {selectedProgram.movie.plot}
-                    </Card.Text>
-                    <Card.Text className="card-data mb-0">
-                      Length: {selectedProgram.movie.filmLength} min
-                    </Card.Text>
-                    <Card.Text className="card-data mb-0">
-                      Produced by:
-                      {selectedProgram.movie.prodCompany
-                        .split("|")
-                        .map((company) => (
-                          <span>{company}</span>
-                        ))}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              )}
-              <hr />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} className="check-out-main">
-              <h5 className="p-3">Seats selection:</h5>
-              <Row className="d-flex justify-content-around align-items-center">
-                <Col xs={7} className="map-seats-container">
-                  {selectedProgram && (
-                    <SeatPickerComponent program={selectedProgram} />
-                  )}
+      {store.programs.onGoing.length > 0 && (
+        <>
+          <Col xs={12}>
+            <Container className="check-out-container">
+              <Row>
+                <Col xs={12} className="mt-5">
+                  <h3 className="check-out-title mt-3">Check-Out:</h3>
+                  <hr />
                 </Col>
-                <Col xs={4} className="h-100">
-                  <Row className="d-flex flex-column justify-content-between h-100">
-                    <Col
-                      xs={12}
-                      className="date-container py-4 px-4 rounded mb-5"
-                    >
-                      <span className="d-flex align-items-center justify-content-between mb-3">
-                        <Form.Label className="me-3 mb-0">
-                          Select a date:
-                        </Form.Label>
-                        <DatePicker
-                          className="mb-3 date-picker-custom"
-                          disablePast
-                          maxDate={
-                            selectedProgram && new Date(selectedProgram?.toDate)
-                          }
-                          value={selectedDateAndTime?.date}
-                          onChange={(newValue) => {
-                            setSelectedDateAndTime({
-                              date: newValue,
-                              time: "",
-                            });
-                            newValue && handlePickedData(newValue);
-                          }}
-                        />
-                      </span>
-                      <span className="d-flex align-items-center justify-content-between">
-                        <Form.Label className=" mb-0">
-                          Select an hour:
-                        </Form.Label>
-                        <Form.Select
-                          className="hour-select"
-                          value={selectedDateAndTime.time}
-                          onChange={(e) => {
-                            setSelectedDateAndTime({
-                              ...selectedDateAndTime,
-                              time: e.target.value,
-                            });
-                            dispatch(setPickedTime(e.target.value));
-                          }}
-                        >
-                          <option>available hours</option>
-                          {selectedProgram?.room.timetables
+              </Row>
+              <Row>
+                <Col>
+                  {selectedProgram && (
+                    <Card className="check-out-card d-flex flex-row align-items-center">
+                      <Card.Img
+                        src={`https://image.tmdb.org/t/p/w500${selectedProgram.movie.posterPath}`}
+                        alt="movie poster"
+                      />
+                      <Card.Body className="movie-data h-100">
+                        <Card.Title>{selectedProgram.movie.title}</Card.Title>
+                        <Card.Text className="card-genres mb-5">
+                          {selectedProgram.movie.genre
                             .split("|")
-                            .map((time, index) => (
-                              <option value={time} key={index}>
-                                {time}
-                              </option>
+                            .map((genre, index) => (
+                              <span
+                                className="genre mx-1 p-1 rounded"
+                                key={index}
+                              >
+                                {genre +
+                                  (index !==
+                                  selectedProgram.movie.genre.split("|")
+                                    .length -
+                                    1
+                                    ? ", "
+                                    : ".")}
+                              </span>
                             ))}
-                        </Form.Select>
-                      </span>
+                        </Card.Text>
+                        <Card.Text className="card-data ">
+                          {selectedProgram.movie.plot}
+                        </Card.Text>
+                        <Card.Text className="card-data mb-0">
+                          Length: {selectedProgram.movie.filmLength} min
+                        </Card.Text>
+                        <Card.Text className="card-data mb-0">
+                          Produced by:
+                          {selectedProgram.movie.prodCompany
+                            .split("|")
+                            .map((company, index) => (
+                              <span key={index + "-company"}>{company}</span>
+                            ))}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  )}
+                  <hr />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12} className="check-out-main">
+                  <h5 className="p-3">Seats selection:</h5>
+                  <Row className="d-flex justify-content-around align-items-center">
+                    <Col xs={7} className="map-seats-container">
+                      {selectedProgram && (
+                        <SeatPickerComponent program={selectedProgram} />
+                      )}
                     </Col>
-                    <Col xs={12} className="recap-container py-4 px-4 rounded">
-                      <div className="d-flex align-items-center justify-content-between mb-2">
-                        <h6 className="me-2 mb-0">Selected date:</h6>
-                        <p className="mb-0">
-                          {selectedDateAndTime.time.length > 0 &&
-                            dateAndTimeToString(selectedDateAndTime)}
-                        </p>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between">
-                        <h6 className="me-2 mb-0">Selected seats:</h6>
-                        <p className="mb-0">
-                          {store.checkout.pickedSeats.length > 0
-                            ? store.checkout.pickedSeats.map((seat, index) => (
-                                <span className="mapped-seat me-2">
-                                  {seat +
-                                    (index !==
-                                    store.checkout.pickedSeats.length - 1
-                                      ? ","
-                                      : ".")}
-                                </span>
-                              ))
-                            : "no seat selected"}
-                        </p>
-                      </div>
-                      <hr />
-                      <div className="d-flex align-items-center justify-content-between">
-                        <h6 className="me-2 mb-0">Total costs:</h6>
-                        <p className="mb-0">
-                          €
-                          {selectedProgram?.price &&
-                            store.checkout.pickedSeats.length > 0 &&
-                            determinePrice(selectedProgram.price) *
-                              store.checkout.pickedSeats.length}
-                        </p>
-                      </div>
+                    <Col xs={4} className="h-100">
+                      <Row className="d-flex flex-column justify-content-between h-100">
+                        <Col
+                          xs={12}
+                          className="date-container py-4 px-4 rounded mb-5"
+                        >
+                          <span className="d-flex align-items-center justify-content-between mb-3">
+                            <Form.Label className="me-3 mb-0">
+                              Select a date:
+                            </Form.Label>
+                            <DatePicker
+                              className="mb-3 date-picker-custom"
+                              disablePast
+                              maxDate={
+                                selectedProgram &&
+                                new Date(selectedProgram?.toDate)
+                              }
+                              value={selectedDateAndTime?.date}
+                              onChange={(newValue) => {
+                                setSelectedDateAndTime({
+                                  date: newValue,
+                                  time: "",
+                                });
+                                newValue && handlePickedData(newValue);
+                              }}
+                            />
+                          </span>
+                          <span className="d-flex align-items-center justify-content-between">
+                            <Form.Label className=" mb-0">
+                              Select an hour:
+                            </Form.Label>
+                            <Form.Select
+                              className="hour-select"
+                              value={selectedDateAndTime.time}
+                              onChange={(e) => {
+                                setSelectedDateAndTime({
+                                  ...selectedDateAndTime,
+                                  time: e.target.value,
+                                });
+                                dispatch(setPickedTime(e.target.value));
+                              }}
+                            >
+                              <option>available hours</option>
+                              {selectedProgram?.room.timetables
+                                .split("|")
+                                .map((time, index) => (
+                                  <option value={time} key={index + "-time"}>
+                                    {time}
+                                  </option>
+                                ))}
+                            </Form.Select>
+                          </span>
+                        </Col>
+                        <Col
+                          xs={12}
+                          className="recap-container py-4 px-4 rounded"
+                        >
+                          <div className="d-flex align-items-center justify-content-between mb-2">
+                            <h6 className="me-2 mb-0">Selected date:</h6>
+                            <p className="mb-0">
+                              {selectedDateAndTime.time.length > 0 &&
+                                dateAndTimeToString(selectedDateAndTime)}
+                            </p>
+                          </div>
+                          <div className="d-flex align-items-center justify-content-between">
+                            <h6 className="me-2 mb-0">Selected seats:</h6>
+                            <p className="mb-0">
+                              {store.checkout.pickedSeats.length > 0
+                                ? store.checkout.pickedSeats.map(
+                                    (seat, index) => (
+                                      <span
+                                        className="mapped-seat me-2"
+                                        key={index + "-seat"}
+                                      >
+                                        {seat +
+                                          (index !==
+                                          store.checkout.pickedSeats.length - 1
+                                            ? ","
+                                            : ".")}
+                                      </span>
+                                    )
+                                  )
+                                : "no seat selected"}
+                            </p>
+                          </div>
+                          <hr />
+                          <div className="d-flex align-items-center justify-content-between">
+                            <h6 className="me-2 mb-0">Total costs:</h6>
+                            <p className="mb-0">
+                              €
+                              {selectedProgram?.price &&
+                                store.checkout.pickedSeats.length > 0 &&
+                                determinePrice(selectedProgram.price) *
+                                  store.checkout.pickedSeats.length}
+                            </p>
+                          </div>
 
-                      <Button
-                        variant={`secondary w-100 mt-3 check-out-button ${
-                          !toProceed && "disabled"
-                        }`}
-                        onClick={() => {
-                          !store.user.logged_in
-                            ? setModalShow(true)
-                            : setConfModalShow(true);
-                        }}
-                      >
-                        Confirm and pay
-                      </Button>
+                          <Button
+                            variant={`secondary w-100 mt-3 check-out-button ${
+                              !toProceed && "disabled"
+                            }`}
+                            onClick={() => {
+                              !store.user.logged_in
+                                ? setModalShow(true)
+                                : setConfModalShow(true);
+                            }}
+                          >
+                            Confirm and pay
+                          </Button>
+                        </Col>
+                      </Row>
                     </Col>
                   </Row>
                 </Col>
               </Row>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
               <Row>
-                <h5 className="payments-title">Payment methods:</h5>
-                <Col className="payments-container"></Col>
+                <Col xs={12}>
+                  <Row>
+                    <h5 className="payments-title">Payment methods:</h5>
+                    <Col className="payments-container"></Col>
+                  </Row>
+                </Col>
               </Row>
-            </Col>
-          </Row>
-        </Container>
-      </Col>
-      <Col xs={12}>
-        <FooterComponent />
-        <AuthenticationModal show={modalShow} setShow={setModalShow} />
-        <ConfirmationModal
-          show={confModalShow}
-          setShow={() => setConfModalShow(false)}
-        />
-      </Col>
+            </Container>
+          </Col>
+          <Col xs={12}>
+            <FooterComponent />
+            <AuthenticationModal show={modalShow} setShow={setModalShow} />
+            <ConfirmationModal
+              show={confModalShow}
+              setShow={() => setConfModalShow(false)}
+            />
+          </Col>
+        </>
+      )}
     </Row>
   );
 };
