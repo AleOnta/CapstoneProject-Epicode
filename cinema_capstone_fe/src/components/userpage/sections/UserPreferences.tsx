@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { setRemember } from "../../../features/preferenceSlice";
 import { logout } from "../../../features/userSlice";
 import { useNavigate } from "react-router";
+import { AiOutlineLogout } from "react-icons/ai";
 
 export const UserPreferences = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -92,13 +93,16 @@ export const UserPreferences = () => {
       </Form>
 
       <Button
-        variant="outline"
-        className="logout-button mt-5 px-4"
+        type="button"
+        className="btn mt-5 btn-block btn-round user-btn"
         onClick={() => {
           userLogout();
         }}
       >
-        Logout
+        <span className="span-tag">Logout</span>
+        <div className="icon icon-round d-flex align-items-center justify-content-center">
+          <AiOutlineLogout className="card-btn-icon fs-5" />
+        </div>
       </Button>
     </Col>
   );

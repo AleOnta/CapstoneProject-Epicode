@@ -1,5 +1,5 @@
 import "./UserPage.scss";
-import { Accordion, Col, Container, Row } from "react-bootstrap";
+import { Accordion, Button, Col, Container, Row } from "react-bootstrap";
 import { UserTicketCard } from "./sections/UserTicketCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
@@ -8,8 +8,11 @@ import axios from "axios";
 import { ITicket } from "../../interfaces/iTicket";
 import { UserForm } from "./sections/UserForm";
 import { UserPreferences } from "./sections/UserPreferences";
+import { AiOutlineHome } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 export const UserPageComponent = () => {
+  const navigate = useNavigate();
   const ticketURL = "http://localhost:8080/api/tickets";
   const [userTickets, setUserTickets] = useState<ITicket[] | null>(null);
   const userStore = useSelector((state: RootState) => state.user.logged_in);
@@ -36,7 +39,7 @@ export const UserPageComponent = () => {
 
   return (
     <Row className="mt-5 d-flex justify-content-center">
-      <Col xs={11} className="mt-3 py-5 user-col-container rounded">
+      <Col xs={11} className="mt-3 py-5 user-col-container rounded ">
         <Container>
           <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
@@ -68,6 +71,18 @@ export const UserPageComponent = () => {
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
+          <div className="d-flex justify-content-center">
+            <Button
+              type="button"
+              className="btn mt-5 btn-block btn-round user-home-button user-btn"
+              onClick={() => navigate("/home")}
+            >
+              <span className="span-tag">Get back to homepage</span>
+              <div className="icon icon-round d-flex align-items-center justify-content-center">
+                <AiOutlineHome className="card-btn-icon fs-5" />
+              </div>
+            </Button>
+          </div>
         </Container>
       </Col>
     </Row>

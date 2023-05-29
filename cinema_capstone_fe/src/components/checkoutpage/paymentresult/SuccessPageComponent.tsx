@@ -1,15 +1,15 @@
-import "./PaymentResults.scss";
-import { useState, useEffect } from "react";
-import { CheckOutState } from "../../../features/checkoutSlice";
-import { Card, Col, Container, Row } from "react-bootstrap";
-import QRCode from "react-qr-code";
-import { FooterComponent } from "../../footer/FooterComponent";
 import axios from "axios";
-import { AppDispatch, RootState } from "../../../app/store";
+import "./PaymentResults.scss";
+import QRCode from "react-qr-code";
+import { useState, useEffect } from "react";
+import { IUserSafe } from "../../../interfaces/iUser";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../../features/userSlice";
-import { IUserSafe } from "../../../interfaces/iUser";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { AppDispatch, RootState } from "../../../app/store";
+import { FooterComponent } from "../../footer/FooterComponent";
 import { fetchPrograms } from "../../../features/programSlice";
+import { CheckOutState } from "../../../features/checkoutSlice";
 
 export const SuccessPageComponent = () => {
   const dispatch: AppDispatch = useDispatch();
