@@ -15,15 +15,15 @@ export const FooterComponent = () => {
             <ListGroup.Item>Call us</ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xs={3} md={2} className="d-none d-sm-block">
-          <h5 className="footer-col-title text-center">THYNK MEDIA</h5>
+        <Col xs={3} md={2} className="d-none d-sm-block text-center">
+          <h5 className="footer-col-title ">THYNK MEDIA</h5>
           <ListGroup>
             <ListGroup.Item>About us</ListGroup.Item>
             <ListGroup.Item>Work with us</ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xs={3} md={2}>
-          <h5 className="footer-col-title text-center">LEGAL PURPOSES</h5>
+        <Col xs={3} md={2} className="text-center">
+          <h5 className="footer-col-title ">LEGAL PURPOSES</h5>
           <ListGroup>
             <ListGroup.Item>Privacy policy</ListGroup.Item>
             <ListGroup.Item>Cookie policy</ListGroup.Item>
@@ -31,24 +31,32 @@ export const FooterComponent = () => {
             <ListGroup.Item>Rules</ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xs={3} md={2}>
-          <h5 className="footer-col-title text-center social">SOCIAL</h5>
+        <Col xs={3} md={2} className="social">
+          <h5 className="footer-col-title text-center ">SOCIAL</h5>
           <ListGroup>
             <ListGroup.Item className="d-flex align-items-center justify-content-center">
-              <BsFacebook className="icon me-1" />
-              <span className="ms-1">Facebook</span>
+              <span className="icon-container d-flex justify-content-center align-items-center">
+                <BsFacebook className="icon me-1" />
+              </span>
+              <span className="ms-1 footer-link">Facebook</span>
             </ListGroup.Item>
             <ListGroup.Item className="d-flex align-items-center justify-content-center">
-              <BsYoutube className="icon me-1" />
-              <span className="ms-1">YouTube</span>
+              <span className="icon-container d-flex justify-content-center align-items-center">
+                <BsYoutube className="icon me-1" />
+              </span>
+              <span className="ms-1 footer-link">YouTube</span>
             </ListGroup.Item>
             <ListGroup.Item className="d-flex align-items-center justify-content-center">
-              <BsInstagram className="icon me-1" />
-              <span className="ms-1">Instagram</span>
+              <span className="icon-container d-flex justify-content-center align-items-center">
+                <BsInstagram className="icon me-1" />
+              </span>
+              <span className="ms-1 footer-link">Instagram</span>
             </ListGroup.Item>
             <ListGroup.Item className="d-flex align-items-center justify-content-center">
-              <BsTwitter className="icon me-1" />
-              <span className="ms-1">Twitter</span>
+              <span className="icon-container d-flex justify-content-center align-items-center">
+                <BsTwitter className="icon me-1" />
+              </span>
+              <span className="ms-1 footer-link">Twitter</span>
             </ListGroup.Item>
           </ListGroup>
         </Col>

@@ -31,9 +31,15 @@
       }
     }
 
-    .social {
-      .list-group-item {
-        width: 100%;
+    .list-group-item {
+      width: 100%;
+
+      .icon-container {
+        width: 10%;
+      }
+
+      .footer-link {
+        width: 35%;
       }
     }
   }
