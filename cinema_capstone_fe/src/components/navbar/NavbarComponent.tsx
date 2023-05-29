@@ -1,6 +1,14 @@
 import "./Navbar.scss";
 import { useEffect } from "react";
 import { compareAsc } from "date-fns";
+import {
+  PreferenceState,
+  setBg,
+  setCommercialConsense,
+  setNewsletterConsense,
+  setRemember,
+  setShowCP,
+} from "../../features/preferenceSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../app/store";
 import { useLocation } from "react-router-dom";
@@ -9,12 +17,6 @@ import { fetchUser } from "../../features/userSlice";
 import { UserCardComponent } from "./UserCardComponent";
 import { Navbar, Container, Row } from "react-bootstrap";
 import { SearchbarComponent } from "./searchbar/SearchbarComponent";
-import {
-  PreferenceState,
-  setBg,
-  setRemember,
-  setShowCP,
-} from "../../features/preferenceSlice";
 
 export const NavbarComponent = () => {
   let location = useLocation();
@@ -28,6 +30,8 @@ export const NavbarComponent = () => {
       dispatch(setRemember(preferences.remember));
       dispatch(setBg(preferences.bg));
       dispatch(setShowCP(preferences.showCP));
+      dispatch(setCommercialConsense(preferences.commercialConsense));
+      dispatch(setNewsletterConsense(preferences.newsletterConsense));
 
       // if user checked remember data while last login, than automatically try to login
       if (preferences.remember) {

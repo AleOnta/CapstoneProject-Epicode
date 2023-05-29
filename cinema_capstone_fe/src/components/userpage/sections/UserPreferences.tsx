@@ -1,7 +1,12 @@
 import { Button, Col, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
-import { setBg, setShowCP } from "../../../features/preferenceSlice";
+import {
+  setBg,
+  setCommercialConsense,
+  setNewsletterConsense,
+  setShowCP,
+} from "../../../features/preferenceSlice";
 import { useEffect } from "react";
 import { setRemember } from "../../../features/preferenceSlice";
 import { logout } from "../../../features/userSlice";
@@ -63,11 +68,19 @@ export const UserPreferences = () => {
           type="switch"
           id="newsletter-switch"
           label="Subscribe to our newsletter!"
+          checked={preferenceStore.newsletterConsense}
+          onChange={() =>
+            dispatch(setNewsletterConsense(!preferenceStore.newsletterConsense))
+          }
         />
         <Form.Check
           type="switch"
           id="discounts-switch"
           label="Receive offers and discounts updates!"
+          checked={preferenceStore.commercialConsense}
+          onChange={() =>
+            dispatch(setCommercialConsense(!preferenceStore.commercialConsense))
+          }
         />
         <Form.Check
           type="switch"
