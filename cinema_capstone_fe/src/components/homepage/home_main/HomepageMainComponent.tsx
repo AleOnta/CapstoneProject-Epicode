@@ -13,7 +13,7 @@ export const HomepageMainComponent = () => {
     <Container className="homepage">
       <Row className="mt-5">
         <Col xs={12} className="homepage-main-content-column mb-5 py-5">
-          <Row>
+          <Row className="home-movies-row">
             <Col xs={12} className="p-0">
               <Link to="/programs">
                 <h2 className="homepage-mainTitle mb-5 p-3">
@@ -60,7 +60,7 @@ export const HomepageMainComponent = () => {
             INCOMING
             <hr className="m-0 " />
           </h5>
-          <Row>
+          <Row className="home-movies-row">
             <Col
               xs={12}
               className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"

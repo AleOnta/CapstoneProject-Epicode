@@ -108,14 +108,16 @@ export const CheckoutPageComponent = () => {
               <Row>
                 <Col>
                   {selectedProgram && (
-                    <Card className="check-out-card d-flex flex-row align-items-center">
+                    <Card className="check-out-card d-flex flex-column flex-md-row align-items-center">
                       <Card.Img
                         src={`https://image.tmdb.org/t/p/w500${selectedProgram.movie.posterPath}`}
                         alt="movie poster"
                       />
                       <Card.Body className="movie-data h-100">
-                        <Card.Title>{selectedProgram.movie.title}</Card.Title>
-                        <Card.Text className="card-genres mb-5">
+                        <Card.Title className="text-center text-md-start">
+                          {selectedProgram.movie.title}
+                        </Card.Title>
+                        <Card.Text className="card-genres mb-2 mb-md-5">
                           {selectedProgram.movie.genre
                             .split("|")
                             .map((genre, index) => (
@@ -139,12 +141,20 @@ export const CheckoutPageComponent = () => {
                         <Card.Text className="card-data mb-0">
                           Length: {selectedProgram.movie.filmLength} min
                         </Card.Text>
-                        <Card.Text className="card-data mb-0">
-                          Produced by:
+                        <Card.Text className="card-data genres mb-0">
+                          Produced by:{" "}
                           {selectedProgram.movie.prodCompany
                             .split("|")
                             .map((company, index) => (
-                              <span key={index + "-company"}>{company}</span>
+                              <span key={index + "-company"}>
+                                {company +
+                                  (index !==
+                                  selectedProgram.movie.prodCompany.split("|")
+                                    .length -
+                                    1
+                                    ? ", "
+                                    : ".")}
+                              </span>
                             ))}
                         </Card.Text>
                       </Card.Body>
@@ -154,22 +164,22 @@ export const CheckoutPageComponent = () => {
                 </Col>
               </Row>
               <Row>
-                <Col xs={12} className="check-out-main">
-                  <h5 className="p-3">Seats selection:</h5>
-                  <Row className="d-flex justify-content-around align-items-center">
-                    <Col xs={7} className="map-seats-container">
+                <Col xs={12} className="check-out-main mb-4">
+                  <h5 className="seat-selection-title mb-4">Seat selection:</h5>
+                  <Row className="d-flex justify-content-around align-items-center ">
+                    <Col xs={11} md={7} className="map-seats-container">
                       {selectedProgram && (
                         <SeatPickerComponent program={selectedProgram} />
                       )}
                     </Col>
-                    <Col xs={4} className="h-100">
-                      <Row className="d-flex flex-column justify-content-between h-100">
+                    <Col xs={11} md={5} className="mt-4 mt-md-0">
+                      <Row className="d-flex flex-column justify-content-end align-items-center right-row-container one">
                         <Col
                           xs={12}
                           className="date-container py-4 px-4 rounded mb-5"
                         >
                           <span className="d-flex align-items-center justify-content-between mb-3">
-                            <Form.Label className="me-3 mb-0">
+                            <Form.Label className="mb-0">
                               Select a date:
                             </Form.Label>
                             <DatePicker
@@ -274,14 +284,6 @@ export const CheckoutPageComponent = () => {
                         </Col>
                       </Row>
                     </Col>
-                  </Row>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <Row>
-                    <h5 className="payments-title">Payment methods:</h5>
-                    <Col className="payments-container"></Col>
                   </Row>
                 </Col>
               </Row>

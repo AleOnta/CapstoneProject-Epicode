@@ -96,10 +96,11 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   return (
     <Row className="d-flex justify-content-center">
       <Col
-        xs={6}
+        xs={8}
+        md={6}
         className="movie-spec mb-3 rounded d-flex align-items-center justify-content-center"
       >
-        <p className="movie-name p-2 mb-0">{relatedMovie?.title}</p>
+        <p className="movie-name p-2 mb-0 text-center">{relatedMovie?.title}</p>
       </Col>
       <Col
         xs={10}

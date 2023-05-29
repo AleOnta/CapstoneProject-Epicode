@@ -13,26 +13,63 @@
 
   .check-out-card {
     color: $white;
-    background-color: rgba(211, 211, 211, 0.445);
-    .card-img {
-      width: 15%;
+    //background-color: #d3d3d371;
+    background-color: rgba(89, 131, 252, 0);
+    background-image: linear-gradient(
+      180deg,
+      rgba(89, 131, 252, 0) 25%,
+      rgba(90, 90, 90, 1) 85%
+    );
+
+    @media screen and (min-width: 476px) {
+      background-image: linear-gradient(
+        180deg,
+        rgba(89, 131, 252, 0) 40%,
+        rgba(90, 90, 90, 1) 85%
+      );
     }
+
+    @media screen and (max-width: 767px) {
+      border-top: none;
+    }
+
+    @media screen and (min-width: 768px) {
+      background-color: #626262;
+    }
+
+    .card-img {
+      width: 40%;
+      max-width: 225px;
+      box-shadow: -13px 0 8px -8px black, 13px 0 8px -8px black;
+    }
+
     .card-body {
       .card-title {
         font-size: 1.5em;
+
+        @media screen and (min-width: 992px) {
+          font-size: 1.7em;
+        }
       }
       .card-text {
         font-size: 1em;
       }
 
       .genre {
-        font-size: 0.9em;
+        font-size: 0.75em;
         color: $ph-orange;
         background-color: $black;
+
+        @media screen and (min-width: 476px) {
+          font-size: 0.9em;
+        }
       }
 
       .card-data {
         font-size: 12px;
+        @media screen and (min-width: 992px) {
+          font-size: 0.9em;
+        }
       }
 
       .movie-data {
@@ -46,6 +83,10 @@
     *::after,
     *::before {
       box-sizing: border-box;
+    }
+
+    .seat-selection-title {
+      color: white;
     }
 
     .movie-spec {
@@ -169,46 +210,159 @@
       color: #7bc47f;
     }
 
+    .right-row-container {
+      margin-top: 20px;
+    }
+
+    .right-row-container.one {
+      @media screen and (min-width: 768px) {
+        height: 497px;
+        margin: 0;
+        margin-bottom: 10px;
+        margin-top: 0px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        height: 499px;
+      }
+    }
+
+    .right-row-container.two {
+      @media screen and (min-width: 768px) {
+        height: 600px;
+        margin: 0;
+        margin-bottom: 10px;
+        margin-top: 0px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        margin-bottom: 33px;
+      }
+    }
+
+    .right-row-container.three {
+      @media screen and (min-width: 768px) {
+        height: 473px;
+        margin: 0;
+        margin-bottom: 10px;
+        margin-top: 0px;
+      }
+
+      @media screen and (min-width: 992px) {
+        height: 448px;
+      }
+
+      @media screen and (min-width: 1200px) {
+        height: 450px;
+      }
+    }
+
     .date-container,
     .recap-container {
       color: white;
       background-color: rgba(211, 211, 211, 0.116);
-
+      max-width: 400px;
       .hour-select {
-        width: 60%;
-        font-size: 0.9em;
+        width: 50%;
+        font-size: 0.75em;
         border-radius: 5px;
         padding: 4.8px;
         background-color: rgb(221, 221, 221);
+
+        @media screen and (min-width: 576px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (min-width: 768px) {
+          font-size: 0.7em;
+          width: 60%;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.85em;
+        }
       }
 
       .date-picker-custom {
-        width: 60%;
+        width: 50%;
+        max-height: 30px;
+
+        @media screen and (min-width: 768px) {
+          width: 60%;
+        }
       }
 
       .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
-        font-size: 0.9em;
+        font-size: 0.75em;
+
+        @media screen and (min-width: 576px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (min-width: 768px) {
+          font-size: 0.7em;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.85em;
+        }
       }
 
       .css-i4bv87-MuiSvgIcon-root {
-        font-size: 0.8em;
+        font-size: 0.7em;
+
+        @media screen and (min-width: 576px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.85em;
+        }
       }
 
       .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-        width: 60%;
+        width: 50%;
         margin-bottom: 0 !important;
         border-radius: 5px;
         background-color: rgb(221, 221, 221);
+
+        @media screen and (min-width: 768px) {
+          width: 60%;
+        }
       }
 
       label {
-        font-size: 0.9em;
+        font-size: 0.8em;
         font-weight: 500;
+
+        @media screen and (min-width: 576px) {
+          font-size: 0.9em;
+        }
+
+        @media screen and (min-width: 768px) {
+          font-size: 0.7em;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.85em;
+        }
       }
 
       h6,
       p {
-        font-size: 0.9em;
+        font-size: 0.8em;
+
+        @media screen and (min-width: 576px) {
+          font-size: 0.9em;
+        }
+
+        @media screen and (min-width: 768px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 0.9em;
+        }
       }
 
       .check-out-button {
