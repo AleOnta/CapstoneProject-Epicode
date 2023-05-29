@@ -1,4 +1,4 @@
-import { Col, Form } from "react-bootstrap";
+import { Button, Col, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
 import { setBg, setShowCP } from "../../../features/preferenceSlice";
@@ -57,6 +57,10 @@ export const UserPreferences = () => {
           onChange={() => dispatch(setShowCP(!preferenceStore.showCP))}
         />
       </Form>
+
+      <Button variant="outline" className="logout-button mt-5 px-4">
+        Logout
+      </Button>
     </Col>
   );
 };

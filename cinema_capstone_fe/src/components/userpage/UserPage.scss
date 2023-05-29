@@ -2,13 +2,27 @@
 
 .user-col-container {
   background-color: $extra_light;
+  min-height: 50vh;
 
   .accordion-button {
-    background-color: $modals-bg;
+    background-color: $main-blue;
     color: white;
+
+    &:focus {
+      -webkit-box-shadow: 4px 4px 20px -5px rgba(88, 88, 88, 1);
+      -moz-box-shadow: 4px 4px 20px -5px rgba(88, 88, 88, 1);
+      box-shadow: 4px 4px 20px -5px rgba(88, 88, 88, 1);
+    }
+
+    &:not(.collapsed) {
+      -webkit-box-shadow: 0px 1px 0px 0px rgba(88, 88, 88, 1);
+      -moz-box-shadow: 0px 1px 0px 0px rgba(88, 88, 88, 1);
+      box-shadow: 0px 1px 0px 0px rgba(88, 88, 88, 1);
+    }
   }
   .accordion-item {
     background-color: $modals-bg;
+    border-color: $dim-gray;
   }
 }
 
@@ -87,6 +101,27 @@
   align-items: center;
   flex-wrap: nowrap;
   overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 9px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: $silver;
+    border: 1px solid #ccc;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: white;
+    border: 1px solid $davys-gray;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(left, #22add4, #1e98ba);
+  }
 
   h1,
   h2,
@@ -337,6 +372,21 @@
         color: $silver;
         content: "  -  with toggle on, you accept our terms and conditions policy";
       }
+    }
+  }
+
+  .logout-button {
+    color: white;
+    font-size: 0.9em;
+    background-color: $davys-gray;
+    padding: 7px 24px;
+    transition: 0.3s;
+
+    &:hover {
+      font-size: 0.95em;
+      background-color: dimgray;
+      padding: 6px 24px;
+      transition: 0.3s;
     }
   }
 }
