@@ -7,15 +7,15 @@ export const FooterComponent = () => {
   return (
     <>
       <Row className="d-flex align-items-start justify-content-center footer-top-row pt-5">
-        <Col xs={3} md={2}>
-          <h5 className="footer-col-title text-center">CONTACTS</h5>
+        <Col xs={3} md={2} className="text-center">
+          <h5 className="footer-col-title">CONTACTS</h5>
           <ListGroup>
             <ListGroup.Item>FAQ</ListGroup.Item>
             <ListGroup.Item>Send us an email</ListGroup.Item>
             <ListGroup.Item>Call us</ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xs={3} md={2} className="d-none d-sm-block text-center">
+        <Col xs={3} md={2} className="d-none d-md-block text-center">
           <h5 className="footer-col-title ">THYNK MEDIA</h5>
           <ListGroup>
             <ListGroup.Item>About us</ListGroup.Item>

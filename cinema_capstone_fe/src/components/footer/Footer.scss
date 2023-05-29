@@ -33,6 +33,15 @@
 
     .list-group-item {
       width: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      color: $dim-gray;
+      transition: 0.1s;
+      &:hover {
+        transition: 0.1s;
+        text-decoration: underline;
+        color: $ph-orange;
+      }
 
       .icon-container {
         width: 10%;
@@ -43,16 +52,16 @@
       }
     }
   }
+}
 
-  .thynk-logo {
-    width: 180px;
+.thynk-logo {
+  width: 180px;
 
-    @media screen and (min-width: 768px) {
-      width: 200px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 200px;
+  }
 
-    @media screen and (min-width: 1200px) {
-      width: 230px;
-    }
+  @media screen and (min-width: 1200px) {
+    width: 230px;
   }
 }
