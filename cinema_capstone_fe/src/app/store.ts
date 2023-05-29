@@ -6,6 +6,7 @@ import newsSlice from "../features/newsSlice";
 import userSlice from "../features/userSlice";
 import ticketSlice from "../features/ticketSlice";
 import checkoutSlice from "../features/checkoutSlice";
+import preferenceSlice from "../features/preferenceSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,8 +15,9 @@ export const store = configureStore({
     programs: programSlice,
     news: newsSlice,
     user: userSlice,
-    tickets: ticketSlice,
+    preferences: preferenceSlice,
     checkout: checkoutSlice,
+    tickets: ticketSlice,
   },
 });
 
