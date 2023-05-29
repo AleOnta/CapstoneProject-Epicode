@@ -12,7 +12,7 @@ export const AuthPageComponent = () => {
   const notifySuccess = (message: string) => {
     toast.success(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3200,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -25,7 +25,7 @@ export const AuthPageComponent = () => {
   const notifyRedirect = (message: string) => {
     toast.success(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3200,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -38,7 +38,7 @@ export const AuthPageComponent = () => {
   const notifyFailure = (message: string) => {
     toast.error(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3200,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

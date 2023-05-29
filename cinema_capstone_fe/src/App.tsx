@@ -41,7 +41,6 @@ function App() {
         moviesArray.push(movieFound);
       }
     });
-    console.log(moviesArray);
     return moviesArray;
   };
 
@@ -58,18 +57,19 @@ function App() {
   };
 
   useEffect(() => {
-    dispatch(fetchMovies());
-    dispatch(fetchPrograms());
-    dispatch(fetchRooms());
-    dispatch(fetchNews());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
     retrieveInRoomMovies();
     retrieveIncomingMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store.programs.incoming]);
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+    dispatch(fetchPrograms());
+    dispatch(fetchRooms());
+    dispatch(fetchNews());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <BrowserRouter>
