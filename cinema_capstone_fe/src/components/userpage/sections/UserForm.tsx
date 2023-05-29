@@ -13,6 +13,7 @@ export const UserForm = () => {
   const usersURL = "http://localhost:8080/api/users";
   const loginURL = "http://localhost:8080/api/auth/login";
   const currentUser = useSelector((state: RootState) => state.user);
+  const userPreferences = useSelector((state: RootState) => state.preferences);
   const [validated, setValidated] = useState<boolean>(false);
   const [receivedValues, setReceivedValues] = useState<UserDto>({
     firstname: "",
@@ -51,7 +52,7 @@ export const UserForm = () => {
   };
 
   const handleTkn = () => {
-    switch (currentUser.remember) {
+    switch (userPreferences.remember) {
       case true: {
         const tkn = localStorage.getItem("tkn");
         if (tkn) return JSON.parse(tkn);
@@ -107,7 +108,7 @@ export const UserForm = () => {
       )
       .then((response) => {
         response.status === 200 && notifySuccess("Credentials updated!");
-        switch (currentUser.remember) {
+        switch (userPreferences.remember) {
           case true: {
             handleLocalStorage("user", JSON.stringify(receivedValues.username));
             break;
@@ -138,7 +139,7 @@ export const UserForm = () => {
             .then((response) => {
               if (response.status === 200) {
                 const data = response.data;
-                switch (currentUser.remember) {
+                switch (userPreferences.remember) {
                   case true: {
                     let expiration = new Date();
                     expiration.setDate(expiration.getDate() + 7);

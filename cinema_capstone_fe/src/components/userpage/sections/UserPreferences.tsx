@@ -1,11 +1,19 @@
 import { Col, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
-import { setBg, setShowCP } from "../../../features/userSlice";
+import { setBg, setShowCP } from "../../../features/preferenceSlice";
+import { useEffect } from "react";
 
 export const UserPreferences = () => {
   const dispatch: AppDispatch = useDispatch();
-  const userStore = useSelector((state: RootState) => state.user);
+  const preferenceStore = useSelector((state: RootState) => state.preferences);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "my-thynk-preferences",
+      JSON.stringify(preferenceStore)
+    );
+  }, [preferenceStore]);
 
   return (
     <Col xs={12} className="preferences-container p-1">
@@ -26,7 +34,7 @@ export const UserPreferences = () => {
         <Form.Control
           type="color"
           id="ColorInput"
-          defaultValue={userStore.bg}
+          defaultValue={preferenceStore.bg}
           title="Choose your color"
           onChange={(e) => dispatch(setBg(e.target.value))}
         />
@@ -45,8 +53,8 @@ export const UserPreferences = () => {
           type="switch"
           id="cinema-points-switch"
           label="Show cinema point in your user card"
-          checked={userStore.showCP}
-          onChange={() => dispatch(setShowCP(!userStore.showCP))}
+          checked={preferenceStore.showCP}
+          onChange={() => dispatch(setShowCP(!preferenceStore.showCP))}
         />
       </Form>
     </Col>

@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../app/store";
 import { LoginDto } from "../../interfaces/iUser";
+import { fetchUser } from "../../features/userSlice";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { AuthComponentProps } from "../../interfaces/CommonInterfaces";
-import { fetchUser, setRemember } from "../../features/userSlice";
+import { PreferenceState, setRemember } from "../../features/preferenceSlice";
 
 export const LoginComponent = ({
   successCallback,
@@ -17,6 +18,7 @@ export const LoginComponent = ({
   const navigate = useNavigate();
   const loginURL = "http://localhost:8080/api/auth/login";
   const dispatch: AppDispatch = useDispatch();
+  const preferencesStore = useSelector((state: RootState) => state.preferences);
   const [validated, setValidated] = useState<boolean | undefined>(false);
   const [loginDto, setLoginDto] = useState<LoginDto>({
     username: "",
@@ -24,7 +26,10 @@ export const LoginComponent = ({
     remember: false,
   });
 
-  const handleLocalStorage = (propName: string, value: string) => {
+  const handleLocalStorage = (
+    propName: string,
+    value: string | PreferenceState
+  ) => {
     localStorage.setItem(propName, JSON.stringify(value));
   };
 
@@ -55,25 +60,28 @@ export const LoginComponent = ({
       )
       .then((response) => {
         if (response?.status === 200) {
-          console.log(response);
           successCallback("Logged in!");
           redirectCallback &&
             redirectCallback("You'll be redirected in a few moments");
           const data = response.data;
           // always save username in LS
-          handleLocalStorage("user", loginDto.username);
+          handleLocalStorage("my-thynk-username", loginDto.username);
 
           switch (loginDto.remember) {
             case true: {
               let expiration = new Date();
               expiration.setDate(expiration.getDate() + 7);
-              handleLocalStorage("tkn", data.accessToken);
-              handleLocalStorage("exp", expiration.toISOString().slice(0, 10));
+              handleLocalStorage("my-thynk-token", data.accessToken);
+              handleLocalStorage(
+                "my-thynk-token-expiration",
+                expiration.toISOString().slice(0, 10)
+              );
+              handleLocalStorage("my-thynk-preferences", preferencesStore);
               break;
             }
             case false: {
               handleSessionStorage("user", loginDto.username);
-              handleSessionStorage("tkn", data.accessToken);
+              handleSessionStorage("my-thynk-token", data.accessToken);
             }
           }
         }
@@ -83,11 +91,11 @@ export const LoginComponent = ({
         if (location.includes("/auth/login-ch")) {
           setTimeout(() => {
             navigate(-1);
-          }, 5200);
+          }, 4000);
         } else {
           setTimeout(() => {
             navigate("/home");
-          }, 5200);
+          }, 4000);
         }
       })
       .catch((error) => {
@@ -156,6 +164,7 @@ export const LoginComponent = ({
                 ...loginDto,
                 remember: !loginDto.remember,
               });
+              dispatch(setRemember(!loginDto.remember));
             }}
           />
           <Form.Label className="m-0 ps-2 checkbox-label">

@@ -9,26 +9,51 @@ import { fetchUser } from "../../features/userSlice";
 import { UserCardComponent } from "./UserCardComponent";
 import { Navbar, Container, Row } from "react-bootstrap";
 import { SearchbarComponent } from "./searchbar/SearchbarComponent";
+import {
+  PreferenceState,
+  setBg,
+  setRemember,
+  setShowCP,
+} from "../../features/preferenceSlice";
 
 export const NavbarComponent = () => {
   let location = useLocation();
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    const jwtStringExp = localStorage.getItem("expiration");
+    // retrieve persisted preferences redux slice and rehydrate it
+    let persistedPreferences = localStorage.getItem("my-thynk-preferences");
+    if (persistedPreferences) {
+      let preferences: PreferenceState = JSON.parse(persistedPreferences);
+      dispatch(setRemember(preferences.remember));
+      dispatch(setBg(preferences.bg));
+      dispatch(setShowCP(preferences.showCP));
 
-    if (jwtStringExp !== null) {
-      const jwtExpDate = new Date(jwtStringExp);
-      const isStillValid = compareAsc(jwtExpDate, new Date());
-      if (isStillValid === 0 || isStillValid === 1) {
-        const username = localStorage.getItem("user");
-        username && console.log(username.substring(1, username.length - 1));
-        username &&
-          dispatch(fetchUser(username.substring(1, username.length - 1)));
-      } else {
-        localStorage.clear();
+      // if user checked remember data while last login, than automatically try to login
+      if (preferences.remember) {
+        let persistedTokenExpiration = localStorage.getItem(
+          "my-thynk-token-expiration"
+        );
+        if (persistedTokenExpiration) {
+          let expiration = new Date(JSON.parse(persistedTokenExpiration));
+          let validation = compareAsc(expiration, new Date());
+          switch (validation) {
+            case 0 || 1: {
+              const persistedUsername =
+                localStorage.getItem("my-thynk-username");
+              persistedUsername &&
+                dispatch(fetchUser(JSON.parse(persistedUsername)));
+              break;
+            }
+            case -1: {
+              console.log("expired token");
+              break;
+            }
+          }
+        }
       }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

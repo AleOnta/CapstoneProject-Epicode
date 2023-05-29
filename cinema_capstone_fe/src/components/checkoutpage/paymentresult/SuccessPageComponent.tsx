@@ -13,8 +13,8 @@ import { fetchPrograms } from "../../../features/programSlice";
 
 export const SuccessPageComponent = () => {
   const dispatch: AppDispatch = useDispatch();
-  const JSONusername = localStorage.getItem("user");
-  const receivedData = sessionStorage.getItem("checkoutData");
+  const JSONusername = localStorage.getItem("my-thynk-username");
+  const receivedData = sessionStorage.getItem("mt-thynk-checkout-cart");
   const [result, setResult] = useState<boolean>(false);
   const [fulfilled, setFulfilled] = useState<boolean>(false);
   const ticketURL = "http://localhost:8080/api/tickets";

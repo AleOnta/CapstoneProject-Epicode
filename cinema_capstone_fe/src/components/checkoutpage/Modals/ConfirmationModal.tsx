@@ -50,7 +50,7 @@ export const ConfirmationModal = ({ show, setShow }: ModalProps) => {
 
   const saveCheckoutData = () => {
     const JsonCheckoutStore = JSON.stringify(checkoutStore);
-    sessionStorage.setItem("checkoutData", JsonCheckoutStore);
+    sessionStorage.setItem("my-thynk-checkout-cart", JsonCheckoutStore);
   };
 
   return (

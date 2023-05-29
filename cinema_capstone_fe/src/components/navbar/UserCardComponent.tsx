@@ -6,6 +6,8 @@ import { RootState } from "../../app/store";
 
 export const UserCardComponent = () => {
   const userStore = useSelector((state: RootState) => state.user);
+  const preferencesStore = useSelector((state: RootState) => state.preferences);
+
   return (
     <Col
       xs={6}
@@ -18,7 +20,7 @@ export const UserCardComponent = () => {
             <Card.Body className="d-flex align-items-center justify-content-around p-0 p-xl-1">
               <div
                 className="userCard-pic mx-1 mx-md-0 d-flex align-items-center justify-content-center"
-                style={{ backgroundColor: userStore.bg }}
+                style={{ backgroundColor: preferencesStore.bg }}
               >
                 <span>
                   {userStore.logged_in.firstname.charAt(0) +
@@ -30,10 +32,10 @@ export const UserCardComponent = () => {
                 <Card.Title className="userCard-title">
                   {userStore.logged_in.username}
                 </Card.Title>
-                <Card.Text className="userCard-paragraphs">
-                  <p>{`${userStore.logged_in.firstname} ${userStore.logged_in.lastname}`}</p>
-                  {userStore.showCP && (
-                    <p>Points: {userStore.logged_in.cinemaPoints}</p>
+                <Card.Text className="userCard-paragraphs d-flex flex-column">
+                  <span>{`${userStore.logged_in.firstname} ${userStore.logged_in.lastname}`}</span>
+                  {preferencesStore.showCP && (
+                    <span>Points: {userStore.logged_in.cinemaPoints}</span>
                   )}
                 </Card.Text>
               </div>

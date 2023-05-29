@@ -6,18 +6,13 @@ const usersURL = "http://localhost:8080/api/users";
 
 interface IUserState {
   logged_in: IUserSafe | null;
-  remember: boolean;
-  showCP: boolean;
-  bg: string;
+
   status: string;
   error: string | null;
 }
 
 const initialState: IUserState = {
   logged_in: null,
-  remember: false,
-  showCP: true,
-  bg: "#000000",
   status: "idle",
   error: null,
 };
@@ -38,17 +33,7 @@ export const fetchUser = createAsyncThunk(
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    setRemember: (state, action) => {
-      state.remember = action.payload;
-    },
-    setShowCP: (state, action) => {
-      state.showCP = action.payload;
-    },
-    setBg: (state, action) => {
-      state.bg = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchUser.pending, (state) => {
       state.status = "loading";
@@ -78,5 +63,4 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setRemember, setShowCP, setBg } = userSlice.actions;
 export default userSlice.reducer;
