@@ -88,7 +88,7 @@ export const MovieCardComponent = ({ movie }: IMovieProps) => {
               </h6>
               <Card.Text>
                 <span className="row-content">Plot:</span>
-                <p className="actual-plot mb-5">{movie.plot}</p>
+                <span className="actual-plot mb-5"> {movie.plot}</span>
               </Card.Text>
               <MovieDynamicSpecs movie={movie} />
             </Card.Body>

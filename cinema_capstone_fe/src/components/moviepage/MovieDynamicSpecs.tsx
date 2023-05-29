@@ -53,7 +53,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
             <div
               className="progress mt-1 "
               data-height={8}
-              style={{ height: 8 + "px;" }}
+              style={{ height: 8 + "px" }}
             >
               <ProgressBar
                 className="l-bg-cyan"
@@ -62,7 +62,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%;" }}
+                style={{ width: 25 + "%" }}
               ></ProgressBar>
             </div>
           </div>
@@ -93,7 +93,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
             <div
               className="progress mt-1 "
               data-height={8}
-              style={{ height: 8 + "px;" }}
+              style={{ height: 8 + "px" }}
             >
               <ProgressBar
                 className="l-bg-green"
@@ -102,7 +102,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%;" }}
+                style={{ width: 25 + "%" }}
               ></ProgressBar>
             </div>
           </div>
@@ -133,7 +133,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
             <div
               className="progress mt-1 "
               data-height={8}
-              style={{ height: 8 + "px;" }}
+              style={{ height: 8 + "px" }}
             >
               <ProgressBar
                 className="l-bg-orange"
@@ -142,7 +142,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%;" }}
+                style={{ width: 25 + "%" }}
               ></ProgressBar>
             </div>
           </div>
@@ -176,7 +176,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
             <div
               className="progress mt-1 "
               data-height={8}
-              style={{ height: 8 + "px;" }}
+              style={{ height: 8 + "px" }}
             >
               <ProgressBar
                 className="l-bg-cyan"
@@ -185,7 +185,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%;" }}
+                style={{ width: 25 + "%" }}
               ></ProgressBar>
             </div>
           </div>
