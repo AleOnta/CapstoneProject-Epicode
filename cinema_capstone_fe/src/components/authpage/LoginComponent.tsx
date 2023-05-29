@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { LoginDto } from "../../interfaces/iUser";
@@ -108,6 +108,17 @@ export const LoginComponent = ({
         }
       });
   };
+
+  useEffect(() => {
+    let localUsername = localStorage.getItem("my-thynk-username");
+    if (localUsername) {
+      setLoginDto({
+        ...loginDto,
+        username: JSON.parse(localUsername),
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Form noValidate validated={validated} onSubmit={(e) => handleSubmit(e)}>

@@ -3,12 +3,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
 import { setBg, setShowCP } from "../../../features/preferenceSlice";
 import { useEffect } from "react";
+import { setRemember } from "../../../features/preferenceSlice";
+import { logout } from "../../../features/userSlice";
+import { useNavigate } from "react-router";
 
 export const UserPreferences = () => {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
   const preferenceStore = useSelector((state: RootState) => state.preferences);
 
+  const userLogout = () => {
+    // set of remember user data in local storage as false / prevents self login
+    dispatch(setRemember(false));
+    // return userSlice redux store as initialState
+    dispatch(logout());
+    // clearance of local storage from keys such as jwt token and its expiration
+    localStorage.removeItem("my-thynk-token");
+    localStorage.removeItem("my-thynk-token-expiration");
+    // clearance of session storage from keys such as jwt token
+    sessionStorage.removeItem("my-thynk-token");
+
+    // navigate to homepage
+    setTimeout(() => navigate("/home"), 500);
+  };
+
   useEffect(() => {
+    // save in local storage preferences update, if presents
     localStorage.setItem(
       "my-thynk-preferences",
       JSON.stringify(preferenceStore)
@@ -58,7 +78,13 @@ export const UserPreferences = () => {
         />
       </Form>
 
-      <Button variant="outline" className="logout-button mt-5 px-4">
+      <Button
+        variant="outline"
+        className="logout-button mt-5 px-4"
+        onClick={() => {
+          userLogout();
+        }}
+      >
         Logout
       </Button>
     </Col>

@@ -1,6 +1,6 @@
 import "./AuthPage.scss";
 import "react-toastify/dist/ReactToastify.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LoginComponent } from "./LoginComponent";
 import logo from "../../assets/imgs/cinemaLogo.png";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,6 +8,7 @@ import { RegisterComponent } from "./RegisterComponent";
 
 export const AuthPageComponent = () => {
   const location = useLocation().pathname;
+  const navigate = useNavigate();
 
   const notifySuccess = (message: string) => {
     toast.success(message, {
@@ -50,7 +51,12 @@ export const AuthPageComponent = () => {
 
   return (
     <>
-      <img src={logo} alt="cinema logo" className="auth-logo" />
+      <img
+        src={logo}
+        alt="cinema logo"
+        className="auth-logo"
+        onClick={() => navigate("/home")}
+      />
       <div
         className={`register-column rounded p-4 d-flex flex-column justify-content-start ${
           (location === "/auth/login" || location.includes("/auth/login-ch")) &&
@@ -75,6 +81,12 @@ export const AuthPageComponent = () => {
             redirectCallback={notifyRedirect}
           />
         )}
+        <div className="lower-section text-center mt-4">
+          <p className="mb-2">OR</p>
+          <Link to="/home" className="link-to-home">
+            return to homepage
+          </Link>
+        </div>
       </div>
       <ToastContainer />
     </>

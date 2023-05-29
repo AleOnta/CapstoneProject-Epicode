@@ -9,6 +9,10 @@
   margin-right: auto;
   width: 12%;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @media screen and (max-width: 1199px) {
     top: 25px;
   }
@@ -52,6 +56,8 @@
   }
 
   .link-to-login {
+    margin-left: 4px;
+    color: $night;
     transition: 0.1s;
     &:hover {
       text-decoration: underline;
@@ -147,5 +153,22 @@
   .input-group-text {
     padding: 0;
     background-color: inherit;
+    border: none;
+  }
+}
+
+.lower-section {
+  p {
+    font-weight: 600;
+  }
+  .link-to-home {
+    font-size: 0.9em;
+    color: $silver;
+    transition: 0.1s;
+    &:hover {
+      text-decoration: underline;
+      color: $ph-orange;
+      transition: 0.1s;
+    }
   }
 }
