@@ -24,6 +24,63 @@
     background-color: $modals-bg;
     border-color: $dim-gray;
   }
+
+  .user-btn.user-home-button {
+    width: 300px;
+  }
+
+  .user-btn {
+    width: 180px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 22px;
+    border-color: $dim-gray;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: $silver;
+    -webkit-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    position: relative;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $dim-gray;
+
+      .span-tag {
+        margin-right: 0;
+        transition: 0.3s;
+      }
+    }
+
+    .span-tag {
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+  }
+
+  .user-btn .icon.icon-round {
+    border-radius: 50%;
+  }
+
+  .user-btn .icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    bottom: 0;
+    background: #fff;
+
+    .card-btn-icon {
+      color: black;
+    }
+  }
 }
 
 // USER FORM SECTION
@@ -158,6 +215,13 @@
       transition: 0.2s;
     }
 
+    @media screen and (max-width: 500px) {
+      width: 70%;
+      max-width: 70%;
+      margin: 1em;
+      display: block;
+    }
+
     @media screen and (min-width: 768px) {
       min-width: none;
       max-width: none;
@@ -167,6 +231,19 @@
       max-width: 100%;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
+    }
+
+    .qr-container {
+      background-color: $davys-gray;
+      height: 315px;
+
+      @media screen and (min-width: 768px) {
+        height: 375px;
+      }
+
+      .user-qr-code {
+        height: fit-content;
+      }
     }
   }
 
@@ -255,15 +332,6 @@
 
     @media screen and (min-width: 768px) {
       font-size: 12px;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .user-movie-card {
-      width: 95%;
-      max-width: 95%;
-      margin: 1em;
-      display: block;
     }
   }
 }
@@ -374,6 +442,8 @@
       }
     }
   }
+
+  // BUTTONS
 
   .logout-button {
     color: white;
