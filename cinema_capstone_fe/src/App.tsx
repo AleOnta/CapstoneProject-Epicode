@@ -26,6 +26,7 @@ import { ProgramsPageComponent } from "./components/programspage/ProgramsPageCom
 import { CheckoutPageComponent } from "./components/checkoutpage/CheckoutPageComponent";
 import { CancelPageComponent } from "./components/checkoutpage/paymentresult/CancelPageComponent";
 import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/SuccessPageComponent";
+import { RedirectHomepage } from "./components/checkoutpage/paymentresult/RedirectHomepage";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -96,6 +97,10 @@ function App() {
             <Route path="/check-out/:id" element={<CheckoutPageComponent />} />
             <Route path="/success" element={<SuccessPageComponent />} />
             <Route path="/cancelled" element={<CancelPageComponent />} />
+            <Route
+              path="/redirect-to-homepage"
+              element={<RedirectHomepage />}
+            />
           </Routes>
         </Container>
       </LocalizationProvider>
