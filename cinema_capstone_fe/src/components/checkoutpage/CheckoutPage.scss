@@ -1,7 +1,7 @@
 @import "../../assets/style/variables.scss";
 
 .check-out-container {
-  min-height: 100vh;
+  min-height: 80vh;
 
   .check-out-title {
     color: $white;
@@ -373,6 +373,15 @@
   }
 }
 
+.isLoading {
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.row-loader {
+  transition: 0.4s;
+}
+
 .authModal {
   width: 45%;
   position: fixed;
@@ -383,5 +392,140 @@
 
   .modal-title {
     font-size: 1.3em;
+  }
+}
+
+.checkout-loader-container {
+  position: absolute;
+  top: 45%;
+  bottom: 0;
+  left: -65px;
+  right: 0;
+  margin: auto;
+  .loader {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+    margin: 15px auto;
+    position: relative;
+    color: #fff;
+    left: -100px;
+    box-sizing: border-box;
+    animation: shadowRolling 2s linear infinite;
+  }
+
+  @keyframes shadowRolling {
+    0% {
+      box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+        0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+    }
+    12% {
+      box-shadow: 100px 0 white, 0px 0 rgba(255, 255, 255, 0),
+        0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+    }
+    25% {
+      box-shadow: 110px 0 white, 100px 0 white, 0px 0 rgba(255, 255, 255, 0),
+        0px 0 rgba(255, 255, 255, 0);
+    }
+    36% {
+      box-shadow: 120px 0 white, 110px 0 white, 100px 0 white,
+        0px 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+      box-shadow: 130px 0 white, 120px 0 white, 110px 0 white, 100px 0 white;
+    }
+    62% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 white, 120px 0 white,
+        110px 0 white;
+    }
+    75% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+        130px 0 white, 120px 0 white;
+    }
+    87% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+        200px 0 rgba(255, 255, 255, 0), 130px 0 white;
+    }
+    100% {
+      box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+        200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+    }
+  }
+}
+
+.checkout-top-column {
+  .cout-btn {
+    width: 135px;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 22px;
+    border-color: $dim-gray;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: $silver;
+    -webkit-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    position: relative;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+    @media screen and (min-width: 476px) {
+      width: 150px;
+      font-size: 14px;
+    }
+    @media screen and (min-width: 576px) {
+      width: 160px;
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 170px;
+      padding: 7px 11px;
+      font-size: 14px;
+    }
+
+    &:hover {
+      background-color: $dim-gray;
+
+      .span-tag {
+        margin-right: 0;
+        transition: 0.3s;
+      }
+    }
+
+    .span-tag {
+      margin-right: 10px;
+      transition: 0.3s;
+    }
+  }
+
+  .cout-btn .icon.icon-round {
+    border-radius: 50%;
+  }
+
+  .cout-btn .icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    font-size: 14px;
+    bottom: 0;
+    background: #fff;
+
+    @media screen and (min-width: 768px) {
+      width: 37px;
+      font-size: 18px;
+    }
+
+    .card-btn-icon {
+      color: black;
+    }
   }
 }

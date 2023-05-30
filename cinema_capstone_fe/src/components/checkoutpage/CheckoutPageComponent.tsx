@@ -3,7 +3,7 @@ import "./CheckoutPage.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DatePicker } from "@mui/x-date-pickers";
 import { IProgram } from "../../interfaces/iProgram";
 import { FooterComponent } from "../footer/FooterComponent";
@@ -17,9 +17,11 @@ import {
 } from "../../features/checkoutSlice";
 import { AuthenticationModal } from "./Modals/AuthenticationModal";
 import { ConfirmationModal } from "./Modals/ConfirmationModal";
+import { AiOutlineHome } from "react-icons/ai";
 
 export const CheckoutPageComponent = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const store = useSelector((state: RootState) => state);
   const [modalShow, setModalShow] = useState<boolean>(false);
@@ -68,6 +70,17 @@ export const CheckoutPageComponent = () => {
     dispatch(setPickedDate(toDispatch));
   };
 
+  const defineCorrectClass = (roomName: string) => {
+    switch (roomName) {
+      case "green":
+        return "one";
+      case "blue":
+        return "two";
+      case "red":
+        return "three";
+    }
+  };
+
   useEffect(() => {
     if (
       selectedDateAndTime.date &&
@@ -95,13 +108,25 @@ export const CheckoutPageComponent = () => {
 
   return (
     <Row>
-      {store.programs.onGoing.length > 0 && (
+      {store.programs.onGoing.length > 0 && selectedProgram && (
         <>
           <Col xs={12}>
             <Container className="check-out-container">
               <Row>
-                <Col xs={12} className="mt-5">
-                  <h3 className="check-out-title mt-3">Check-Out:</h3>
+                <Col xs={12} className="mt-5 mb-2">
+                  <span className="d-flex flex-row justify-content-between align-items-center checkout-top-column">
+                    <h3 className="check-out-title m-0">Check-Out:</h3>
+                    <Button
+                      type="button"
+                      className="btn btn-block btn-round checkout-home-button cout-btn"
+                      onClick={() => navigate("/home")}
+                    >
+                      <span className="span-tag">Homepage</span>
+                      <div className="icon icon-round d-flex align-items-center justify-content-center">
+                        <AiOutlineHome className="card-btn-icon " />
+                      </div>
+                    </Button>
+                  </span>
                   <hr />
                 </Col>
               </Row>
@@ -167,13 +192,21 @@ export const CheckoutPageComponent = () => {
                 <Col xs={12} className="check-out-main mb-4">
                   <h5 className="seat-selection-title mb-4">Seat selection:</h5>
                   <Row className="d-flex justify-content-around align-items-center ">
-                    <Col xs={11} md={7} className="map-seats-container">
+                    <Col
+                      xs={11}
+                      md={7}
+                      className="map-seats-container position-relative"
+                    >
                       {selectedProgram && (
                         <SeatPickerComponent program={selectedProgram} />
                       )}
                     </Col>
                     <Col xs={11} md={5} className="mt-4 mt-md-0">
-                      <Row className="d-flex flex-column justify-content-end align-items-center right-row-container one">
+                      <Row
+                        className={`d-flex flex-column justify-content-end align-items-center right-row-container ${defineCorrectClass(
+                          selectedProgram?.room.name
+                        )}`}
+                      >
                         <Col
                           xs={12}
                           className="date-container py-4 px-4 rounded mb-5"

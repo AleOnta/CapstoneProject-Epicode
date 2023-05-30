@@ -22,6 +22,7 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
   const [occupiedSeats, setOccupiedSeats] = useState<number[]>();
   const [isLoading, setIsLoading] = useState<Boolean>(true);
+  const [loader, setLoader] = useState<Boolean>(true);
 
   const generateMapArray = (totalSeats: number) => {
     switch (totalSeats) {
@@ -67,6 +68,7 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   useEffect(() => {
     setRelatedMovie(program.movie);
     setRelatedRoom(null);
+    setTimeout(() => setLoader(false), 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -94,49 +96,63 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
   }, [pickedDateAndTime]);
 
   return (
-    <Row className="d-flex justify-content-center">
-      <Col
-        xs={8}
-        md={6}
-        className="movie-spec mb-3 rounded d-flex align-items-center justify-content-center"
+    <>
+      <Row
+        className={`d-flex justify-content-center row-loader ${
+          loader && "isLoading"
+        }`}
       >
-        <p className="movie-name p-2 mb-0 text-center">{relatedMovie?.title}</p>
-      </Col>
-      <Col
-        xs={10}
-        className="legend d-flex align-items-center justify-content-center rounded"
-      >
-        <ul
-          className="d-flex align-items-center justify-content-center p-2 mb-3 rounded "
-          style={{ listStyle: "none" }}
+        <Col
+          xs={8}
+          md={6}
+          className="movie-spec mb-3 rounded d-flex align-items-center justify-content-center"
         >
-          <li className="d-flex align-items-center">
-            <span className="seat me-1" />
-            <p className="mb-0 me-3">N/A</p>
-          </li>
-          <li className="d-flex align-items-center">
-            <span className="seat me-1 selected" />
-            <p className="mb-0 me-3">Selected</p>
-          </li>
-          <li className="d-flex align-items-center">
-            <span className="seat me-1 occupied" />
-            <p className="mb-0 me-3">Occupied</p>
-          </li>
-        </ul>
-      </Col>
-      {relatedMovie &&
-        selectedSeats &&
-        occupiedSeats &&
-        seats.length > 0 &&
-        !isLoading && (
-          <SeatMapComponent
-            seats={seats}
-            selectedMovie={relatedMovie}
-            occupiedSeats={occupiedSeats}
-            selectedSeats={selectedSeats}
-            setSelectedSeats={handleSelectedSeats}
-          />
-        )}
-    </Row>
+          <p className="movie-name p-2 mb-0 text-center">
+            {relatedMovie?.title}
+          </p>
+        </Col>
+        <Col
+          xs={10}
+          className="legend d-flex align-items-center justify-content-center rounded"
+        >
+          <ul
+            className="d-flex align-items-center justify-content-center p-2 mb-3 rounded "
+            style={{ listStyle: "none" }}
+          >
+            <li className="d-flex align-items-center">
+              <span className="seat me-1" />
+              <p className="mb-0 me-3">N/A</p>
+            </li>
+            <li className="d-flex align-items-center">
+              <span className="seat me-1 selected" />
+              <p className="mb-0 me-3">Selected</p>
+            </li>
+            <li className="d-flex align-items-center">
+              <span className="seat me-1 occupied" />
+              <p className="mb-0 me-3">Occupied</p>
+            </li>
+          </ul>
+        </Col>
+        {relatedMovie &&
+          selectedSeats &&
+          occupiedSeats &&
+          seats.length > 0 &&
+          !isLoading && (
+            <SeatMapComponent
+              seats={seats}
+              selectedMovie={relatedMovie}
+              occupiedSeats={occupiedSeats}
+              selectedSeats={selectedSeats}
+              setSelectedSeats={handleSelectedSeats}
+            />
+          )}
+      </Row>
+
+      {loader && (
+        <div className="checkout-loader-container">
+          <span className="loader"></span>
+        </div>
+      )}
+    </>
   );
 };
