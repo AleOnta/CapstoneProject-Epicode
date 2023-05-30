@@ -80,7 +80,7 @@ export const LoginComponent = ({
               break;
             }
             case false: {
-              handleSessionStorage("user", loginDto.username);
+              handleSessionStorage("my-thynk-username", loginDto.username);
               handleSessionStorage("my-thynk-token", data.accessToken);
             }
           }

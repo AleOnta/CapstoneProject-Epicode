@@ -43,7 +43,7 @@ export const ConfirmationModal = ({ show, setShow }: ModalProps) => {
     dispatch(setPassThrough(true));
     if (stripe) {
       const { error } = await stripe.redirectToCheckout(options);
-      dispatch(setPassThrough(false));
+
       console.log(error);
     }
   };
