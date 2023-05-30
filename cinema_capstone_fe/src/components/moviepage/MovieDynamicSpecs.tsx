@@ -4,17 +4,100 @@ import {
   faCalendar,
   faClock,
   faUsers,
+  faQuestion,
   faA,
   faB,
   faC,
   faD,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { intlFormatDistance } from "date-fns";
 
 export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
   const formatReleaseDate = (releaseDate: Date) => {
     let convertedDate = new Date(releaseDate).toISOString().slice(0, 10);
     return convertedDate;
+  };
+
+  const calculateDistanceFromDate = (releaseDate: Date) => {
+    const distance = intlFormatDistance(new Date(releaseDate), new Date(), {
+      unit: "day",
+    });
+
+    let distanceReturned = 0;
+
+    switch (distance.slice(0, 3)) {
+      case "tra": {
+        let result = Number(distance.replace(/[^0-9]/g, ""));
+        if (result > 365) {
+          distanceReturned = 5;
+        } else if (result < 365 && result > 265) {
+          distanceReturned = 20;
+        } else if (result < 265 && result > 180) {
+          distanceReturned = 42;
+        } else if (result < 180 && result > 100) {
+          distanceReturned = 65;
+        } else if (result < 100 && result > 50) {
+          distanceReturned = 78;
+        } else {
+          distanceReturned = 90;
+        }
+        break;
+      }
+      default: {
+        distanceReturned = 100;
+        break;
+      }
+    }
+    return distanceReturned;
+  };
+
+  const calculateMovieLength = (filmLength: number) => {
+    if (filmLength > 180) {
+      return 100;
+    } else if (filmLength < 180 && filmLength >= 150) {
+      return 75;
+    } else if (filmLength < 150 && filmLength >= 120) {
+      return 60;
+    } else if (filmLength < 120 && filmLength >= 100) {
+      return 45;
+    } else if (filmLength < 100 && filmLength >= 90) {
+      return 38;
+    } else {
+      return 25;
+    }
+  };
+
+  const calculateMoviePopularity = (popularity: number) => {
+    if (popularity > 4000) {
+      return 98;
+    } else if (popularity < 4000 && popularity > 3000) {
+      return 81;
+    } else if (popularity < 3000 && popularity > 2000) {
+      return 67;
+    } else if (popularity < 2000 && popularity > 1000) {
+      return 60;
+    } else if (popularity < 1000 && popularity > 800) {
+      return 50;
+    } else if (popularity < 800 && popularity > 650) {
+      return 43;
+    } else if (popularity < 650 && popularity > 550) {
+      return 38;
+    } else if (popularity < 550 && popularity > 400) {
+      return 30;
+    } else if (popularity < 400 && popularity > 250) {
+      return 23;
+    } else if (popularity < 250 && popularity > 100) {
+      return 17;
+    } else if (popularity < 100 && popularity > 30) {
+      return 10;
+    } else {
+      return 1;
+    }
+  };
+
+  const calculateMovieVote = (vote: number) => {
+    return Math.floor((vote * 100) / 10);
   };
 
   const returnVote = (vote: number) => {
@@ -24,6 +107,8 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
       ? faB
       : vote < 6 && vote >= 5
       ? faC
+      : vote === 0
+      ? faQuestion
       : faD;
   };
 
@@ -58,11 +143,12 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
               <ProgressBar
                 className="l-bg-cyan"
                 role="progressbar"
-                data-width="25%"
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%" }}
+                style={{
+                  width: calculateDistanceFromDate(movie.releaseDate) + "%",
+                }}
               ></ProgressBar>
             </div>
           </div>
@@ -96,11 +182,10 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
               <ProgressBar
                 className="l-bg-green"
                 role="progressbar"
-                data-width="25%"
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%" }}
+                style={{ width: calculateMovieLength(movie.filmLength) + "%" }}
               ></ProgressBar>
             </div>
           </div>
@@ -134,11 +219,12 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
               <ProgressBar
                 className="l-bg-orange"
                 role="progressbar"
-                data-width="25%"
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%" }}
+                style={{
+                  width: calculateMoviePopularity(movie.popularity) + "%",
+                }}
               ></ProgressBar>
             </div>
           </div>
@@ -175,11 +261,10 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
               <ProgressBar
                 className="l-bg-cyan"
                 role="progressbar"
-                data-width="25%"
                 aria-valuenow={25}
                 aria-valuemin={0}
                 aria-valuemax={100}
-                style={{ width: 25 + "%" }}
+                style={{ width: calculateMovieVote(movie.vote) + "%" }}
               ></ProgressBar>
             </div>
           </div>
