@@ -5,21 +5,26 @@ import { useState, useEffect } from "react";
 import { IUserSafe } from "../../../interfaces/iUser";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../../features/userSlice";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { AppDispatch, RootState } from "../../../app/store";
 import { FooterComponent } from "../../footer/FooterComponent";
 import { fetchPrograms } from "../../../features/programSlice";
 import { CheckOutState } from "../../../features/checkoutSlice";
+import { fetchRooms } from "../../../features/roomSlice";
+import { AiOutlineHome } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 export const SuccessPageComponent = () => {
+  const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const JSONusername = localStorage.getItem("my-thynk-username");
-  const receivedData = sessionStorage.getItem("mt-thynk-checkout-cart");
+  const receivedData = sessionStorage.getItem("my-thynk-checkout-cart");
+  const ticketURL = "http://localhost:8080/api/tickets";
   const [result, setResult] = useState<boolean>(false);
   const [fulfilled, setFulfilled] = useState<boolean>(false);
-  const ticketURL = "http://localhost:8080/api/tickets";
   const [checkoutData, setCheckoutData] = useState<CheckOutState | null>(null);
   const userData = useSelector((state: RootState) => state.user.logged_in);
+  const userPreferences = useSelector((state: RootState) => state.preferences);
 
   const determinePrice = (priceId: string) => {
     switch (priceId) {
@@ -58,6 +63,21 @@ export const SuccessPageComponent = () => {
     return convertedSeatCode;
   };
 
+  const handleTkn = () => {
+    switch (userPreferences.remember) {
+      case true: {
+        const tkn = localStorage.getItem("my-thynk-token");
+        if (tkn) return JSON.parse(tkn);
+        break;
+      }
+      case false: {
+        const tkn = sessionStorage.getItem("my-thynk-token");
+        if (tkn) return JSON.parse(tkn);
+        break;
+      }
+    }
+  };
+
   const reserveTicket = (data: CheckOutState, user: IUserSafe) => {
     const responseArray: number[] = [];
     data.pickedSeats.forEach(async (seat) => {
@@ -76,6 +96,7 @@ export const SuccessPageComponent = () => {
           {
             headers: {
               "Content-Type": "application/json",
+              Authorization: `Bearer ${handleTkn()}`,
             },
           }
         )
@@ -92,6 +113,7 @@ export const SuccessPageComponent = () => {
       setResult(true);
       setFulfilled(true);
       dispatch(fetchPrograms());
+      dispatch(fetchRooms);
       JSONusername && dispatch(fetchUser(JSON.parse(JSONusername)));
     }
   };
@@ -205,6 +227,18 @@ export const SuccessPageComponent = () => {
         )}
       </Container>
       <Row>
+        <Col xs={12} className="success-home-btn d-flex justify-content-center">
+          <Button
+            type="button"
+            className="btn mt-5 btn-block btn-round success-home-button success-btn"
+            onClick={() => navigate("/redirect-to-homepage")}
+          >
+            <span className="span-tag">Get back to homepage</span>
+            <div className="icon icon-round d-flex align-items-center justify-content-center">
+              <AiOutlineHome className="card-btn-icon fs-5" />
+            </div>
+          </Button>
+        </Col>
         <Col xs={12} className="mt-5">
           <FooterComponent />
         </Col>
