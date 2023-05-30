@@ -7,13 +7,15 @@ import { RootState } from "../../app/store";
 import YouTube from "react-youtube";
 import { FooterComponent } from "../footer/FooterComponent";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const MoviePageComponent = () => {
   const { id } = useParams();
+  const { width } = useWindowDimensions();
+  const [letLoad, setLetLoad] = useState<boolean>(true);
+  const [letTrailerLoad, setLetTrailerLoad] = useState<boolean>(true);
   const moviesStore = useSelector((state: RootState) => state.movies.allMovies);
   const movieOnFocus = moviesStore.find((movie) => movie.id === Number(id));
-  const { width, height } = useWindowDimensions();
 
   const opts_xs = {
     height: "200",
@@ -40,51 +42,68 @@ export const MoviePageComponent = () => {
     width: "1100",
   };
 
+  useEffect(() => {
+    setTimeout(() => setLetLoad(false), 1000);
+    setTimeout(() => setLetTrailerLoad(false), 1800);
+  }, []);
   return (
     <Row>
       <Col xs={12}>
         <Container>
           {movieOnFocus && (
             <>
-              <MovieCardComponent movie={movieOnFocus} />
-              <Row className="movie-trailer-container mt-5 py-3 pb-4 px-md-5">
-                {movieOnFocus.trailerID !== "NotFound" ? (
-                  <>
-                    <Col
-                      xs={12}
-                      className="mb-2 mb-md-4 d-flex justify-content-center"
-                    >
-                      <h4>Watch "{movieOnFocus.title}" Official Trailer!</h4>
+              {!letLoad ? (
+                <MovieCardComponent movie={movieOnFocus} />
+              ) : (
+                <div className="moviepage-loader-container d-flex align-items-center justify-content-center">
+                  <span className="loader"></span>
+                </div>
+              )}
+
+              {!letTrailerLoad ? (
+                <Row className="movie-trailer-container mt-5 py-3 pb-4 px-md-5">
+                  {movieOnFocus.trailerID !== "NotFound" ? (
+                    <>
+                      <Col
+                        xs={12}
+                        className="mb-2 mb-md-4 d-flex justify-content-center"
+                      >
+                        <h4>Watch "{movieOnFocus.title}" Official Trailer!</h4>
+                      </Col>
+                      <Col
+                        xs={12}
+                        className="youtube-frame-column d-flex justify-content-center"
+                      >
+                        <YouTube
+                          videoId={movieOnFocus.trailerID}
+                          opts={
+                            width < 476
+                              ? opts_xs
+                              : width >= 476 && width < 768
+                              ? opts_sm
+                              : width >= 768 && width < 992
+                              ? opts_md
+                              : width >= 992 && width < 1200
+                              ? opts_lg
+                              : opts_xl
+                          }
+                          className="frame"
+                        />
+                      </Col>
+                    </>
+                  ) : (
+                    <Col xs={12}>
+                      <h4>
+                        No trailers were found for "{movieOnFocus.title}" movie.
+                      </h4>
                     </Col>
-                    <Col
-                      xs={12}
-                      className="youtube-frame-column d-flex justify-content-center"
-                    >
-                      <YouTube
-                        videoId={movieOnFocus.trailerID}
-                        opts={
-                          width < 476
-                            ? opts_xs
-                            : width >= 476 && width < 768
-                            ? opts_sm
-                            : width >= 768 && width < 992
-                            ? opts_md
-                            : width >= 992 && width < 1200
-                            ? opts_lg
-                            : opts_xl
-                        }
-                        className="frame"
-                      />
-                    </Col>
-                  </>
-                ) : (
-                  <Col xs={12}>
-                    <h4>
-                      No trailers were found for "{movieOnFocus.title}" movie.
-                    </h4>
-                  </Col>
-                )}
-              </Row>
+                  )}
+                </Row>
+              ) : (
+                <div className="trailer-loader-container d-flex align-items-center justify-content-center">
+                  <span className="loader"></span>
+                </div>
+              )}
             </>
           )}
         </Container>

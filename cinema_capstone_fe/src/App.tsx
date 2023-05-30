@@ -15,17 +15,17 @@ import { AppDispatch, RootState } from "./app/store";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPrograms } from "./features/programSlice";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { NavbarComponent } from "./components/navbar/NavbarComponent";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HomepageComponent } from "./components/homepage/HomepageComponent";
+import { UserPageComponent } from "./components/userpage/UserPageComponent";
 import { AuthPageComponent } from "./components/authpage/AuthPageComponent";
 import { MoviePageComponent } from "./components/moviepage/MoviePageComponent";
 import { ProgramsPageComponent } from "./components/programspage/ProgramsPageComponent";
 import { CheckoutPageComponent } from "./components/checkoutpage/CheckoutPageComponent";
 import { CancelPageComponent } from "./components/checkoutpage/paymentresult/CancelPageComponent";
 import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/SuccessPageComponent";
-import { UserPageComponent } from "./components/userpage/UserPageComponent";
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
