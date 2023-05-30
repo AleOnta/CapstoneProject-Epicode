@@ -34,17 +34,17 @@ export const ConfirmationTableSection = () => {
       >
         <thead>
           <tr>
-            <th>Type</th>
+            <th className="d-none d-sm-block">Type</th>
             <th>Article</th>
             <th>Quantity</th>
-            <th>Price cad.</th>
+            <th>Price </th>
             <th>User</th>
             <th>Total</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Purchase</td>
+            <td className="d-none d-sm-block">Purchase</td>
             <td>
               Seats [
               {store.checkout.pickedSeats.map(
