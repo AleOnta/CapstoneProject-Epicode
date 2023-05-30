@@ -44,14 +44,16 @@ export const MovieCardComponent = ({ movie }: IMovieProps) => {
     <Row className="movie-card-container">
       <Col xs={12}>
         {cast.length > 0 && !isLoading ? (
-          <Card className="d-flex flex-row align-items-center border-0">
+          <Card className="d-flex flex-column flex-md-row align-items-center border-0">
             <Card.Img
               src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
               alt="movie poster"
               className="movie-poster"
             />
-            <Card.Body className="d-flex flex-column justify-content-around ps-5 pb-0">
-              <Card.Title>{movie.title}</Card.Title>
+            <Card.Body className="d-flex flex-column justify-content-around ps-md-3 ps-xl-5 pb-0">
+              <Card.Title className="text-center text-md-start">
+                {movie.title}
+              </Card.Title>
               <Card.Text className="genres-container">
                 {movie.genre.split("|").map((genre, index) => (
                   <span className="movie-genre p-1 me-2 rounded" key={index}>
@@ -59,15 +61,15 @@ export const MovieCardComponent = ({ movie }: IMovieProps) => {
                   </span>
                 ))}
               </Card.Text>
-              <Card.Text className="mb-1">
-                <span className="row-content">Production Companies:</span>
+              <Card.Text className="mb-3 mb-md-1">
+                <span className="row-content ">Production Companies:</span>
                 {movie.prodCompany.includes("|") ? (
                   movie.prodCompany.split("|").map((company, index) => (
-                    <span className="movie-company ms-1" key={index}>
+                    <span className="movie-company " key={index}>
                       {`${company}${
                         index === movie.prodCompany.split("|").length - 1
                           ? "."
-                          : ","
+                          : ", "
                       }`}
                     </span>
                   ))
@@ -75,20 +77,17 @@ export const MovieCardComponent = ({ movie }: IMovieProps) => {
                   <span className="movie-company">{movie.prodCompany}</span>
                 )}
               </Card.Text>
-              <h6 className="card-subtitle text-muted mb-4">
-                Cast:
+              <Card.Text className="cast-container">
+                <span className="row-content">Cast:</span>
                 {cast.map((member, index) => (
-                  <span
-                    className="movie-cast-member ms-1"
-                    key={member.credit_id}
-                  >
-                    {`${member.name}${index === cast.length - 1 ? "." : ","}`}
+                  <span className="movie-cast-member" key={member.credit_id}>
+                    {`${member.name}${index === cast.length - 1 ? "." : ", "}`}
                   </span>
                 ))}
-              </h6>
+              </Card.Text>
               <Card.Text>
                 <span className="row-content">Plot:</span>
-                <span className="actual-plot mb-5"> {movie.plot}</span>
+                <span className="actual-plot mb-5">{movie.plot}</span>
               </Card.Text>
               <MovieDynamicSpecs movie={movie} />
             </Card.Body>

@@ -28,19 +28,19 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
   };
 
   return (
-    <Row className="mt-5">
-      <Col xs={3} className="specs-container">
+    <Row className="mt-3 mt-md-2 mt-lg-1 mt-xl-4">
+      <Col xs={6} md={3} className="specs-container">
         <Card className="card-specs l-bg-cherry">
-          <div className="card-statistic-3 p-4">
+          <div className="card-statistic-3 px-2 py-4 py-md-2 py-lg-3 py-xl-4">
             <div className="card-icon card-icon-large">
               <FontAwesomeIcon icon={faCalendar} className="icon-font" />
             </div>
-            <div className="mb-4">
+            <div className="mb-2 mb-md-3 mb-xl-4">
               <Card.Title className="card-title mb-0">Release date</Card.Title>
             </div>
             <Row className="align-items-center justify-content-between mb-2 d-flex">
               <Col>
-                <h2 className="d-flex align-items-center p-0 mb-0 release">
+                <h2 className=" p-0 mb-0 release">
                   {formatReleaseDate(movie.releaseDate)}
                 </h2>
               </Col>
@@ -69,20 +69,18 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
         </Card>
       </Col>
 
-      <Col xs={3} className="specs-container">
+      <Col xs={6} md={3} className="specs-container">
         <Card className="card-specs l-bg-blue-dark">
-          <div className="card-statistic-3 p-4">
+          <div className="card-statistic-3 px-2 py-4 py-md-2 py-lg-3 py-xl-4">
             <div className="card-icon card-icon-large">
               <FontAwesomeIcon icon={faClock} className="icon-font" />
             </div>
-            <div className="mb-4">
+            <div className="mb-2 mb-md-3 mb-xl-4 mb-xxl-4">
               <Card.Title className="card-title mb-0">Film length</Card.Title>
             </div>
             <Row className="align-items-center justify-content-between mb-2 d-flex">
               <Col>
-                <h2 className="d-flex align-items-center p-0 mb-0">
-                  {movie.filmLength} min
-                </h2>
+                <h2 className="p-0 mb-0">{movie.filmLength} min</h2>
               </Col>
               <Col className="text-center p-0">
                 <span className="percentage">
@@ -109,20 +107,18 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
         </Card>
       </Col>
 
-      <Col xs={3} className="specs-container">
+      <Col xs={6} md={3} className="specs-container">
         <Card className="card-specs l-bg-green-dark">
-          <div className="card-statistic-3 p-4">
+          <div className="card-statistic-3 px-2 py-4 py-md-2 py-lg-3 py-xl-4">
             <div className="card-icon card-icon-large">
               <FontAwesomeIcon icon={faUsers} className="icon-font" />
             </div>
-            <div className="mb-4">
+            <div className="mb-2 mb-md-3 mb-xl-4 mb-xxl-4">
               <Card.Title className="card-title mb-0">Popularity</Card.Title>
             </div>
             <Row className="align-items-center justify-content-between mb-2 d-flex">
               <Col>
-                <h2 className="d-flex align-items-center p-0 mb-0">
-                  {movie.popularity}
-                </h2>
+                <h2 className="p-0 mb-0">{movie.popularity}</h2>
               </Col>
               <Col className="text-center p-0">
                 <span className="percentage">
@@ -149,23 +145,21 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
         </Card>
       </Col>
 
-      <Col xs={3} className="specs-container">
+      <Col xs={6} md={3} className="specs-container">
         <Card className="card-specs l-bg-orange-dark">
-          <div className="card-statistic-3 p-4">
+          <div className="card-statistic-3 px-2 py-4 py-md-2 py-lg-3 py-xl-4">
             <div className="card-icon card-icon-large">
               <FontAwesomeIcon
                 icon={returnVote(movie.vote)}
                 className="icon-font"
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-2 mb-md-3 mb-xl-4">
               <Card.Title className="card-title mb-0">Fan vote</Card.Title>
             </div>
             <Row className="align-items-center justify-content-between mb-2 d-flex">
               <Col>
-                <h2 className="d-flex align-items-center p-0 mb-0">
-                  {movie.vote}
-                </h2>
+                <h2 className=" p-0 mb-0">{movie.vote}</h2>
               </Col>
               <Col className="text-center p-0">
                 <span className="percentage">

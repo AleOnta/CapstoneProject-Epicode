@@ -1,55 +1,92 @@
 @import "../../assets/style/variables.scss";
 
 .movie-card-container {
-  margin-top: 120px;
+  margin-top: 60px;
 
+  @media screen and (min-width: 768px) {
+    margin-top: 120px;
+  }
   .card {
     color: $white;
-    background-color: inherit !important;
+    background-color: inherit;
 
     .row-content {
       color: $silver;
-      font-size: 1.1em;
-      font-weight: 500;
+      font-size: 0.85em;
+      font-weight: 600;
+
+      &::after {
+        content: "\a";
+        white-space: pre;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 0.95em;
+      }
+      @media screen and (min-width: 992px) {
+        font-size: 1.1em;
+      }
     }
 
     .movie-poster {
-      width: 29%;
+      width: 80%;
+      max-width: 300px;
+
+      @media screen and (min-width: 768px) {
+        width: 29%;
+      }
     }
 
     .card-body {
       .card-title {
-        font-size: 2.5em;
+        font-size: 1.7em;
         font-weight: 700;
         color: $ph-orange;
         margin-bottom: 15px;
+
+        @media screen and (min-width: 768px) {
+          font-size: 2em;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 2.5em;
+        }
       }
 
       .movie-company {
-        font-size: 0.9em;
+        font-size: 0.8em;
         font-weight: 500;
         color: #6c757d;
       }
 
       .card-text.genres-container {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+        @media screen and (min-width: 768px) {
+          margin-bottom: 10px;
+        }
         .movie-genre {
-          font-size: 1em;
+          font-size: 0.85em;
           color: $ph-orange;
           background-color: $black;
+
+          @media screen and (min-width: 992px) {
+            font-size: 1em;
+          }
         }
       }
 
-      h6 {
-        font-size: 1.1em;
-        color: $silver !important;
+      .cast-container {
+        line-height: 1.2;
+
         span.movie-cast-member {
-          color: #6c757d !important;
-          font-size: 0.81em;
+          color: #6c757d;
+          font-weight: 500;
+          font-size: 0.8em;
         }
       }
 
       span.actual-plot {
+        font-size: 0.8em;
         color: #a4adb4;
       }
     }
@@ -80,23 +117,44 @@
       }
 
       .card-title {
-        font-size: 1.3em;
+        font-size: 0.9em;
         color: $white;
+
+        @media screen and (min-width: 768px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 1.1em;
+        }
       }
 
       h2 {
-        font-size: 1.1em;
-      }
-
-      .percentage {
         font-size: 0.9em;
+        white-space: nowrap;
+
+        @media screen and (min-width: 768px) {
+          font-size: 0.8em;
+        }
+
+        @media screen and (min-width: 1200px) {
+          font-size: 1em;
+        }
       }
 
       .card-statistic-3 .card-icon-large .icon-font,
       .card-statistic-3 .card-icon-large .far,
       .card-statistic-3 .card-icon-large .fab,
       .card-statistic-3 .card-icon-large .fal {
-        font-size: 100px;
+        font-size: 65px;
+
+        @media screen and (min-width: 768px) {
+          font-size: 75px;
+        }
+
+        @media screen and (min-width: 992px) {
+          font-size: 100px;
+        }
       }
 
       .card-statistic-3 .card-icon {
@@ -162,9 +220,16 @@
 
   h4 {
     color: $ph-orange;
-    font-size: 2em;
+    font-size: 1em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.4em;
+    }
+    @media screen and (min-width: 992px) {
+      font-size: 1.8em;
+    }
   }
 }
