@@ -5,8 +5,9 @@ import { RootState } from "../../../app/store";
 import { MovieHomeCard } from "./MovieHomeCard";
 import { Link } from "react-router-dom";
 import { NewsSwiper } from "../home_swiper/NewsSwiper";
+import { HomeLoaderProps } from "../HomepageComponent";
 
-export const HomepageMainComponent = () => {
+export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
   const store = useSelector((state: RootState) => state);
 
   return (
@@ -26,16 +27,19 @@ export const HomepageMainComponent = () => {
               xs={12}
               className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"
             >
-              {store.movies.inRoom.length > 0 &&
-              store.programs.status === "fulfilled"
-                ? store.movies.inRoom.map((movie, index) => (
-                    <MovieHomeCard
-                      movie={movie}
-                      program={store.programs.onGoing[index]}
-                      key={movie.tmdbId}
-                    />
-                  ))
-                : null}
+              {moviesLoad ? (
+                store.movies.inRoom.map((movie, index) => (
+                  <MovieHomeCard
+                    movie={movie}
+                    program={store.programs.onGoing[index]}
+                    key={movie.tmdbId}
+                  />
+                ))
+              ) : (
+                <div className="d-flex justify-content-center align-items-center w-100">
+                  <span className="loader"></span>
+                </div>
+              )}
             </Col>
           </Row>
         </Col>
@@ -65,12 +69,15 @@ export const HomepageMainComponent = () => {
               xs={12}
               className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"
             >
-              {store.movies.incoming.length > 0 &&
-              store.programs.status === "fulfilled"
-                ? store.movies.incoming.map((movie) => (
-                    <MovieHomeCard movie={movie} key={movie.tmdbId} />
-                  ))
-                : null}
+              {moviesLoad ? (
+                store.movies.incoming.map((movie) => (
+                  <MovieHomeCard movie={movie} key={movie.tmdbId} />
+                ))
+              ) : (
+                <div className="d-flex justify-content-center align-items-center w-100">
+                  <span className="loader"></span>
+                </div>
+              )}
             </Col>
           </Row>
         </Col>

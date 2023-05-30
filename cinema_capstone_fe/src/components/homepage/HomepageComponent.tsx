@@ -3,7 +3,11 @@ import { FooterComponent } from "../footer/FooterComponent";
 import { SwiperComponent } from "./home_swiper/SwiperComponent";
 import { HomepageMainComponent } from "./home_main/HomepageMainComponent";
 
-export const HomepageComponent = () => {
+export interface HomeLoaderProps {
+  moviesLoad: boolean;
+}
+
+export const HomepageComponent = ({ moviesLoad }: HomeLoaderProps) => {
   return (
     <Row className="m-0">
       <Col
@@ -13,7 +17,7 @@ export const HomepageComponent = () => {
         <SwiperComponent />
       </Col>
       <Col xs={12}>
-        <HomepageMainComponent />
+        <HomepageMainComponent moviesLoad={moviesLoad} />
       </Col>
       <Col xs={12}>
         <FooterComponent />

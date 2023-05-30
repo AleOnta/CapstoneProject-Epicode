@@ -5,7 +5,7 @@ import {
   setInRoomMovies,
   setIncomingMovies,
 } from "./features/movieSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IMovie } from "./interfaces/iMovies";
@@ -30,6 +30,7 @@ import { UserPageComponent } from "./components/userpage/UserPageComponent";
 function App() {
   const dispatch: AppDispatch = useDispatch();
   const store = useSelector((state: RootState) => state);
+  const [moviesLoad, setMoviesLoad] = useState<boolean>(false);
 
   const getMoviesById = (idsArray: number[]) => {
     const moviesArray: IMovie[] = [];
@@ -60,7 +61,13 @@ function App() {
     retrieveInRoomMovies();
     retrieveIncomingMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [store.programs.incoming]);
+  }, [store.programs.incoming, store.programs.onGoing]);
+
+  useEffect(() => {
+    if (store.movies.incoming.length > 0 && store.movies.inRoom.length > 0) {
+      setTimeout(() => setMoviesLoad(true), 1500);
+    }
+  }, [store.movies.incoming, store.movies.inRoom]);
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -78,7 +85,10 @@ function App() {
           <NavbarComponent />
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace={true} />} />
-            <Route path="/home" element={<HomepageComponent />} />
+            <Route
+              path="/home"
+              element={<HomepageComponent moviesLoad={moviesLoad} />}
+            />
             <Route path="/programs" element={<ProgramsPageComponent />} />
             <Route path="/focus-movie/:id" element={<MoviePageComponent />} />
             <Route path="/auth/:type" element={<AuthPageComponent />} />
