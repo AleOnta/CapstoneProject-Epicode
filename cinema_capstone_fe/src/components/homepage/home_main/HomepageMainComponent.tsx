@@ -19,7 +19,6 @@ export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
               <Link to="/programs">
                 <h2 className="homepage-mainTitle mb-5 p-3">
                   ON-GOING PROJECTIONS
-                  <hr className="m-0 " />
                 </h2>
               </Link>
             </Col>
@@ -46,10 +45,7 @@ export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
         <Col xs={12} className="homepage-main-content-column mb-5 py-5">
           <Row>
             <Col xs={12} className="p-0">
-              <h5 className="homepage-secondTitle mb-5 p-3">
-                NEWS
-                <hr className="m-0 " />
-              </h5>
+              <h5 className="homepage-secondTitle mb-5 p-3">NEWS</h5>
             </Col>
             <Col
               xs={12}
@@ -60,10 +56,7 @@ export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
           </Row>
         </Col>
         <Col xs={12} className="homepage-main-content-column mb-5 py-5">
-          <h5 className="homepage-secondTitle mb-5 p-3">
-            INCOMING
-            <hr className="m-0 " />
-          </h5>
+          <h5 className="homepage-secondTitle mb-5 p-3">INCOMING</h5>
           <Row className="home-movies-row">
             <Col
               xs={12}
