@@ -301,8 +301,10 @@ export const CheckoutPageComponent = () => {
                               €
                               {selectedProgram?.price &&
                                 store.checkout.pickedSeats.length > 0 &&
-                                determinePrice(selectedProgram.price) *
-                                  store.checkout.pickedSeats.length}
+                                (
+                                  determinePrice(selectedProgram.price) *
+                                  store.checkout.pickedSeats.length
+                                ).toFixed(2)}
                             </p>
                           </div>
 

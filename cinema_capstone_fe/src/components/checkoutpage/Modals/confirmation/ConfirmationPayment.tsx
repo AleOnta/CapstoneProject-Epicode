@@ -15,6 +15,7 @@ export const ConfirmationPayment = () => {
               id="cc-debit"
               name="payment"
               label="C/c - Debit card"
+              checked
             />
           </div>
           <div className="d-flex align-items-center mt-3 mb-2">
