@@ -21,7 +21,7 @@ export const ProgramsNewsCard = ({ news }: INewsProps) => {
   };
 
   return (
-    <Card className="programs-news-card mb-3">
+    <Card className="programs-news-card box mb-3">
       <Row className="d-flex aling-items-center m-0">
         <Col
           xs={2}
