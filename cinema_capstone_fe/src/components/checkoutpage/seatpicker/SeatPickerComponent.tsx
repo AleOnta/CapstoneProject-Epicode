@@ -58,7 +58,6 @@ export const SeatPickerComponent = ({ program }: SeatPickerProps) => {
         newOccupiedSeatsArray.push(Number(seatCodeArray[1]));
         setOccupiedSeats(newOccupiedSeatsArray);
       });
-    console.log("new", newOccupiedSeatsArray);
   };
 
   const handleSelectedSeats = (seatsArray: number[]) => {

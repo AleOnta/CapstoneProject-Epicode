@@ -26,7 +26,7 @@ export const ConfirmationPicksSection = () => {
           <p className="modal-data picks title me-2">Seats:</p>
           <p className="modal-data picks title me-2">
             {checkoutStore.pickedSeats.map((el, index) => (
-              <span className="picked-seat">
+              <span key={index + "-seat"} className="picked-seat">
                 {el}
                 {index !== checkoutStore.pickedSeats.length - 1 ? ", " : "."}
               </span>
