@@ -97,10 +97,7 @@ function App() {
             <Route path="/check-out/:id" element={<CheckoutPageComponent />} />
             <Route path="/success" element={<SuccessPageComponent />} />
             <Route path="/cancelled" element={<CancelPageComponent />} />
-            <Route
-              path="/redirect-to-homepage"
-              element={<RedirectHomepage />}
-            />
+            <Route path="/redirect-to-home" element={<RedirectHomepage />} />
           </Routes>
         </Container>
       </LocalizationProvider>

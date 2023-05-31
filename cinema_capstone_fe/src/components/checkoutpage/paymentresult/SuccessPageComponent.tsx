@@ -231,7 +231,7 @@ export const SuccessPageComponent = () => {
           <Button
             type="button"
             className="btn mt-5 btn-block btn-round success-home-button success-btn"
-            onClick={() => navigate("/redirect-to-homepage")}
+            onClick={() => navigate("/redirect-to-home")}
           >
             <span className="span-tag">Get back to homepage</span>
             <div className="icon icon-round d-flex align-items-center justify-content-center">
