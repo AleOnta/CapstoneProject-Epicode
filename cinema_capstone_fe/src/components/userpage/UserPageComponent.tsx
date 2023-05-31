@@ -33,6 +33,7 @@ export const UserPageComponent = () => {
   };
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     getUserTickets();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

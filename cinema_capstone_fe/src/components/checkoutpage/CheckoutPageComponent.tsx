@@ -106,6 +106,10 @@ export const CheckoutPageComponent = () => {
     setSelectedDateAndTime({ date: null, time: "" });
   }, [store.user.logged_in]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <Row>
       {store.programs.onGoing.length > 0 && selectedProgram && (

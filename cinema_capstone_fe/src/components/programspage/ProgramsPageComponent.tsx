@@ -6,6 +6,7 @@ import { IMovie } from "../../interfaces/iMovies";
 import { Col, Container, Row } from "react-bootstrap";
 import { ProgramsNewsCard } from "./ProgramsNewsCard";
 import { FooterComponent } from "../footer/FooterComponent";
+import { useEffect } from "react";
 
 export const ProgramsPageComponent = () => {
   const store = useSelector((state: RootState) => state);
@@ -37,6 +38,10 @@ export const ProgramsPageComponent = () => {
       return relatedMovie;
     }
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <Row>

@@ -2,12 +2,17 @@ import { Col, Row } from "react-bootstrap";
 import { FooterComponent } from "../footer/FooterComponent";
 import { SwiperComponent } from "./home_swiper/SwiperComponent";
 import { HomepageMainComponent } from "./home_main/HomepageMainComponent";
+import { useEffect } from "react";
 
 export interface HomeLoaderProps {
   moviesLoad: boolean;
 }
 
 export const HomepageComponent = ({ moviesLoad }: HomeLoaderProps) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <Row className="m-0">
       <Col

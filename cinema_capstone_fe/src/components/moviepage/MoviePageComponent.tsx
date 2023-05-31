@@ -43,6 +43,7 @@ export const MoviePageComponent = () => {
   };
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     setTimeout(() => setLetLoad(false), 1000);
     setTimeout(() => setLetTrailerLoad(false), 1800);
   }, []);

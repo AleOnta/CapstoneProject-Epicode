@@ -5,6 +5,7 @@ import { LoginComponent } from "./LoginComponent";
 import logo from "../../assets/imgs/cinemaLogo.png";
 import { ToastContainer, toast } from "react-toastify";
 import { RegisterComponent } from "./RegisterComponent";
+import { useEffect } from "react";
 
 export const AuthPageComponent = () => {
   const location = useLocation().pathname;
@@ -48,6 +49,10 @@ export const AuthPageComponent = () => {
       theme: "dark",
     });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>
