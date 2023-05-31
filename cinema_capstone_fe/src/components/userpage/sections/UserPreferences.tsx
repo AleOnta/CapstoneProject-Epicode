@@ -25,6 +25,7 @@ export const UserPreferences = () => {
     dispatch(logout());
     // clearance of local storage from keys such as jwt token and its expiration
     localStorage.removeItem("my-thynk-token");
+    localStorage.removeItem("my-thynk-username");
     localStorage.removeItem("my-thynk-token-expiration");
     // clearance of session storage from keys such as jwt token
     sessionStorage.removeItem("my-thynk-token");

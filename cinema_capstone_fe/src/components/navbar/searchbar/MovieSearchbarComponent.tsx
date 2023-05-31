@@ -19,7 +19,7 @@ export const MovieSearchBarComponent = (props: SearchBarCardProps) => {
       to={`/focus-movie/${props.movie.id}`}
       onClick={() => props.function()}
     >
-      <Card className="d-flex flex-row align-items-center w-100 card-container">
+      <Card className="d-flex flex-row align-items-center card-container">
         <Card.Header className="p-0">
           <img
             src={`https://image.tmdb.org/t/p/w500${props.movie.posterPath}`}

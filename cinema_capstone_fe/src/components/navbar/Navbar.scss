@@ -53,6 +53,9 @@
     }
 
     .results-container {
+      .card-container {
+        width: 100%;
+      }
       .movie-img {
         width: 50px;
         @media screen and (min-width: 1200px) {
@@ -174,6 +177,7 @@
   a {
     color: inherit;
     text-decoration: none;
+    width: 100%;
   }
 
   .user-card-a-wrapper {
@@ -257,6 +261,11 @@
       border-left: 1px solid $ph-darker-orange;
       padding-left: 8px;
       width: fit-content;
+      min-width: 60px;
+
+      @media screen and (min-width: 476px) {
+        min-width: 75px;
+      }
     }
 
     .userCard-title {
