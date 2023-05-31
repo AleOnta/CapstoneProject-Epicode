@@ -5,6 +5,7 @@
 
   .check-out-title {
     color: $white;
+    font-family: $titles;
   }
 
   hr {
@@ -86,6 +87,8 @@
     }
 
     .seat-selection-title {
+      font-family: $titles;
+      font-size: 1.5rem;
       color: white;
     }
 

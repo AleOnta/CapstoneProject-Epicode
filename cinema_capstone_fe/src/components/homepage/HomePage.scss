@@ -3,12 +3,13 @@
 .container.homepage {
   .homepage-mainTitle {
     width: fit-content;
-    font-family: $caption;
+    font-family: $titles;
     font-size: 2em;
     font-weight: 700;
     color: $white;
+    border: 2px solid white;
     border-radius: 10px;
-    background-color: $light;
+    background-color: inherit;
     text-shadow: 5px 4px 2px rgba(66, 68, 90, 1);
 
     @media screen and (min-width: 576px) {
@@ -26,12 +27,13 @@
 
   .homepage-secondTitle {
     width: fit-content;
-    font-family: $caption;
+    font-family: $titles;
     font-size: 1.8em;
     font-weight: 700;
     color: $white;
+    border: 2px solid white;
     border-radius: 10px;
-    background-color: $light;
+    background-color: inherit;
     text-shadow: 5px 4px 2px rgba(66, 68, 90, 1);
 
     @media screen and (min-width: 576px) {
