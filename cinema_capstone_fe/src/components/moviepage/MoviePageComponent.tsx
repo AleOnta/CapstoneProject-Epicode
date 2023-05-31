@@ -62,7 +62,7 @@ export const MoviePageComponent = () => {
               )}
 
               {!letTrailerLoad ? (
-                <Row className="movie-trailer-container mt-5 py-3 pb-4 px-md-5">
+                <Row className="movie-trailer-container mt-5 py-3 pb-5 px-md-5">
                   {movieOnFocus.trailerID !== "NotFound" ? (
                     <>
                       <Col

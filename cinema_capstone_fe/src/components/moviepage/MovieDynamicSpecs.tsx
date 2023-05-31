@@ -203,7 +203,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
             </div>
             <Row className="align-items-center justify-content-between mb-2 d-flex">
               <Col>
-                <h2 className="p-0 mb-0">{movie.popularity}</h2>
+                <h2 className="p-0 mb-0">{movie.popularity.toFixed(2)}</h2>
               </Col>
               <Col className="text-center p-0">
                 <span className="percentage">
@@ -245,7 +245,7 @@ export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
             </div>
             <Row className="align-items-center justify-content-between mb-2 d-flex">
               <Col>
-                <h2 className=" p-0 mb-0">{movie.vote}</h2>
+                <h2 className=" p-0 mb-0">{movie.vote.toFixed(2)}</h2>
               </Col>
               <Col className="text-center p-0">
                 <span className="percentage">
