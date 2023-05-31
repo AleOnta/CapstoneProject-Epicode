@@ -17,9 +17,9 @@ export const UserCardComponent = () => {
       {userStore.logged_in ? (
         <Link to={"/reserved-area/user"} className="user-card-a-wrapper ">
           <Card className="navbar-userCard">
-            <Card.Body className="d-flex align-items-center justify-content-around p-0 p-xl-1">
+            <Card.Body className="d-flex align-items-center justify-content-around ">
               <div
-                className="userCard-pic mx-1 mx-md-0 d-flex align-items-center justify-content-center"
+                className="userCard-pic mx-1  d-flex align-items-center justify-content-center"
                 style={{ backgroundColor: preferencesStore.bg }}
               >
                 <span>
@@ -32,7 +32,7 @@ export const UserCardComponent = () => {
                 <Card.Title className="userCard-title">
                   {userStore.logged_in.username}
                 </Card.Title>
-                <Card.Text className="userCard-paragraphs d-flex flex-column">
+                <Card.Text className="userCard-paragraphs d-flex flex-column justify-content-center">
                   <span>{`${userStore.logged_in.firstname} ${userStore.logged_in.lastname}`}</span>
                   {preferencesStore.showCP && (
                     <span>Points: {userStore.logged_in.cinemaPoints}</span>
