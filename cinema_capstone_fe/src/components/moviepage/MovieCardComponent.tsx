@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Alert, Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { IMovieProps } from "../../interfaces/CommonInterfaces";
 import { useEffect, useState } from "react";
 import { Cast, TMDBCast } from "../../interfaces/iMovies";
@@ -43,60 +43,60 @@ export const MovieCardComponent = ({ movie }: IMovieProps) => {
   return (
     <Row className="movie-card-container">
       <Col xs={12}>
-        {cast.length > 0 && !isLoading ? (
-          <Card className="d-flex flex-column flex-md-row align-items-center border-0">
-            <Card.Img
-              src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
-              alt="movie poster"
-              className="movie-poster"
-            />
-            <Card.Body className="d-flex flex-column justify-content-around ps-md-3 ps-xl-5 pb-0">
-              <Card.Title className="text-center text-md-start">
-                {movie.title}
-              </Card.Title>
-              <Card.Text className="genres-container">
-                {movie.genre.split("|").map((genre, index) => (
-                  <span className="movie-genre p-1 me-2 rounded" key={index}>
-                    {genre}
+        <Card className="d-flex flex-column flex-md-row align-items-center border-0">
+          <Card.Img
+            src={`https://image.tmdb.org/t/p/w500${movie.posterPath}`}
+            alt="movie poster"
+            className="movie-poster"
+          />
+          <Card.Body className="d-flex flex-column justify-content-around ps-md-3 ps-xl-5 pb-0">
+            <Card.Title className="text-center text-md-start">
+              {movie.title}
+            </Card.Title>
+            <Card.Text className="genres-container">
+              {movie.genre.split("|").map((genre, index) => (
+                <span className="movie-genre p-1 me-2 rounded" key={index}>
+                  {genre}
+                </span>
+              ))}
+            </Card.Text>
+            <Card.Text className="mb-3 mb-md-1">
+              <span className="row-content ">Production Companies:</span>
+              {movie.prodCompany.includes("|") ? (
+                movie.prodCompany.split("|").map((company, index) => (
+                  <span className="movie-company " key={index}>
+                    {`${company}${
+                      index === movie.prodCompany.split("|").length - 1
+                        ? "."
+                        : ", "
+                    }`}
                   </span>
-                ))}
-              </Card.Text>
-              <Card.Text className="mb-3 mb-md-1">
-                <span className="row-content ">Production Companies:</span>
-                {movie.prodCompany.includes("|") ? (
-                  movie.prodCompany.split("|").map((company, index) => (
-                    <span className="movie-company " key={index}>
-                      {`${company}${
-                        index === movie.prodCompany.split("|").length - 1
-                          ? "."
-                          : ", "
-                      }`}
-                    </span>
-                  ))
-                ) : (
-                  <span className="movie-company">{movie.prodCompany}</span>
-                )}
-              </Card.Text>
-              <Card.Text className="cast-container">
-                <span className="row-content">Cast:</span>
-                {cast.map((member, index) => (
+                ))
+              ) : (
+                <span className="movie-company">{movie.prodCompany}</span>
+              )}
+            </Card.Text>
+            <Card.Text className="cast-container">
+              <span className="row-content">Cast:</span>
+              {cast.length > 0 && !isLoading ? (
+                cast.map((member, index) => (
                   <span className="movie-cast-member" key={member.credit_id}>
                     {`${member.name}${index === cast.length - 1 ? "." : ", "}`}
                   </span>
-                ))}
-              </Card.Text>
-              <Card.Text>
-                <span className="row-content">Plot:</span>
-                <span className="actual-plot mb-5">{movie.plot}</span>
-              </Card.Text>
-              <MovieDynamicSpecs movie={movie} />
-            </Card.Body>
-          </Card>
-        ) : (
-          <Alert variant="danger">
-            Error creating the movie's card: {error}
-          </Alert>
-        )}
+                ))
+              ) : (
+                <span className="movie-cast-member">
+                  Not available at the moment: {error}
+                </span>
+              )}
+            </Card.Text>
+            <Card.Text>
+              <span className="row-content">Plot:</span>
+              <span className="actual-plot mb-5">{movie.plot}</span>
+            </Card.Text>
+            <MovieDynamicSpecs movie={movie} />
+          </Card.Body>
+        </Card>
       </Col>
     </Row>
   );
