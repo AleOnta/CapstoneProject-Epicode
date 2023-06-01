@@ -66,11 +66,13 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 ## Installation
 
-### Back-end setup:
+### Back end setup:
 
-1. To correctly initialize the back end of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder. 
+To correctly initialize the back end of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder. 
 Follow the next path to find it: ./CinemaCapstoneBE/src/main/resources/backup.sql
 
+
+### Front end setup:
 1. Clone the repository: `git clone [https://github.com/AleOnta/CapstoneProject-Epicode]`
 2. Install the dependencies:
 4. Set up the database and configure the connection.
