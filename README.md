@@ -12,6 +12,7 @@
 * [Screenshots](#screenshots)
 * [Installation](#installation)
 * [Usage](#usage)
+* [API Endpoints](#api-endpoints)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 
@@ -116,6 +117,11 @@ npm start
 `write-your-code-here`
 
 
+## API Endpoints
+
+
+
+
 ## Project Status
 
 Project is: _in progress_ .
@@ -123,12 +129,8 @@ Project is: _in progress_ .
 
 ## Room for Improvement
 
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Update of the Postman Collection with pageable request for each endpoint
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Update of user password only
