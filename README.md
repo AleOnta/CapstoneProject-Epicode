@@ -86,17 +86,21 @@ This is a screenshot of the Seats-selection into the check-out page:
    - Click on `Existing Maven Project`.
    - Click on `Browse` and select the CinemaCapstoneBE directory in the cloned repository.
 
-4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`:
+4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`
    - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
-
 
 
 ### Front end setup:
 
+1. First, you will have to open the `cinema_capstone_fe` directory in your favorite IDE:
+
 2. Install the dependencies:
-4. Set up the database and configure the connection.
-5. Start the development server:
-5. Open your browser and visit: `http://localhost:3000`
+```npm install```
+
+3. Run the development server:
+```npm start``` 
+
+4. Open your browser and visit: `http://localhost:3000`
 
 ## Usage
 
