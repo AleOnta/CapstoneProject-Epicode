@@ -89,7 +89,7 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`
    - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
-
+---
 
 ### Front end setup:
 
@@ -133,6 +133,7 @@ npm start
 "birthdate": "yyyy-mm-dd"
 }
 ```
+---
   - `auth/login`  
   The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.  
   To correctly complete the login process it is  necessary to provide a JSON request body built as the following:
@@ -149,6 +150,7 @@ or
 "password": "..."
 }
 ```
+---
 
 
 ## Project Status
