@@ -4,17 +4,22 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 70px;
+  top: 75px;
   margin-left: auto;
   margin-right: auto;
-  width: 12%;
+  width: 45%;
+
+  @media screen and (min-width: 576px) {
+    width: 30%;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 25%;
+    max-width: 250px;
+  }
 
   &:hover {
     cursor: pointer;
-  }
-
-  @media screen and (max-width: 1199px) {
-    top: 25px;
   }
 }
 
