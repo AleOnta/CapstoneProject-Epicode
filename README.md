@@ -24,14 +24,14 @@
 ---
 ## Technologies Used
 
-### Back-end
+### Backend
 
 - Java SE 17 - Object-oriented programming language
 - Spring Boot 3.0.6 - Java-based framework for building RESTful APIs
 - PostgreSQL - Relational database management system
 - JWT Authentication - JSON Web Token authentication mechanism
 
-### Front-end
+### Frontend
 
 - React 18.2.0 - JavaScript library for building user interfaces
 - TypeScript 4.9.5 - Typed superset of JavaScript
@@ -74,9 +74,9 @@ This is a screenshot of the Seats-selection into the check-out page:
 1. Clone the repository: `git clone [https://github.com/AleOnta/CapstoneProject-Epicode]`
 
 
-### Back end setup:
+### Backend setup:
 
-1. To correctly initialize the back end of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
+1. To correctly initialize the backend of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
    - Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
 
 2. Once retrieved the file is, open PG Admin and: 
@@ -95,7 +95,7 @@ This is a screenshot of the Seats-selection into the check-out page:
    - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
 ---
 
-### Front end setup:
+### Frontend setup:
 
 1. First, you will have to open the `cinema_capstone_fe` directory in your favorite IDE:
 
@@ -159,7 +159,22 @@ or
 ---
 2. Cinema endpoints:
   - /USERS  
-    - `/users/:id`
+    - `/users`
+    This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.
+    To receive all users registered as response, you will have to perform a GET request without passing any parameter: `http://localhost:8080/api/users`  
+    To update a user object, you will have to add to the request body the following JSON object:
+```json
+{
+"id": "...",
+"firstname": "...",
+"lastname": "...",
+"username": "...",
+"email": "...",
+"password": "...",
+"birthdate": "yyyy-mm-dd"
+}
+```
+   - `/users/:id`
     This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.  
     The only parameter requested is the ID (Long value) passed through the URL, such as: `http://localhost:8080/api/users/1`
   
