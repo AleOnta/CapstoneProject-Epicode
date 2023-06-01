@@ -72,22 +72,22 @@ This is a screenshot of the Seats-selection into the check-out page:
 ### Back end setup:
 
 1. To correctly initialize the back end of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
-       - Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
+  - Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
 
 2. Once retrieved the file is, open PG Admin and: 
-       - Create a new database with the name `CapstoneProject_cinema`.
-       - Then right click on it and select `Restore`.
-       - In field `Filename` select the backup.sql file found before.
-       - Then click again on `Restore` to complete the process.
+  - Create a new database with the name `CapstoneProject_cinema`.
+  - Then right click on it and select `Restore`.
+  - In field `Filename` select the backup.sql file found before.
+  - Then click again on `Restore` to complete the process.
 
 3. After that, open Eclipse IDE (for Enterprise Edition) into a workspace and:
-       - Click on `File` in the menu.
-       - Select `Import`.
-       - Click on `Existing Maven Project`.
-       - Click on `Browse` and select the CinemaCapstoneBE directory in the cloned repository.
+  - Click on `File` in the menu.
+  - Select `Import`.
+  - Click on `Existing Maven Project`.
+  - Click on `Browse` and select the CinemaCapstoneBE directory in the cloned repository.
 
 4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`:
-       - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
+  - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
 
 
 
