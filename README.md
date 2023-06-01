@@ -1,8 +1,8 @@
 # CapstoneProject - Thynk Cinema
-> This project represents my last web application built while following Epicode boot camp for the past 6 months. 
-> The Capstone Project is meant to be a demonstration of the skills learned during the boot camp and a business card for the future. 
-> We were given about 25 days to develop an idea, choose the desired technologies, and then realize it.
-> Also, this Capstone represents for me the huge improvements I've reached in the last few months of my life.
+> This project represents my last web application built while following Epicode boot camp for the past 6 months.   
+> The Capstone Project is meant to be a demonstration of the skills learned during the boot camp and a business card for the future.   
+> We were given about 25 days to develop an idea, choose the desired technologies, and then realize it.  
+> Also, this Capstone represents for me the huge improvements I've reached in the last few months of my life.  
 
 
 ## Table of Contents
