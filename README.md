@@ -106,6 +106,8 @@ npm start
 ```
 
 4. Open your browser and visit: `http://localhost:3000`
+---
+
 
 ## Usage
 
@@ -113,8 +115,6 @@ npm start
 - Explore the ongoing projections to choose a movie.
 - Utilize the search feature to find detailed information about a specific movie.
 - Select the desired movie and follow the steps to purchase tickets securely.
-
-`write-your-code-here`
 
 
 ## API Endpoints
@@ -151,7 +151,6 @@ or
 "password": "..."
 }
 ```
-
 ---
 
 
