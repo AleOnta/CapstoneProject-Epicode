@@ -21,7 +21,7 @@
 - My Capstone Project intends to simulate the web application of a cinema, to sell its products and retain its customers.
 - As explained earlier, this project intends to demonstrate the skills learned during the last 6 months of boot camp, both front-end & back-end sides.
 
-
+---
 ## Technologies Used
 
 ### Back-end
@@ -41,11 +41,14 @@
 - React Router DOM 6.1.1 - Routing library for React applications
 - Sass 1.62.1 - CSS extension language
 - React YouTube 10.1.0 - React component for YouTube player integration
+---
+
 
 ### Additional Technologies
 
 - Payment Gateway API - Integration for secure payment processing
 - Other libraries, frameworks, or tools you used in your project
+---
 
 
 ## Features
@@ -54,6 +57,7 @@
 - Search for movies and retrieve detailed information
 - Purchase cinema tickets online
 - Secure payment processing
+---
 
 
 ## Screenshots
@@ -115,6 +119,7 @@ npm start
 - Explore the ongoing projections to choose a movie.
 - Utilize the search feature to find detailed information about a specific movie.
 - Select the desired movie and follow the steps to purchase tickets securely.
+---
 
 
 ## API Endpoints
@@ -152,6 +157,12 @@ or
 }
 ```
 ---
+2. Cinema endpoints:
+  - `/users/:id`  
+    - This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.  
+      The only parameter requested is the ID (Long value) passed through the URL, such as:  
+      `http://localhost:8080/api/users/1`
+  
 
 
 ## Project Status
