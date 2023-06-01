@@ -160,8 +160,7 @@ or
 2. Cinema endpoints:
   - `/users/:id`  
     - This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.  
-      The only parameter requested is the ID (Long value) passed through the URL, such as:  
-      `http://localhost:8080/api/users/1`
+      The only parameter requested is the ID (Long value) passed through the URL, such as: `http://localhost:8080/api/users/1`
   
 
 
