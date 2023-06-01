@@ -121,8 +121,8 @@ npm start
 
 1. Auth endpoints:
    - `/auth/register`  
-   The endpoint is available only for POST requests, it is provided to allow visitors to register into the database.
-   To correctly create a new user it will be necessary to provide a JSON request body built as the following:
+The endpoint is available only for POST requests, it is provided to allow visitors to register into the database.
+To correctly create a new user it will be necessary to provide a JSON request body built as the following:
 ```json
 {
 "firstname": "...",
