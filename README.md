@@ -137,19 +137,23 @@ npm start
   - `auth/login`  
   The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.  
   To correctly complete the login process it is  necessary to provide a JSON request body built as the following:
+  
+With username | With email
+------------ | -------------
 ```json
 {
 "username": "...",
 "password": "..."
 }
-```
-or
+``` 
+| 
 ```json
 {
 "email": "...",
 "password": "..."
 }
 ```
+
 ---
 
 
