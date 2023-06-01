@@ -53,7 +53,7 @@ export const MovieCardComponent = ({ movie }: IMovieProps) => {
             <Card.Title className="text-center text-md-start">
               {movie.title}
             </Card.Title>
-            <Card.Text className="genres-container">
+            <Card.Text className="genres-container d-flex flex-wrap">
               {movie.genre.split("|").map((genre, index) => (
                 <span className="movie-genre p-1 me-2 rounded" key={index}>
                   {genre}
