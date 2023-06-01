@@ -158,8 +158,8 @@ or
 ```
 ---
 2. Cinema endpoints:
-- /USERS  
-    - `/users`
+   - /USERS  
+         - `/users` 
      This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.
      To receive all users registered as response, you will have to perform a GET request without passing any parameter: `http://localhost:8080/api/users`  
      To update a user object, you will have to add to the request body the following JSON object:
