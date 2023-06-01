@@ -70,7 +70,13 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 To correctly initialize the back end of the application, you will need to restore the PostgreSQL database 
 through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
-Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
+- Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
+
+Once retrieved the file is, open PG Admin and: 
+1. Create a new database with the name `CapstoneProject_cinema`.
+2. Then right click on it and select `Restore`.
+3. In field `Filename` select the backup.sql file found before.
+4. Then click again on `Restore` to complete the process.
 
 
 ### Front end setup:
