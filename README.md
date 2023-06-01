@@ -1,9 +1,9 @@
 # CapstoneProject - Thynk Cinema
-> This project represent my last web application built while following Epicode bootcamp for the past 6 months.
-> The Capstone Project is meant to be a demonstration of the skills learned during the bootcamp and a business card for the future.
-> We were given about 25 days to develop an idea, choose the desired technologies and then realize it.
+> This project represents my last web application built while following Epicode boot camp for the past 6 months. 
+> The Capstone Project is meant to be a demonstration of the skills learned during the boot camp and a business card for the future. 
+> We were given about 25 days to develop an idea, choose the desired technologies, and then realize it.
+> Also, this Capstone represents for me the huge improvements I've reached in the last few months of my life.
 
-> Also, this Capstone, represent for me what a huge improvements i've reached in the last few months of my life.
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -17,8 +17,8 @@
 
 
 ## General Information
-- My Capstone Project intends to simulate the web application of a cinema, with the aim of selling its own products and to retain their customers.
-- As explained earlier, this project intends to demonstrate the skills learned during the last 6 months of bootcamp, both front-end & back-end sides.
+- My Capstone Project intends to simulate the web application of a cinema, to sell its products and retain its customers.
+- As explained earlier, this project intends to demonstrate the skills learned during the last 6 months of boot camp, both front-end & back-end sides.
 
 
 ## Technologies Used
@@ -66,9 +66,13 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 ## Installation
 
+### Back-end setup:
+
+1. To correctly initialize the back end of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder. 
+Follow the next path to find it: ./CinemaCapstoneBE/src/main/resources/backup.sql
+
 1. Clone the repository: `git clone [https://github.com/AleOnta/CapstoneProject-Epicode]`
 2. Install the dependencies:
-npm install
 4. Set up the database and configure the connection.
 5. Start the development server:
 5. Open your browser and visit: `http://localhost:3000`
