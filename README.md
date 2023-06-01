@@ -95,10 +95,14 @@ This is a screenshot of the Seats-selection into the check-out page:
 1. First, you will have to open the `cinema_capstone_fe` directory in your favorite IDE:
 
 2. Install the dependencies:
-```shell npm install```
+```shell
+npm install
+```
 
 3. Run the development server:
-```shell npm start```
+```shell
+npm start
+```
 
 4. Open your browser and visit: `http://localhost:3000`
 
