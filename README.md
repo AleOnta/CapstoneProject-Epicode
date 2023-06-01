@@ -160,7 +160,7 @@ or
 2. Cinema endpoints:
    - /USERS  
          - `/users`   
-     This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.
+     This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.  
      To receive all users registered as response, you will have to perform a GET request without passing any parameter: `http://localhost:8080/api/users`  
      To update a user object, you will have to add to the request body the following JSON object:
 ```json
@@ -174,9 +174,9 @@ or
 "birthdate": "yyyy-mm-dd"
 }
 ```
-   - `/users/:id`
-    This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.  
-    The only parameter requested is the ID (Long value) passed through the URL, such as: `http://localhost:8080/api/users/1`
+     - `/users/:id`
+     This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.  
+     The only parameter requested is the ID (Long value) passed through the URL, such as: `http://localhost:8080/api/users/1`
   
 
 
