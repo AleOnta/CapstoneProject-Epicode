@@ -135,7 +135,7 @@ To correctly create a new user it will be necessary to provide a JSON request bo
 ```
 
   - `auth/login`  
-The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.
+The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.  
 To correctly complete the login process it is  necessary to provide a JSON request body built as the following:
 ```json
 {
@@ -143,7 +143,7 @@ To correctly complete the login process it is  necessary to provide a JSON reque
 "password": "..."
 }
 ```
-or 
+or
 ```json
 {
 "email": "...",
