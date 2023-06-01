@@ -71,24 +71,23 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 ### Back end setup:
 
-To correctly initialize the back end of the application, you will need to restore the PostgreSQL database 
-through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
-- Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
+1. To correctly initialize the back end of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
+  - Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
 
-Once retrieved the file is, open PG Admin and: 
-  1. Create a new database with the name `CapstoneProject_cinema`.
-  2. Then right click on it and select `Restore`.
-  3. In field `Filename` select the backup.sql file found before.
-  4. Then click again on `Restore` to complete the process.
+2. Once retrieved the file is, open PG Admin and: 
+  - Create a new database with the name `CapstoneProject_cinema`.
+  - Then right click on it and select `Restore`.
+  - In field `Filename` select the backup.sql file found before.
+  - Then click again on `Restore` to complete the process.
 
-After that, open Eclipse IDE (for Enterprise Edition) into a workspace and:
-  1. Click on `File` in the menu.
-  2. Select `Import`.
-  3. Click on `Existing Maven Project`.
-  4. Click on `Browse` and select the CinemaCapstoneBE directory in the cloned repository.
+3. After that, open Eclipse IDE (for Enterprise Edition) into a workspace and:
+  - Click on `File` in the menu.
+  - Select `Import`.
+  - Click on `Existing Maven Project`.
+  - Click on `Browse` and select the CinemaCapstoneBE directory in the cloned repository.
 
-Once completed those two steps, you are ready to run the API on `http://localhost:8080`.
-To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
+4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`:
+- To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
 
 
 
