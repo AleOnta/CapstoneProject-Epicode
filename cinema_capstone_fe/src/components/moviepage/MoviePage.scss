@@ -148,6 +148,10 @@
       .card-statistic-3 .card-icon-large .fal {
         font-size: 65px;
 
+        @media screen and (min-width: 476px) {
+          transform: translateX(-25px);
+        }
+
         @media screen and (min-width: 768px) {
           font-size: 50px;
           transform: translateX(-8px);

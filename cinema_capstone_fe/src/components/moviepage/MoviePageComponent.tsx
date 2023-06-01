@@ -23,7 +23,7 @@ export const MoviePageComponent = () => {
   };
 
   const opts_sm = {
-    height: "300",
+    height: "250",
     width: "450",
   };
 
@@ -39,7 +39,12 @@ export const MoviePageComponent = () => {
 
   const opts_xl = {
     height: "600",
-    width: "1100",
+    width: "1080",
+  };
+
+  const opts_xxl = {
+    height: "700",
+    width: "1250",
   };
 
   useEffect(() => {
@@ -62,7 +67,7 @@ export const MoviePageComponent = () => {
               )}
 
               {!letTrailerLoad ? (
-                <Row className="movie-trailer-container mt-5 py-3 pb-5 px-md-5">
+                <Row className="movie-trailer-container mt-5 py-3 pb-3 pb-md-5 px-md-5">
                   {movieOnFocus.trailerID !== "NotFound" ? (
                     <>
                       <Col
@@ -86,7 +91,9 @@ export const MoviePageComponent = () => {
                               ? opts_md
                               : width >= 992 && width < 1200
                               ? opts_lg
-                              : opts_xl
+                              : width >= 1200 && width < 1400
+                              ? opts_xl
+                              : opts_xxl
                           }
                           className="frame"
                         />

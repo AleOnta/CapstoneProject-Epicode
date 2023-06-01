@@ -6,10 +6,12 @@ import logo from "../../assets/imgs/cinemaLogo.png";
 import { ToastContainer, toast } from "react-toastify";
 import { RegisterComponent } from "./RegisterComponent";
 import { useEffect } from "react";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export const AuthPageComponent = () => {
   const location = useLocation().pathname;
   const navigate = useNavigate();
+  const { height } = useWindowDimensions();
 
   const notifySuccess = (message: string) => {
     toast.success(message, {
@@ -86,7 +88,11 @@ export const AuthPageComponent = () => {
             redirectCallback={notifyRedirect}
           />
         )}
-        <div className="lower-section text-center mt-4">
+        <div
+          className={`lower-section text-center ${
+            height <= 1080 ? "mt-4" : "mt-5"
+          }`}
+        >
           <p className="mb-2">OR</p>
           <Link to="/home" className="link-to-home">
             return to homepage

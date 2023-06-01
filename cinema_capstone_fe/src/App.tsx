@@ -59,8 +59,15 @@ function App() {
   };
 
   useEffect(() => {
-    retrieveInRoomMovies();
-    retrieveIncomingMovies();
+    if (
+      store.programs.incoming.length > 0 &&
+      store.programs.onGoing.length > 0
+    ) {
+      setTimeout(() => {
+        retrieveInRoomMovies();
+        retrieveIncomingMovies();
+      }, 250);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store.programs.incoming, store.programs.onGoing]);
 
