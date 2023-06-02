@@ -18,33 +18,33 @@ One of the future improvement that i want to bring into this project, it's the i
 - `/auth/register`  
 The endpoint is available only for POST requests, it is provided to allow visitors to register into the database.
 To correctly create a new user it will be necessary to provide a JSON request body built as the following:
-```json
-{
-"firstname": "String",
-"lastname": "String",
-"username": "String",
-"email": "String",
-"password": "String",
-"birthdate": "yyyy-mm-dd"
-}
-```  
+   ```json
+   {
+   "firstname": "String",
+   "lastname": "String",
+   "username": "String",
+   "email": "String",
+   "password": "String",
+   "birthdate": "yyyy-mm-dd"
+   }
+   ```  
    
 - `auth/login`  
 The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.  
 To correctly complete the login process it is  necessary to provide a JSON request body built as the following:
-```json
-{
-"username": "String",
-"password": "String"
-}
-``` 
-or
-```json
-{
-"email": "String",
-"password": "String"
-}
-```  
+   ```json
+   {
+   "username": "String",
+   "password": "String"
+   }
+   ``` 
+   or
+   ```json
+   {
+   "email": "String",
+   "password": "String"
+   }
+   ```  
 ---
   
 ### Users:
@@ -52,17 +52,17 @@ or
 This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.  
 To receive all users registered as response, you will have to perform a GET request without passing any parameter: `http://localhost:8080/api/users`  
 To update a user object, you will have to add to the request body the following JSON object:
-```json
-{
-"id": "Long",
-"firstname": "String",
-"lastname": "String",
-"username": "String",
-"email": "String",
-"password": "String",
-"birthdate": "yyyy-mm-dd"
-}
-```  
+   ```json
+   {
+   "id": "Long",
+   "firstname": "String",
+   "lastname": "String",
+   "username": "String",
+   "email": "String",
+   "password": "String",
+   "birthdate": "yyyy-mm-dd"
+   }
+   ```  
      
 - `/users/:id`  
 This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.    
