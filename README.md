@@ -122,7 +122,7 @@ npm start
 ## API Endpoints
   
 The current API docs can be found at this path: `./CinemaCapstoneBE/endpoints.md`  
-To get there, just follow this link [API_docs](endpoints.md)
+To get there, just follow this link [API_docs](./CinemaCapstoneBE/endpoints.md)
 
 
 ## Project Status
