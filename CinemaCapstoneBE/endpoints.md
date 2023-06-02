@@ -2,6 +2,17 @@
 This file is a short documentation of the REST API built into this project, describing the most important endpoints of the application and its use cases.  
 One of the future improvement that i want to bring into this project, it's the implementation of the OpenAPI - Swagger-UI, to build a more efficient and comprehensible documentation of the API.  
 
+
+## Table of Contents
+* [Authorization](#authorization)
+* [Users](#users)
+* [Movies](#movies)
+* [Programs](#programs)
+* [Rooms](#rooms)
+* [Tickets](#tickets)
+* [News](#news)
+
+
 ---
 ### Authorization:
 - `/auth/register`  
