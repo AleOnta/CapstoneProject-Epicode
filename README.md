@@ -21,7 +21,7 @@
 - My Capstone Project intends to simulate the web application of a cinema, to sell its products and retain its customers.
 - As explained earlier, this project intends to demonstrate the skills learned during the last 6 months of boot camp, both front-end & back-end sides.
 
----
+
 ## Technologies Used
 
 ### Backend
@@ -41,14 +41,12 @@
 - React Router DOM 6.1.1 - Routing library for React applications
 - Sass 1.62.1 - CSS extension language
 - React YouTube 10.1.0 - React component for YouTube player integration
----
 
 
 ### Additional Technologies
 
 - Payment Gateway API - Integration for secure payment processing
 - Other libraries, frameworks, or tools you used in your project
----
 
 
 ## Features
@@ -57,7 +55,6 @@
 - Search for movies and retrieve detailed information
 - Purchase cinema tickets online
 - Secure payment processing
----
 
 
 ## Screenshots
@@ -93,7 +90,7 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`
    - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
----
+
 
 ### Frontend setup:
 
@@ -110,7 +107,7 @@ npm start
 ```
 
 4. Open your browser and visit: `http://localhost:3000`
----
+
 
 
 ## Usage
@@ -119,7 +116,7 @@ npm start
 - Explore the ongoing projections to choose a movie.
 - Utilize the search feature to find detailed information about a specific movie.
 - Select the desired movie and follow the steps to purchase tickets securely.
----
+
 
 
 ## API Endpoints
