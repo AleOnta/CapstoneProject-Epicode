@@ -68,7 +68,7 @@ This is a screenshot of the Seats-selection into the check-out page:
 
 ## Installation
 
-1. Clone the repository: `git clone [https://github.com/AleOnta/CapstoneProject-Epicode]`
+1. Clone the repository: `git clone https://github.com/AleOnta/CapstoneProject-Epicode`
 
 
 ### Backend setup:
