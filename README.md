@@ -350,7 +350,7 @@ The POST request will require 2 differents parameters such as:
 
 ### Custom / Specific GET requests:
 Please, note the endpoints described above are just the simple CRUD of the application, for further GET requests take a look to the Postman collection  
-at this path: ./CinemaCapstoneBE/
+at this path: ./CinemaCapstoneBE/src/main/resources/CinemaCollection
 
 ## Project Status
 
