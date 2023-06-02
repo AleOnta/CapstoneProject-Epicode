@@ -124,60 +124,119 @@ npm start
 
 ## API Endpoints
 
-1. Auth endpoints:
-   - `/auth/register`  
-   The endpoint is available only for POST requests, it is provided to allow visitors to register into the database.
-   To correctly create a new user it will be necessary to provide a JSON request body built as the following:
-   ```json
-   {
-   "firstname": "...",
-   "lastname": "...",
-   "username": "...",
-   "email": "...",
-   "password": "...",
-   "birthdate": "yyyy-mm-dd"
-   }
-   ```
-   ---
-   - `auth/login`  
-   The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.  
-   To correctly complete the login process it is  necessary to provide a JSON request body built as the following:
-   ```json
-   {
-   "username": "...",
-   "password": "..."
-   }
-   ``` 
-   or
-   ```json
-   {
-   "email": "...",
-   "password": "..."
-   }
-   ```
-   ---
-2. Cinema endpoints:
-   - /USERS  
-         - `/users`   
-     This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.  
-     To receive all users registered as response, you will have to perform a GET request without passing any parameter: `http://localhost:8080/api/users`  
-     To update a user object, you will have to add to the request body the following JSON object:
-      ```json
-      {
-      "id": "...",
-      "firstname": "...",
-      "lastname": "...",
-      "username": "...",
-      "email": "...",
-      "password": "...",
-      "birthdate": "yyyy-mm-dd"
-      }
-      ```
-         - `/users/:id`
-     This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.  
-     The only parameter requested is the ID (Long value) passed through the URL, such as: `http://localhost:8080/api/users/1`
+### Authorization:
+- `/auth/register`  
+The endpoint is available only for POST requests, it is provided to allow visitors to register into the database.
+To correctly create a new user it will be necessary to provide a JSON request body built as the following:
+```json
+{
+"firstname": "...",
+"lastname": "...",
+"username": "...",
+"email": "...",
+"password": "...",
+"birthdate": "yyyy-mm-dd"
+}
+```  
+   
+- `auth/login`  
+The endpoint is available only for POST requests, it is provided to allow registered users to login and receive their own JWT token.  
+To correctly complete the login process it is  necessary to provide a JSON request body built as the following:
+```json
+{
+"username": "...",
+"password": "..."
+}
+``` 
+or
+```json
+{
+"email": "...",
+"password": "..."
+}
+```  
+---
   
+### Users:
+- `/users`      
+This endpoint is available for GET & PUT requests, it provides a method to find all users persisted in the database and to update a specific user.  
+To receive all users registered as response, you will have to perform a GET request without passing any parameter: `http://localhost:8080/api/users`  
+To update a user object, you will have to add to the request body the following JSON object:
+```json
+{
+"id": "...",
+"firstname": "...",
+"lastname": "...",
+"username": "...",
+"email": "...",
+"password": "...",
+"birthdate": "yyyy-mm-dd"
+}
+```  
+     
+- `/users/:id`  
+This endpoint is available for GET & DELETE requests, and has been created to find or delete a specific user stored in the database.    
+The only parameter requested is the ID (Long value) passed through the URL, such as: `http://localhost:8080/api/users/1`  
+---
 
+### Movies:  
+- `/movies`  
+  This endpoint is available for GET, POST & PUT requests:  
+  - GET = a GET request will return all movies stored in the database. 
+  - POST = a POST request will require a JSON body request as the following:
+  ```json
+  {
+  "tmdbId": "...",
+  "title": "...",
+  "plot": "...",
+  "genre": "...",
+  "prodCompany": "...",
+  "releaseDate": "yyyy-mm-dd",
+  "filmLength": "...",
+  "posterPath": "...",
+  "castPath": "...",
+  "budget": "...",
+  "revenue": "...",
+  "popularity": "...",
+  "vote": "..."
+  }
+  ```
+  - PUT = a PUT request will require JSON request body as the previous one, but with the addition of the entity id:
+  ```json
+  {
+  "id": "...",
+  "tmdbId": "...",
+  "title": "...",
+  "plot": "...",
+  "genre": "...",
+  "prodCompany": "...",
+  "releaseDate": "yyyy-mm-dd",
+  "filmLength": "...",
+  "posterPath": "...",
+  "castPath": "...",
+  "budget": "...",
+  "revenue": "...",
+  "popularity": "...",
+  "vote": "..."
+  }
+  ```
+- `/movies/:id`
+This endpoint is available for GET & DELETE requests, and in both cases will require a url parameter / path variable (/:id):
+  - GET = will return the movie object with the id as the one passed as parameter.
+  - DELETE = will delete the movie object with the specified id passed as parameter, from the database.
+---
+   - ### `/programs`
+   - ### `/programs/:id`
+     ---
+   - ### `/rooms`
+   - ### `/rooms/:id`
+     ---
+   - ### `/tickets`
+   - ### `/tickets/:id`
+   - ### `/tickets/:ownerId/:programId`
+     ---
+   - ### `/news`
+   - ### `/news/:id`
 
 ## Project Status
 
