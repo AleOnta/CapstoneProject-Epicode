@@ -1,10 +1,10 @@
 import "swiper/scss/autoplay";
 import "swiper/scss/navigation";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../app/store";
-import { MovieNewsCard } from "../home_main/MovieNewsCard";
 import { Autoplay, Navigation } from "swiper";
+import { RootState } from "../../../app/store";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { MovieNewsCard } from "../home_main/MovieNewsCard";
 
 export const NewsSwiper = () => {
   const newsStore = useSelector((state: RootState) => state.news);

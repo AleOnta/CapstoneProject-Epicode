@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { IMovieProps } from "../../../interfaces/CommonInterfaces";
 import { BsCalendarWeek, BsFilm } from "react-icons/bs";
+import { IMovieProps } from "../../../interfaces/CommonInterfaces";
 
 export const MovieHomeCard = ({ movie, program }: IMovieProps) => {
   const getGenres = (genres: string) => {

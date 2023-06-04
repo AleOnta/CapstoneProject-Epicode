@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Card, Col, Row } from "react-bootstrap";
-import { IMovieProps } from "../../interfaces/CommonInterfaces";
 import { useEffect, useState } from "react";
-import { Cast, TMDBCast } from "../../interfaces/iMovies";
+import { Card, Col, Row } from "react-bootstrap";
 import { MovieDynamicSpecs } from "./MovieDynamicSpecs";
+import { Cast, TMDBCast } from "../../interfaces/iMovies";
+import { IMovieProps } from "../../interfaces/CommonInterfaces";
 
 export const MovieCardComponent = ({ movie }: IMovieProps) => {
   const defaultCast: Cast[] = [];

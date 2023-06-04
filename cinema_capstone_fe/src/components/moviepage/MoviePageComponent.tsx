@@ -1,14 +1,14 @@
 import "./MoviePage.scss";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import YouTube from "react-youtube";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { RootState } from "../../app/store";
+import { AiOutlineHome } from "react-icons/ai";
 import { MovieCardComponent } from "./MovieCardComponent";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
-import YouTube from "react-youtube";
 import { FooterComponent } from "../footer/FooterComponent";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useEffect, useState } from "react";
-import { AiOutlineHome } from "react-icons/ai";
 
 export const MoviePageComponent = () => {
   const { id } = useParams();

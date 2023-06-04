@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SerializableDateAndTime } from "../interfaces/CommonInterfaces";
 import { IProgram } from "../interfaces/iProgram";
+import { SerializableDateAndTime } from "../interfaces/CommonInterfaces";
 
 export interface CheckOutState {
   pickedDateAndTime: SerializableDateAndTime;

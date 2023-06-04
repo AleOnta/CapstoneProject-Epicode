@@ -1,15 +1,15 @@
 import "./UserPage.scss";
-import { Accordion, Button, Col, Container, Row } from "react-bootstrap";
-import { UserTicketCard } from "./sections/UserTicketCard";
+import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { RootState } from "../../app/store";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { ITicket } from "../../interfaces/iTicket";
 import { UserForm } from "./sections/UserForm";
-import { UserPreferences } from "./sections/UserPreferences";
 import { AiOutlineHome } from "react-icons/ai";
-import { useNavigate } from "react-router";
+import { ITicket } from "../../interfaces/iTicket";
+import { UserTicketCard } from "./sections/UserTicketCard";
+import { UserPreferences } from "./sections/UserPreferences";
+import { Accordion, Button, Col, Container, Row } from "react-bootstrap";
 
 export const UserPageComponent = () => {
   const navigate = useNavigate();

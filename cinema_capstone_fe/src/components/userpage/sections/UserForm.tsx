@@ -2,12 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { DatePicker } from "@mui/x-date-pickers";
 import { UserDto } from "../../../interfaces/iUser";
+import secureLocalStorage from "react-secure-storage";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { fetchUser } from "../../../features/userSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 import { Button, Col, FloatingLabel, Form } from "react-bootstrap";
-import secureLocalStorage from "react-secure-storage";
 
 export const UserForm = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -29,11 +29,11 @@ export const UserForm = () => {
   const notifySuccess = (message: string) => {
     toast.success(message, {
       position: "top-right",
-      autoClose: 3500,
+      autoClose: 3000,
       hideProgressBar: false,
-      closeOnClick: true,
+      closeOnClick: false,
       pauseOnHover: true,
-      draggable: true,
+      draggable: false,
       progress: undefined,
       theme: "dark",
     });
@@ -55,12 +55,12 @@ export const UserForm = () => {
   const handleTkn = () => {
     switch (userPreferences.remember) {
       case true: {
-        const tkn = localStorage.getItem("tkn");
-        if (tkn) return JSON.parse(tkn);
+        const tkn = secureLocalStorage.getItem("my-thynk-token");
+        if (tkn) return tkn;
         break;
       }
       case false: {
-        const tkn = sessionStorage.getItem("tkn");
+        const tkn = sessionStorage.getItem("my-thynk-token");
         if (tkn) return JSON.parse(tkn);
         break;
       }
@@ -104,7 +104,6 @@ export const UserForm = () => {
         }
       )
       .then((response) => {
-        response.status === 200 && notifySuccess("Credentials updated!");
         switch (userPreferences.remember) {
           case true: {
             secureLocalStorage.setItem(
@@ -137,6 +136,7 @@ export const UserForm = () => {
               }
             )
             .then((response) => {
+              response.status === 200 && notifySuccess("Credentials updated!");
               if (response.status === 200) {
                 const data = response.data;
                 switch (userPreferences.remember) {
@@ -190,6 +190,7 @@ export const UserForm = () => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <Col xs={12} className="user-form-container d-flex justify-content-center">
       <Form

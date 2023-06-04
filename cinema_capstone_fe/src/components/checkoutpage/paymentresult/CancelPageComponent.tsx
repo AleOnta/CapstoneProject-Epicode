@@ -1,7 +1,7 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FooterComponent } from "../../footer/FooterComponent";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 export const CancelPageComponent = () => {
   const navigate = useNavigate();

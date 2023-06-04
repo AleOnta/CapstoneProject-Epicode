@@ -1,7 +1,7 @@
 import "./HomeMain.scss";
 import { Card } from "react-bootstrap";
-import { INewsProps } from "../../../interfaces/CommonInterfaces";
 import { Link } from "react-router-dom";
+import { INewsProps } from "../../../interfaces/CommonInterfaces";
 
 export const MovieNewsCard = ({ news }: INewsProps) => {
   const formatRedactDate = (redactDate: Date) => {

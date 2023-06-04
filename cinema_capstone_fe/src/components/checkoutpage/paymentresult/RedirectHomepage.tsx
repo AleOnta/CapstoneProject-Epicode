@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../../../features/newsSlice";
 import { fetchRooms } from "../../../features/roomSlice";
 import { fetchMovies } from "../../../features/movieSlice";

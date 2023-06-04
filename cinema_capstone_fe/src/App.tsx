@@ -24,9 +24,9 @@ import { AuthPageComponent } from "./components/authpage/AuthPageComponent";
 import { MoviePageComponent } from "./components/moviepage/MoviePageComponent";
 import { ProgramsPageComponent } from "./components/programspage/ProgramsPageComponent";
 import { CheckoutPageComponent } from "./components/checkoutpage/CheckoutPageComponent";
+import { RedirectHomepage } from "./components/checkoutpage/paymentresult/RedirectHomepage";
 import { CancelPageComponent } from "./components/checkoutpage/paymentresult/CancelPageComponent";
 import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/SuccessPageComponent";
-import { RedirectHomepage } from "./components/checkoutpage/paymentresult/RedirectHomepage";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();

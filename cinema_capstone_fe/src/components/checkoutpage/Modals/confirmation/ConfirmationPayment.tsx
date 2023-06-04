@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
-import { FaCcPaypal } from "react-icons/fa";
 import { MdPayment } from "react-icons/md";
+import { FaCcPaypal } from "react-icons/fa";
 
 export const ConfirmationPayment = () => {
   return (

@@ -1,6 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
 import { ModalProps } from "../../../interfaces/CommonInterfaces";
-import { useNavigate } from "react-router-dom";
 
 export const AuthenticationModal = ({ show, setShow }: ModalProps) => {
   const navigate = useNavigate();

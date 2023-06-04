@@ -1,18 +1,18 @@
 import axios from "axios";
 import "./PaymentResults.scss";
 import QRCode from "react-qr-code";
+import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
+import { AiOutlineHome } from "react-icons/ai";
 import { IUserSafe } from "../../../interfaces/iUser";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../../features/userSlice";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { fetchRooms } from "../../../features/roomSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 import { FooterComponent } from "../../footer/FooterComponent";
 import { fetchPrograms } from "../../../features/programSlice";
 import { CheckOutState } from "../../../features/checkoutSlice";
-import { fetchRooms } from "../../../features/roomSlice";
-import { AiOutlineHome } from "react-icons/ai";
-import { useNavigate } from "react-router";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 export const SuccessPageComponent = () => {
   const navigate = useNavigate();
@@ -179,9 +179,10 @@ export const SuccessPageComponent = () => {
                       <Card.Text>
                         Selected seats:{" "}
                         {checkoutData.pickedSeats.map((seat, index) => (
-                          <span className="mapped-seat">
-                            {" "}
+                          <span
+                            className="mapped-seat"
                             key={seat + "-" + index}
+                          >
                             {seat +
                               (index !== checkoutData.pickedSeats.length - 1
                                 ? ","

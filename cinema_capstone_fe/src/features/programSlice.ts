@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IProgram } from "../interfaces/iProgram";
 import axios from "axios";
+import { IProgram } from "../interfaces/iProgram";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const programsURL = "http://localhost:8080/api/programs";
 

@@ -1,14 +1,14 @@
 import "./ProgramsPage.scss";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { RootState } from "../../app/store";
 import { ProgramsCard } from "./ProgramsCard";
+import { AiOutlineHome } from "react-icons/ai";
 import { IMovie } from "../../interfaces/iMovies";
-import { Button, Col, Container, Row } from "react-bootstrap";
 import { ProgramsNewsCard } from "./ProgramsNewsCard";
 import { FooterComponent } from "../footer/FooterComponent";
-import { useEffect } from "react";
-import { AiOutlineHome } from "react-icons/ai";
-import { useNavigate } from "react-router";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 export const ProgramsPageComponent = () => {
   const navigate = useNavigate();

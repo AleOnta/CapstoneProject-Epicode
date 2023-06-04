@@ -1,5 +1,3 @@
-import { Card, Col, ProgressBar, Row } from "react-bootstrap";
-import { IMovieProps } from "../../interfaces/CommonInterfaces";
 import {
   faCalendar,
   faClock,
@@ -10,8 +8,10 @@ import {
   faC,
   faD,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { intlFormatDistance } from "date-fns";
+import { Card, Col, ProgressBar, Row } from "react-bootstrap";
+import { IMovieProps } from "../../interfaces/CommonInterfaces";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const MovieDynamicSpecs = ({ movie }: IMovieProps) => {
   const formatReleaseDate = (releaseDate: Date) => {
