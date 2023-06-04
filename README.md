@@ -123,6 +123,8 @@ npm start
   
 The current API docs can be found at this path: `./CinemaCapstoneBE/endpoints.md`  
 To get there, just follow this link [API_docs](./CinemaCapstoneBE/endpoints.md)
+Please, also notice that a postman collection of the REST API is available at this path: `./CinemaCapstoneBE/src/main/resources/data/CapstoneProject.postman_collection`  
+Click here to reach it [Postman Collection](./CinemaCapstoneBE/src/main/resources/data/CapstoneProject.postman_collection)
 
 
 ## Project Status
