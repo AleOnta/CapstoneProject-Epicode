@@ -41,6 +41,7 @@
 - React Router DOM 6.1.1 - Routing library for React applications
 - Sass 1.62.1 - CSS extension language
 - React YouTube 10.1.0 - React component for YouTube player integration
+- React Secure-storage 1.2.2 - Third party library for secure usage of LocalStorage
 
 
 ### Additional Technologies
