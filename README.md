@@ -47,7 +47,6 @@
 ### Additional Technologies
 
 - Payment Gateway API - Integration for secure payment processing
-- Other libraries, frameworks, or tools you used in your project
 
 
 ## Features
