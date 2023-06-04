@@ -53,7 +53,7 @@ export const CancelPageComponent = () => {
               className="mt-3 mb-5"
               onClick={() => {
                 setTimeout(() => {
-                  navigate("/home");
+                  navigate("/redirect-to-home/cancel");
                 }, 500);
               }}
             >

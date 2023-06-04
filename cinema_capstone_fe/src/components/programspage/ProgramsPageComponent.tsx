@@ -3,12 +3,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import { ProgramsCard } from "./ProgramsCard";
 import { IMovie } from "../../interfaces/iMovies";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { ProgramsNewsCard } from "./ProgramsNewsCard";
 import { FooterComponent } from "../footer/FooterComponent";
 import { useEffect } from "react";
+import { AiOutlineHome } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 export const ProgramsPageComponent = () => {
+  const navigate = useNavigate();
   const store = useSelector((state: RootState) => state);
 
   const getRelatedMovie = (movieId: number) => {
@@ -47,9 +50,21 @@ export const ProgramsPageComponent = () => {
     <Row>
       <Col xs={12} className="p-0">
         <Container className="p-0 mb-5">
-          <h2 className="title-program-section p-3">
-            CURRENTLY IN PROJECTION:
-          </h2>
+          <div className="top-btn-container d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between px-3">
+            <h2 className="title-program-section p-3 ">
+              CURRENTLY IN PROJECTION:
+            </h2>
+            <Button
+              type="button"
+              className="btn mt-3 mt-lg-0 btn-block btn-round program-home-button program-btn"
+              onClick={() => navigate("/redirect-to-home/programs")}
+            >
+              <span className="span-tag">Homepage</span>
+              <div className="icon icon-round d-flex align-items-center justify-content-center">
+                <AiOutlineHome className="card-btn-icon fs-5" />
+              </div>
+            </Button>
+          </div>
           <Row className="row-container-program m-0 d-flex justify-content-center justify-content-lg-between">
             <Col xs={12} lg={8} className="programs-container px-4 rounded">
               <Row className="p-0 d-flex flex-column align-items-center">

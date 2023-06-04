@@ -123,7 +123,7 @@ export const CheckoutPageComponent = () => {
                     <Button
                       type="button"
                       className="btn btn-block btn-round checkout-home-button cout-btn"
-                      onClick={() => navigate("/home")}
+                      onClick={() => navigate("/redirect-to-home/checkout")}
                     >
                       <span className="span-tag">Homepage</span>
                       <div className="icon icon-round d-flex align-items-center justify-content-center">

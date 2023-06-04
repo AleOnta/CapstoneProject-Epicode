@@ -94,7 +94,7 @@ export const AuthPageComponent = () => {
           }`}
         >
           <p className="mb-2">OR</p>
-          <Link to="/home" className="link-to-home">
+          <Link to="/redirect-to-home/auth" className="link-to-home">
             return to homepage
           </Link>
         </div>
