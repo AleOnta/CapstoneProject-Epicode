@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
-import { SearchBarCardProps } from "../../../interfaces/CommonInterfaces";
-import { BsFillPeopleFill, BsFillStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { BsFillPeopleFill, BsFillStarFill } from "react-icons/bs";
+import { SearchBarCardProps } from "../../../interfaces/CommonInterfaces";
 
 export const MovieSearchBarComponent = (props: SearchBarCardProps) => {
   const getGenres = (genres: string) => {

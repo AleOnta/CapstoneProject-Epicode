@@ -1,23 +1,23 @@
 import "./Modals/Modals.scss";
 import "./CheckoutPage.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../app/store";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { DatePicker } from "@mui/x-date-pickers";
-import { IProgram } from "../../interfaces/iProgram";
-import { FooterComponent } from "../footer/FooterComponent";
-import { DateAndTime } from "../../interfaces/CommonInterfaces";
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { SeatPickerComponent } from "./seatpicker/SeatPickerComponent";
 import {
   setPickedDate,
   setPickedProgram,
   setPickedTime,
 } from "../../features/checkoutSlice";
-import { AuthenticationModal } from "./Modals/AuthenticationModal";
-import { ConfirmationModal } from "./Modals/ConfirmationModal";
+import { useEffect, useState } from "react";
 import { AiOutlineHome } from "react-icons/ai";
+import { DatePicker } from "@mui/x-date-pickers";
+import { IProgram } from "../../interfaces/iProgram";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../app/store";
+import { useNavigate, useParams } from "react-router-dom";
+import { FooterComponent } from "../footer/FooterComponent";
+import { ConfirmationModal } from "./Modals/ConfirmationModal";
+import { DateAndTime } from "../../interfaces/CommonInterfaces";
+import { AuthenticationModal } from "./Modals/AuthenticationModal";
+import { SeatPickerComponent } from "./seatpicker/SeatPickerComponent";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 
 export const CheckoutPageComponent = () => {
   const { id } = useParams();
@@ -123,7 +123,7 @@ export const CheckoutPageComponent = () => {
                     <Button
                       type="button"
                       className="btn btn-block btn-round checkout-home-button cout-btn"
-                      onClick={() => navigate("/home")}
+                      onClick={() => navigate("/redirect-to-home/checkout")}
                     >
                       <span className="span-tag">Homepage</span>
                       <div className="icon icon-round d-flex align-items-center justify-content-center">

@@ -1,7 +1,7 @@
-import { IMovie } from "./iMovies";
 import { INews } from "./iNews";
-import { IProgram, IProgramMovie } from "./iProgram";
 import { IRoom } from "./iRoom";
+import { IMovie } from "./iMovies";
+import { IProgram, IProgramMovie } from "./iProgram";
 
 export interface IMovieProps {
   movie: IMovie;

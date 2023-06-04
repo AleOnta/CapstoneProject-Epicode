@@ -1,26 +1,23 @@
 import axios from "axios";
 import "./PaymentResults.scss";
 import QRCode from "react-qr-code";
+import { useNavigate } from "react-router";
 import { useState, useEffect } from "react";
+import { AiOutlineHome } from "react-icons/ai";
 import { IUserSafe } from "../../../interfaces/iUser";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../../features/userSlice";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { fetchRooms } from "../../../features/roomSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 import { FooterComponent } from "../../footer/FooterComponent";
 import { fetchPrograms } from "../../../features/programSlice";
 import { CheckOutState } from "../../../features/checkoutSlice";
-import { fetchRooms } from "../../../features/roomSlice";
-import { AiOutlineHome } from "react-icons/ai";
-import { useNavigate } from "react-router";
-import secureLocalStorage from "react-secure-storage";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
 export const SuccessPageComponent = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const JSONusername = secureLocalStorage.getItem("my-thynk-username") as
-    | string
-    | null;
+  const JSONusername = localStorage.getItem("my-thynk-username");
   const receivedData = sessionStorage.getItem("my-thynk-checkout-cart");
   const ticketURL = "http://localhost:8080/api/tickets";
   const [result, setResult] = useState<boolean>(false);
@@ -69,10 +66,8 @@ export const SuccessPageComponent = () => {
   const handleTkn = () => {
     switch (userPreferences.remember) {
       case true: {
-        const tkn = secureLocalStorage.getItem("my-thynk-token") as
-          | string
-          | null;
-        if (tkn) return tkn;
+        const tkn = localStorage.getItem("my-thynk-token");
+        if (tkn) return JSON.parse(tkn);
         break;
       }
       case false: {
@@ -119,12 +114,12 @@ export const SuccessPageComponent = () => {
       setFulfilled(true);
       dispatch(fetchPrograms());
       dispatch(fetchRooms);
-      JSONusername && dispatch(fetchUser(JSONusername));
+      JSONusername && dispatch(fetchUser(JSON.parse(JSONusername)));
     }
   };
 
   useEffect(() => {
-    JSONusername && dispatch(fetchUser(JSONusername));
+    JSONusername && dispatch(fetchUser(JSON.parse(JSONusername)));
     receivedData && setCheckoutData(JSON.parse(receivedData));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -184,7 +179,10 @@ export const SuccessPageComponent = () => {
                       <Card.Text>
                         Selected seats:{" "}
                         {checkoutData.pickedSeats.map((seat, index) => (
-                          <span className="mapped-seat">
+                          <span
+                            className="mapped-seat"
+                            key={seat + "-" + index}
+                          >
                             {seat +
                               (index !== checkoutData.pickedSeats.length - 1
                                 ? ","
@@ -236,7 +234,7 @@ export const SuccessPageComponent = () => {
           <Button
             type="button"
             className="btn mt-5 btn-block btn-round success-home-button success-btn"
-            onClick={() => navigate("/redirect-to-home")}
+            onClick={() => navigate("/redirect-to-home/success")}
           >
             <span className="span-tag">Get back to homepage</span>
             <div className="icon icon-round d-flex align-items-center justify-content-center">

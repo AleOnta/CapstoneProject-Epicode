@@ -1,17 +1,17 @@
-import { Button, Modal } from "react-bootstrap";
-import { ModalProps } from "../../../interfaces/CommonInterfaces";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../app/store";
-import { ConfirmationMovieSection } from "./confirmation/ConfirmationMovieSection";
-import { ConfirmationPicksSection } from "./confirmation/ConfirmationPicksSection";
-import { ConfirmationTableSection } from "./confirmation/ConfirmationTableSection";
-import { ConfirmationPayment } from "./confirmation/ConfirmationPayment";
 import {
   RedirectToCheckoutOptions,
   Stripe,
   loadStripe,
 } from "@stripe/stripe-js";
+import { Button, Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import { setPassThrough } from "../../../features/checkoutSlice";
+import { ModalProps } from "../../../interfaces/CommonInterfaces";
+import { ConfirmationPayment } from "./confirmation/ConfirmationPayment";
+import { ConfirmationMovieSection } from "./confirmation/ConfirmationMovieSection";
+import { ConfirmationPicksSection } from "./confirmation/ConfirmationPicksSection";
+import { ConfirmationTableSection } from "./confirmation/ConfirmationTableSection";
 
 let stripePromise: Promise<Stripe | null>;
 

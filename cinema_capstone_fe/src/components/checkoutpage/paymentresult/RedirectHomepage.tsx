@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import { AppDispatch, RootState } from "../../../app/store";
-import { fetchMovies } from "../../../features/movieSlice";
-import { fetchRooms } from "../../../features/roomSlice";
-import { fetchPrograms } from "../../../features/programSlice";
 import { fetchNews } from "../../../features/newsSlice";
+import { fetchRooms } from "../../../features/roomSlice";
+import { fetchMovies } from "../../../features/movieSlice";
+import { AppDispatch, RootState } from "../../../app/store";
+import { fetchPrograms } from "../../../features/programSlice";
 
 export const RedirectHomepage = () => {
+  const { path } = useParams();
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const [loading, setLoading] = useState<boolean>(true);
   const store = useSelector((state: RootState) => state);
 
   useEffect(() => {
-    if (
-      store.movies.status === "fulfilled" &&
-      store.news.status === "fulfilled" &&
-      store.programs.status === "fulfilled" &&
-      store.rooms.status === "fulfilled"
-    ) {
-      setLoading(false);
+    if (path === "success") {
+      if (
+        store.movies.status === "fulfilled" &&
+        store.news.status === "fulfilled" &&
+        store.programs.status === "fulfilled" &&
+        store.rooms.status === "fulfilled"
+      ) {
+        setLoading(false);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -32,16 +35,24 @@ export const RedirectHomepage = () => {
   ]);
 
   useEffect(() => {
-    !loading && setTimeout(() => navigate("/home"), 2500);
+    if (path === "success") {
+      !loading && setTimeout(() => navigate("/home"), 2500);
+    } else {
+      !loading && setTimeout(() => navigate("/home"), 1800);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   useEffect(() => {
-    dispatch(fetchMovies());
-    dispatch(fetchPrograms());
-    dispatch(fetchRooms());
-    dispatch(fetchNews());
-    sessionStorage.removeItem("my-thynk-checkout-cart");
+    if (path === "success") {
+      dispatch(fetchMovies());
+      dispatch(fetchPrograms());
+      dispatch(fetchRooms());
+      dispatch(fetchNews());
+      sessionStorage.removeItem("my-thynk-checkout-cart");
+    } else {
+      setLoading(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

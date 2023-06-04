@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { INews } from "../interfaces/iNews";
 import axios from "axios";
+import { INews } from "../interfaces/iNews";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const newsURL = "http://localhost:8080/api/news";
 

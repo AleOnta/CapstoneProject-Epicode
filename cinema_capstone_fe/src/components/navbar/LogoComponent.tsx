@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
-import logo from "../../assets/imgs/cinemaLogo.png";
 import { Link } from "react-router-dom";
+import logo from "../../assets/imgs/cinemaLogo.png";
 
 export const LogoComponent = () => {
   return (

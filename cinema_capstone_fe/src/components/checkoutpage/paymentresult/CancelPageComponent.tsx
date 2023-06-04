@@ -1,7 +1,7 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FooterComponent } from "../../footer/FooterComponent";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 export const CancelPageComponent = () => {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export const CancelPageComponent = () => {
               className="mt-3 mb-5"
               onClick={() => {
                 setTimeout(() => {
-                  navigate("/home");
+                  navigate("/redirect-to-home/cancel");
                 }, 500);
               }}
             >

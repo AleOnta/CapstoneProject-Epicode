@@ -1,8 +1,8 @@
 import "./Navbar.scss";
-import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import { Card, Col } from "react-bootstrap";
 
 export const UserCardComponent = () => {
   const userStore = useSelector((state: RootState) => state.user);

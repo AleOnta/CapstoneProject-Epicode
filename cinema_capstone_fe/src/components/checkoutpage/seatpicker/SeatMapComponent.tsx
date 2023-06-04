@@ -1,15 +1,15 @@
-import { Col, OverlayTrigger, Tooltip } from "react-bootstrap";
 import clsx from "clsx";
-import { SeatMapProps } from "../../../interfaces/CommonInterfaces";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../app/store";
+import { useEffect } from "react";
 import {
   addPickedSeats,
   removePickedSeats,
   setPickedDate,
   setPickedTime,
 } from "../../../features/checkoutSlice";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
+import { Col, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { SeatMapProps } from "../../../interfaces/CommonInterfaces";
 
 export const SeatMapComponent = ({
   seats,

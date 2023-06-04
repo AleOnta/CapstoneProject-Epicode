@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { IMovie } from "../interfaces/iMovies";
 import axios from "axios";
+import { IMovie } from "../interfaces/iMovies";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const moviesURL = "http://localhost:8080/api/movies";
 

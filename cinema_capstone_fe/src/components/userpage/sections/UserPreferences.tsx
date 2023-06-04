@@ -1,18 +1,18 @@
-import { Button, Col, Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../app/store";
+import { useEffect } from "react";
 import {
   setBg,
   setCommercialConsense,
   setNewsletterConsense,
   setShowCP,
 } from "../../../features/preferenceSlice";
-import secureLocalStorage from "react-secure-storage";
-import { useEffect } from "react";
-import { setRemember } from "../../../features/preferenceSlice";
-import { logout } from "../../../features/userSlice";
 import { useNavigate } from "react-router";
 import { AiOutlineLogout } from "react-icons/ai";
+import { Button, Col, Form } from "react-bootstrap";
+import { logout } from "../../../features/userSlice";
+import secureLocalStorage from "react-secure-storage";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
+import { setRemember } from "../../../features/preferenceSlice";
 
 export const UserPreferences = () => {
   const dispatch: AppDispatch = useDispatch();

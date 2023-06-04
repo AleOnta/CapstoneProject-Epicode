@@ -3,11 +3,11 @@ import "../HomePage.scss";
 import "swiper/scss/autoplay";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import { useSelector } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
-import { RootState } from "../../../app/store";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Autoplay, Navigation } from "swiper";
+import { RootState } from "../../../app/store";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const SwiperComponent = () => {
   const movieStore = useSelector((state: RootState) => state.movies);
@@ -48,11 +48,8 @@ export const SwiperComponent = () => {
             delay: 8000,
             disableOnInteraction: false,
           }}
-          pagination={{
-            clickable: true,
-          }}
           navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
           {movieStore.allMovies.map((movie) => {

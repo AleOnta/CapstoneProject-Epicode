@@ -1,7 +1,7 @@
 import "./Footer.scss";
 import logo from "../../assets/imgs/cinemaLogo.png";
-import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 import { Col, ListGroup, Row } from "react-bootstrap";
+import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 
 export const FooterComponent = () => {
   return (

@@ -1,13 +1,13 @@
 import "../HomePage.scss";
-import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { RootState } from "../../../app/store";
 import { MovieHomeCard } from "./MovieHomeCard";
-import { Link } from "react-router-dom";
-import { NewsSwiper } from "../home_swiper/NewsSwiper";
-import { HomeLoaderProps } from "../HomepageComponent";
-import { useEffect, useState } from "react";
 import { IMovie } from "../../../interfaces/iMovies";
+import { Col, Container, Row } from "react-bootstrap";
+import { HomeLoaderProps } from "../HomepageComponent";
+import { NewsSwiper } from "../home_swiper/NewsSwiper";
 
 export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
   const store = useSelector((state: RootState) => state);
@@ -19,6 +19,7 @@ export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
       setOnGoingMovies(store.movies.inRoom);
       setIncomingMovies(store.movies.incoming);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [moviesLoad]);
 
   return (

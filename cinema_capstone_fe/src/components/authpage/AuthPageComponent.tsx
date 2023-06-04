@@ -1,12 +1,12 @@
 import "./AuthPage.scss";
+import { useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LoginComponent } from "./LoginComponent";
 import logo from "../../assets/imgs/cinemaLogo.png";
 import { ToastContainer, toast } from "react-toastify";
 import { RegisterComponent } from "./RegisterComponent";
-import { useEffect } from "react";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export const AuthPageComponent = () => {
   const location = useLocation().pathname;
@@ -94,7 +94,7 @@ export const AuthPageComponent = () => {
           }`}
         >
           <p className="mb-2">OR</p>
-          <Link to="/home" className="link-to-home">
+          <Link to="/redirect-to-home/auth" className="link-to-home">
             return to homepage
           </Link>
         </div>

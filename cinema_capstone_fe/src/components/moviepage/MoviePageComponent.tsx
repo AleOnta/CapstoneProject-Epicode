@@ -1,16 +1,18 @@
 import "./MoviePage.scss";
-import { Col, Container, Row } from "react-bootstrap";
-import { MovieCardComponent } from "./MovieCardComponent";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../../app/store";
 import YouTube from "react-youtube";
-import { FooterComponent } from "../footer/FooterComponent";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { RootState } from "../../app/store";
+import { AiOutlineHome } from "react-icons/ai";
+import { MovieCardComponent } from "./MovieCardComponent";
+import { useNavigate, useParams } from "react-router-dom";
+import { FooterComponent } from "../footer/FooterComponent";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export const MoviePageComponent = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { width } = useWindowDimensions();
   const [letLoad, setLetLoad] = useState<boolean>(true);
   const [letTrailerLoad, setLetTrailerLoad] = useState<boolean>(true);
@@ -116,6 +118,23 @@ export const MoviePageComponent = () => {
           )}
         </Container>
       </Col>
+      {!letTrailerLoad && (
+        <Col
+          xs={12}
+          className="movie-focus-home-btn d-flex justify-content-center"
+        >
+          <Button
+            type="button"
+            className="btn mt-5 btn-block btn-round movie-focus-home-button movie-focus-btn"
+            onClick={() => navigate("/redirect-to-home/movies")}
+          >
+            <span className="span-tag">Get back to homepage</span>
+            <div className="icon icon-round d-flex align-items-center justify-content-center">
+              <AiOutlineHome className="card-btn-icon fs-5" />
+            </div>
+          </Button>
+        </Col>
+      )}
       <Col xs={12} className="mt-5">
         <FooterComponent />
       </Col>

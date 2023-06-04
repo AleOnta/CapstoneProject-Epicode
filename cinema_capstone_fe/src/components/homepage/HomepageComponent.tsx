@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FooterComponent } from "../footer/FooterComponent";
 import { SwiperComponent } from "./home_swiper/SwiperComponent";
 import { HomepageMainComponent } from "./home_main/HomepageMainComponent";
-import { useEffect } from "react";
 
 export interface HomeLoaderProps {
   moviesLoad: boolean;
