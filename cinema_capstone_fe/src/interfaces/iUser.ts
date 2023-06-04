@@ -15,8 +15,8 @@ export interface IUserSafe {
   id: number;
   firstname: string;
   lastname: string;
-  birthdate: string;
   username: string;
+  birthdate: string;
   email: string;
   cinemaPoints: number;
   tickets: ITicket[];

@@ -6,9 +6,20 @@ import { MovieHomeCard } from "./MovieHomeCard";
 import { Link } from "react-router-dom";
 import { NewsSwiper } from "../home_swiper/NewsSwiper";
 import { HomeLoaderProps } from "../HomepageComponent";
+import { useEffect, useState } from "react";
+import { IMovie } from "../../../interfaces/iMovies";
 
 export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
   const store = useSelector((state: RootState) => state);
+  const [onGoingMovies, setOnGoingMovies] = useState<IMovie[]>([]);
+  const [incomingMovies, setIncomingMovies] = useState<IMovie[]>([]);
+
+  useEffect(() => {
+    if (moviesLoad) {
+      setOnGoingMovies(store.movies.inRoom);
+      setIncomingMovies(store.movies.incoming);
+    }
+  }, [moviesLoad]);
 
   return (
     <Container className="homepage">
@@ -27,7 +38,7 @@ export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
               className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"
             >
               {moviesLoad ? (
-                store.movies.inRoom.map((movie, index) => (
+                onGoingMovies.map((movie, index) => (
                   <MovieHomeCard
                     movie={movie}
                     program={store.programs.onGoing[index]}
@@ -63,7 +74,7 @@ export const HomepageMainComponent = ({ moviesLoad }: HomeLoaderProps) => {
               className="d-flex flex-column flex-md-row flex-wrap align-items-center on-going-card-container"
             >
               {moviesLoad ? (
-                store.movies.incoming.map((movie) => (
+                incomingMovies.map((movie) => (
                   <MovieHomeCard movie={movie} key={movie.tmdbId} />
                 ))
               ) : (
