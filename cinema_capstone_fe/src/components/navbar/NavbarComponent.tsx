@@ -14,6 +14,7 @@ import { AppDispatch } from "../../app/store";
 import { useLocation } from "react-router-dom";
 import { LogoComponent } from "./LogoComponent";
 import { fetchUser } from "../../features/userSlice";
+import secureLocalStorage from "react-secure-storage";
 import { UserCardComponent } from "./UserCardComponent";
 import { Navbar, Container, Row } from "react-bootstrap";
 import { SearchbarComponent } from "./searchbar/SearchbarComponent";
@@ -24,29 +25,32 @@ export const NavbarComponent = () => {
 
   useEffect(() => {
     // retrieve persisted preferences redux slice and rehydrate it
-    let persistedPreferences = localStorage.getItem("my-thynk-preferences");
-    if (persistedPreferences) {
-      let preferences: PreferenceState = JSON.parse(persistedPreferences);
-      dispatch(setRemember(preferences.remember));
-      dispatch(setBg(preferences.bg));
-      dispatch(setShowCP(preferences.showCP));
-      dispatch(setCommercialConsense(preferences.commercialConsense));
-      dispatch(setNewsletterConsense(preferences.newsletterConsense));
+
+    const securedPreferences = secureLocalStorage.getItem(
+      "my-thynk-preferences"
+    ) as PreferenceState | null;
+    if (securedPreferences) {
+      dispatch(setRemember(securedPreferences.remember));
+      dispatch(setBg(securedPreferences.bg));
+      dispatch(setShowCP(securedPreferences.showCP));
+      dispatch(setCommercialConsense(securedPreferences.commercialConsense));
+      dispatch(setNewsletterConsense(securedPreferences.newsletterConsense));
 
       // if user checked remember data while last login, than automatically try to login
-      if (preferences.remember) {
-        let persistedTokenExpiration = localStorage.getItem(
+
+      if (securedPreferences.remember) {
+        const securedTokenExpiration = secureLocalStorage.getItem(
           "my-thynk-token-expiration"
-        );
-        if (persistedTokenExpiration) {
-          let expiration = new Date(JSON.parse(persistedTokenExpiration));
-          let validation = compareAsc(expiration, new Date());
+        ) as string | null;
+        if (securedTokenExpiration) {
+          const expiration = new Date(securedTokenExpiration);
+          const validation = compareAsc(expiration, new Date());
           switch (validation) {
             case 0 || 1: {
-              const persistedUsername =
-                localStorage.getItem("my-thynk-username");
-              persistedUsername &&
-                dispatch(fetchUser(JSON.parse(persistedUsername)));
+              const securedUsername = secureLocalStorage.getItem(
+                "my-thynk-username"
+              ) as string | null;
+              securedUsername && dispatch(fetchUser(securedUsername));
               break;
             }
             case -1: {
@@ -54,6 +58,11 @@ export const NavbarComponent = () => {
               break;
             }
           }
+        }
+      } else {
+        const sessionUsername = sessionStorage.getItem("my-thynk-username");
+        if (sessionUsername) {
+          dispatch(fetchUser(JSON.parse(sessionUsername)));
         }
       }
     }

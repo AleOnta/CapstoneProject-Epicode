@@ -1,0 +1,1980 @@
+{
+	"info": {
+		"_postman_id": "c714a3e8-8cb6-4442-beae-f313fa8e286b",
+		"name": "CapstoneProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25909383"
+	},
+	"item": [
+		{
+			"name": "TMDb API TEST",
+			"item": [
+				{
+					"name": "Authorization types",
+					"item": [
+						{
+							"name": "GET by API key",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "query",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "api_key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{TMDb API KEY v3}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/movie/:id",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "550"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET by Bearer Token",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TMDbBearerToken_v4}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/movie/:filmId",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"movie",
+										":filmId"
+									],
+									"variable": [
+										{
+											"key": "filmId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Film Search",
+					"item": [
+						{
+							"name": "GET film by search with optional params",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "query",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "api_key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{TMDb API KEY v3}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/search/movie?query=cocaine&include_adult=false",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"search",
+										"movie"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "cocaine"
+										},
+										{
+											"key": "include_adult",
+											"value": "false"
+										},
+										{
+											"key": "language",
+											"value": "en-US",
+											"disabled": true
+										},
+										{
+											"key": "primary_release_year",
+											"value": "2000",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "en",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2000",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET film by ID",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "query",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "api_key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{TMDb API KEY v3}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/movie/:id",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "804150"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get only recentFilms",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TMDbBearerToken_v4}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/movie/now_playing?page=1&size=6",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"movie",
+										"now_playing"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "size",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CUSTOM call",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{TMDbBearerToken_v4}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&primary_release_year=2023&primary_release_date.gte=2023-08-10&sort_by=release_date,asc&year=2023",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"discover",
+										"movie"
+									],
+									"query": [
+										{
+											"key": "certification",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "certification.gte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "certification.lte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "certification_country",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "include_adult",
+											"value": "false"
+										},
+										{
+											"key": "include_video",
+											"value": "false"
+										},
+										{
+											"key": "language",
+											"value": "en-US"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "primary_release_year",
+											"value": "2023"
+										},
+										{
+											"key": "primary_release_date.gte",
+											"value": "2023-08-10"
+										},
+										{
+											"key": "primary_release_date.lte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "region",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "release_date.gte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "release_date.lte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": "release_date,asc"
+										},
+										{
+											"key": "vote_average.gte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "vote_average.lte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "vote_count.gte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "vote_count.lte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "watch_region",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_cast",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_companies",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_crew",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_genres",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_keywords",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_origin_country",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_original_language",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_people",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_release_type",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_runtime.gte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_runtime.lte",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_watch_monetization_types",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "with_watch_providers",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "without_companies",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "without_genres",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "without_keywords",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "without_watch_providers",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "year",
+											"value": "2023"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Film data",
+					"item": [
+						{
+							"name": "GET Film credits / cast",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/movie/:movie_id/credits?api_key={{TMDb API KEY v3}}",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"movie",
+										":movie_id",
+										"credits"
+									],
+									"query": [
+										{
+											"key": "api_key",
+											"value": "{{TMDb API KEY v3}}"
+										}
+									],
+									"variable": [
+										{
+											"key": "movie_id",
+											"value": "502356"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "query",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "api_key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{TMDb API KEY v3}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.themoviedb.org/3/movie/:movie_id/videos",
+									"protocol": "https",
+									"host": [
+										"api",
+										"themoviedb",
+										"org"
+									],
+									"path": [
+										"3",
+										"movie",
+										":movie_id",
+										"videos"
+									],
+									"variable": [
+										{
+											"key": "movie_id",
+											"value": "1033219"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cinema REST API",
+			"item": [
+				{
+					"name": "CRUD per Entity",
+					"item": [
+						{
+							"name": "JWT auth",
+							"item": [
+								{
+									"name": "-Auth: Register Customer",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstname\": \"Pietro\",\r\n    \"lastname\": \"Giorgi\",\r\n    \"username\": \"PierGio\",\r\n    \"email\": \"G.Pietro@example.com\",\r\n    \"password\": \"g(isof56Bv!\",\r\n    \"birthdate\": \"1999-08-22\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/auth/register",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "-Auth: Login Customer",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{ \r\n    \"username\": \"AleOnta\",\r\n    \"password\": \"pOtf8r$4Nb!\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/auth/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "-Auth: Register Admin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"Response time is less than 400ms\", function (){",
+													"    pm.expect(pm.response.responseTime).to.be.below(400);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstname\": \"Admin\",\r\n    \"lastname\": \"Tester\",\r\n    \"username\": \"TEST-r.admin\",\r\n    \"email\": \"tester.A@example.com\",\r\n    \"password\": \"d9sfgG8sle?\",\r\n    \"birthdate\": \"1999-11-01\",\r\n    \"roles\": [\"ROLE_ADMIN\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/auth/register",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "-Auth: Login Admin",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\": \"TEST-r.admin\",\r\n    \"password\": \"d9sfgG8sle?\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/auth/login",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Users",
+							"item": [
+								{
+									"name": "Find User by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/users/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all Users",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update User",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJBbGUuT250YW5pQGV4YW1wbGUuY29tIiwiaWF0IjoxNjg1NTYwNDk4LCJleHAiOjE2ODYxNjUyOTh9.tolKRa4Ek_VSahg7inz66NGlhdq-MKYzMeW7LM9Lh2IwwxYD5L9lrK2b69VED65U",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n{\r\n    \"id\": 11,\r\n    \"firstname\": \"Roberta\",\r\n    \"lastname\": \"Magi\",\r\n    \"username\": \"MagiRoberta\",\r\n    \"email\": \"Magi-Roberta@example.com\",\r\n    \"password\": \"sD?f78!jt&\",\r\n    \"birthdate\": \"1973-09-09\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete User by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/users/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's movies",
+							"item": [
+								{
+									"name": "Find CinemaMovie by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as the id of the desired movie"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaMovies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add new CinemaMovie",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"tmdbId\": 1033219,\r\n   \"title\": \"Attack on Titan\",\r\n   \"plot\": \"As viable water is depleted on Earth, a mission is sent to Saturn's moon Titan to retrieve sustainable H2O reserves from its alien inhabitants. But just as the humans acquire the precious resource, they are attacked by Titan rebels, who don't trust that the Earthlings will leave in peace.\",\r\n   \"genre\": \"Action|Science Fiction\",\r\n   \"prodCompany\": \"The Asylum|Emerald City Films\",\r\n   \"releaseDate\": \"2022-09-30\",\r\n   \"filmLength\": 93,\r\n   \"posterPath\": \"/qNz4l8UgTkD8rlqiKZ556pCJ9iO.jpg\",\r\n   \"castPath\": \"/1033219/credits\",\r\n   \"budget\": 20000000,\r\n   \"revenue\": 46000000,\r\n   \"popularity\": 458.458,\r\n   \"vote\": 5.98\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/movies",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update CinemaMovie",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n        \"id\": 1,\r\n        \"tmdbId\": 671,\r\n        \"title\": \"Harry Potter and the Philosopher's Stone\",\r\n        \"plot\": \"SalamAlekum harry\",\r\n        \"genre\": \"Adventure|Fantasy\",\r\n        \"prodCompany\": \"Warner Bros. Pictures\",\r\n        \"releaseDate\": \"2001-11-16\",\r\n        \"filmLength\": 152,\r\n        \"posterPath\": \"/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg\",\r\n        \"castPath\": \"/671/credits\",\r\n        \"budget\": 125000000,\r\n        \"revenue\": 976475550,\r\n        \"popularity\": 144.983,\r\n        \"vote\": 7.915,\r\n        \"news\": []\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/movies",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete CinemaMovie by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "19",
+													"description": "Integer value as the id of the movie to delete"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's programs",
+							"item": [
+								{
+									"name": "Find CinemaProgram by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/programs/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2",
+													"description": "Integer value as the id of the desired program"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaPrograms",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/programs",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add new CinemaProgram",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"fromDate\": \"2023-07-25\",\r\n    \"toDate\": \"2023-10-05\",\r\n    \"status\": \"INCOMING\",\r\n    \"price\": 8.20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/programs/:movieId/:roomId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs",
+												":movieId",
+												":roomId"
+											],
+											"variable": [
+												{
+													"key": "movieId",
+													"value": "10"
+												},
+												{
+													"key": "roomId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update CinemaProgram",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"fromDate\": \"2023-05-11\",\r\n    \"toDate\": \"2023-05-25\",\r\n    \"status\": \"INCOMING\",\r\n    \"price\": 7.60,\r\n    \"film\": {\r\n        \r\n    },\r\n    \"room\": {\r\n\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/programs",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete programs by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/programs/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "4",
+													"description": "Integer value as the id of the desired program"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's rooms",
+							"item": [
+								{
+									"name": "Find CinemaRoom by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/rooms/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "3",
+													"description": "Integer value as id to search for"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaRooms",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/rooms",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add new CinemaRoom",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"red\",\r\n    \"totalSeats\": 180,\r\n    \"normalSeats\": 148,\r\n    \"vipSeats\": 32,\r\n    \"timetables\": \"15:30|19:15|23:00\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/rooms",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update CinemaRoom",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"red\",\r\n    \"totalSeats\": 225,\r\n    \"normalSeats\": 200,\r\n    \"vipSeats\": 25,\r\n    \"timetables\": \"15:00|18:00|21:00|01:00\",\r\n    \"programs\": [],\r\n    \"tickets\": []\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/rooms",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete CinemaRoom by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/rooms/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as id of the room to delete form DB"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's tickets",
+							"item": [
+								{
+									"name": "Find CinemaTicket by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/tickets/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as id of the desired ticket"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find CinemaTicket by UserID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/tickets/user_id/:userId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets",
+												"user_id",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaTickets",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/tickets",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add new CinemaTicket",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"emitDate\": \"2023-05-10\",\r\n    \"perDate\": \"2023-05-10\",\r\n    \"hours\": \"18:00\",\r\n    \"seatCode\": \"B-W-12\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/tickets/:ownerId/:programId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets",
+												":ownerId",
+												":programId"
+											],
+											"variable": [
+												{
+													"key": "ownerId",
+													"value": "1",
+													"description": "Integer value as id of the desired user"
+												},
+												{
+													"key": "programId",
+													"value": null,
+													"description": "Integer value as id of the chosen program"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update CinemaTicket",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/tickets",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete CinemaTicket by ID",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/tickets/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "39",
+													"description": "Integer value as id of the desired ticket"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's news",
+							"item": [
+								{
+									"name": "Add new news",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"redactDate\": \"2023-05-12\",\r\n    \"author\": \"Paul Bill\",\r\n    \"title\": \"Evil Dead Rise - What is it about?\",\r\n    \"article\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8080/api/news/:filmId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"news",
+												":filmId"
+											],
+											"variable": [
+												{
+													"key": "filmId",
+													"value": "9"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all Cinema's news",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/news",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"news"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Custom GET requests",
+					"item": [
+						{
+							"name": "Users GET requests",
+							"item": [
+								{
+									"name": "Find User by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/users/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all Users",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/users",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find users by role",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/users/role/:role",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"users",
+												"role",
+												":role"
+											],
+											"variable": [
+												{
+													"key": "role",
+													"value": "ROLE_CUSTOMER",
+													"description": "Role_ENUM --> ROLE_ADMIN / ROLE_CUSTOMER"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's rooms GET requests",
+							"item": [
+								{
+									"name": "Find all CinemaRooms",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/rooms",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find CinemaRoom by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/rooms/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as id to search for"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find CinemaRoom by room's name",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/rooms/name/:name",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"rooms",
+												"name",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "name",
+													"value": "green",
+													"description": "String value as name of the desired room"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's movies GET requests",
+							"item": [
+								{
+									"name": "Find all CinemaMovies",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find CinemaMovie by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as the id of the desired movie"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find CinemaMovie by tmdbID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/tmdbid/:tmdbid",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												"tmdbid",
+												":tmdbid"
+											],
+											"variable": [
+												{
+													"key": "tmdbid",
+													"value": "671",
+													"description": "Integer value as the tmdbId of the desired movie"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find CinemaMovie by title",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/title/:title",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												"title",
+												":title"
+											],
+											"variable": [
+												{
+													"key": "title",
+													"value": "Harry",
+													"description": "String value as part of the title of the desired movie"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaMovies paged",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/movies/paged?page=0&size=5",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"movies",
+												"paged"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "0",
+													"description": "Index of the desired page: 0 -> ..."
+												},
+												{
+													"key": "size",
+													"value": "5",
+													"description": "Amount of items delivered per page"
+												},
+												{
+													"key": "sort",
+													"value": "",
+													"description": "filter to order the page",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's programs GET requests",
+							"item": [
+								{
+									"name": "Find CinemaProgram by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/programs/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as the id of the desired program"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaPrograms",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/programs",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"programs"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Cinema's tickets GET requests",
+							"item": [
+								{
+									"name": "Find CinemaTicket by ID",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/tickets/:id",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1",
+													"description": "Integer value as id of the desired ticket"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Find all CinemaTickets",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/api/tickets",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"api",
+												"tickets"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TMDb API KEY v3",
+			"value": "b8863a6ea88eef1c56cf6f990840312a",
+			"type": "string"
+		},
+		{
+			"key": "TMDbBearerToken_v4",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiODg2M2E2ZWE4OGVlZjFjNTZjZjZmOTkwODQwMzEyYSIsInN1YiI6IjY0NTYyMDMxOTAzYzUyMDEzODI3ZDVlZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LQolYtIfJWiojvz94NOKd0iE3khrlPX3tL3w8poMvEk",
+			"type": "string"
+		}
+	]
+}

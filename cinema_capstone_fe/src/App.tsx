@@ -29,7 +29,7 @@ import { SuccessPageComponent } from "./components/checkoutpage/paymentresult/Su
 import { RedirectHomepage } from "./components/checkoutpage/paymentresult/RedirectHomepage";
 
 function App() {
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const store = useSelector((state: RootState) => state);
   const [moviesLoad, setMoviesLoad] = useState<boolean>(false);
 
@@ -91,6 +91,7 @@ function App() {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Container fluid className="p-0 app-container">
           <NavbarComponent />
+
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace={true} />} />
             <Route

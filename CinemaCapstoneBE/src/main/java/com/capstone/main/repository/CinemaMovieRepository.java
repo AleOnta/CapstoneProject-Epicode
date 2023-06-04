@@ -15,7 +15,7 @@ import com.capstone.main.model.CinemaMovie;
 @Repository
 public interface CinemaMovieRepository extends CrudRepository<CinemaMovie, Long>, PagingAndSortingRepository<CinemaMovie, Long> {
 
-	Optional<CinemaMovie> findByTmdbId(Long tmdbId);;
+	Optional<CinemaMovie> findByTmdbId(Long tmdbId);
 	
 	Optional<CinemaMovie> findByTitle(String title);
 	

@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../app/store";
 import { LoginDto } from "../../interfaces/iUser";
 import { fetchUser } from "../../features/userSlice";
+import secureLocalStorage from "react-secure-storage";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../app/store";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { AuthComponentProps } from "../../interfaces/CommonInterfaces";
@@ -26,11 +27,11 @@ export const LoginComponent = ({
     remember: false,
   });
 
-  const handleLocalStorage = (
+  const handleSecureStorage = (
     propName: string,
     value: string | PreferenceState
   ) => {
-    localStorage.setItem(propName, JSON.stringify(value));
+    secureLocalStorage.setItem(propName, value);
   };
 
   const handleSessionStorage = (propName: string, value: string) => {
@@ -65,18 +66,18 @@ export const LoginComponent = ({
             redirectCallback("You'll be redirected in a few moments");
           const data = response.data;
           // always save username in LS
-          handleLocalStorage("my-thynk-username", loginDto.username);
+          handleSecureStorage("my-thynk-username", loginDto.username);
 
           switch (loginDto.remember) {
             case true: {
               let expiration = new Date();
               expiration.setDate(expiration.getDate() + 7);
-              handleLocalStorage("my-thynk-token", data.accessToken);
-              handleLocalStorage(
+              handleSecureStorage("my-thynk-token", data.accessToken);
+              handleSecureStorage(
                 "my-thynk-token-expiration",
                 expiration.toISOString().slice(0, 10)
               );
-              handleLocalStorage("my-thynk-preferences", preferencesStore);
+              handleSecureStorage("my-thynk-preferences", preferencesStore);
               break;
             }
             case false: {
@@ -110,11 +111,13 @@ export const LoginComponent = ({
   };
 
   useEffect(() => {
-    let localUsername = localStorage.getItem("my-thynk-username");
+    const localUsername = secureLocalStorage.getItem("my-thynk-username") as
+      | string
+      | null;
     if (localUsername) {
       setLoginDto({
         ...loginDto,
-        username: JSON.parse(localUsername),
+        username: localUsername,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

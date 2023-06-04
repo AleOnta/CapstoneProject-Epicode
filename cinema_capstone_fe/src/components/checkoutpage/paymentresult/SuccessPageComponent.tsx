@@ -13,11 +13,14 @@ import { CheckOutState } from "../../../features/checkoutSlice";
 import { fetchRooms } from "../../../features/roomSlice";
 import { AiOutlineHome } from "react-icons/ai";
 import { useNavigate } from "react-router";
+import secureLocalStorage from "react-secure-storage";
 
 export const SuccessPageComponent = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const JSONusername = localStorage.getItem("my-thynk-username");
+  const JSONusername = secureLocalStorage.getItem("my-thynk-username") as
+    | string
+    | null;
   const receivedData = sessionStorage.getItem("my-thynk-checkout-cart");
   const ticketURL = "http://localhost:8080/api/tickets";
   const [result, setResult] = useState<boolean>(false);
@@ -66,8 +69,10 @@ export const SuccessPageComponent = () => {
   const handleTkn = () => {
     switch (userPreferences.remember) {
       case true: {
-        const tkn = localStorage.getItem("my-thynk-token");
-        if (tkn) return JSON.parse(tkn);
+        const tkn = secureLocalStorage.getItem("my-thynk-token") as
+          | string
+          | null;
+        if (tkn) return tkn;
         break;
       }
       case false: {
@@ -114,12 +119,12 @@ export const SuccessPageComponent = () => {
       setFulfilled(true);
       dispatch(fetchPrograms());
       dispatch(fetchRooms);
-      JSONusername && dispatch(fetchUser(JSON.parse(JSONusername)));
+      JSONusername && dispatch(fetchUser(JSONusername));
     }
   };
 
   useEffect(() => {
-    JSONusername && dispatch(fetchUser(JSON.parse(JSONusername)));
+    JSONusername && dispatch(fetchUser(JSONusername));
     receivedData && setCheckoutData(JSON.parse(receivedData));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -203,7 +208,7 @@ export const SuccessPageComponent = () => {
                 </Card.Header>
                 <Card.Body className="mx-5 py-4 rounded d-flex justify-content-center">
                   <QRCode
-                    size={300}
+                    size={200}
                     bgColor="white"
                     fgColor="black"
                     value={`user: TBD - theather: ${

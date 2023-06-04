@@ -7,6 +7,7 @@ import {
   setNewsletterConsense,
   setShowCP,
 } from "../../../features/preferenceSlice";
+import secureLocalStorage from "react-secure-storage";
 import { useEffect } from "react";
 import { setRemember } from "../../../features/preferenceSlice";
 import { logout } from "../../../features/userSlice";
@@ -24,9 +25,9 @@ export const UserPreferences = () => {
     // return userSlice redux store as initialState
     dispatch(logout());
     // clearance of local storage from keys such as jwt token and its expiration
-    localStorage.removeItem("my-thynk-token");
-    localStorage.removeItem("my-thynk-username");
-    localStorage.removeItem("my-thynk-token-expiration");
+    secureLocalStorage.removeItem("my-thynk-token");
+    secureLocalStorage.removeItem("my-thynk-username");
+    secureLocalStorage.removeItem("my-thynk-token-expiration");
     // clearance of session storage from keys such as jwt token
     sessionStorage.removeItem("my-thynk-token");
 
@@ -36,10 +37,7 @@ export const UserPreferences = () => {
 
   useEffect(() => {
     // save in local storage preferences update, if presents
-    localStorage.setItem(
-      "my-thynk-preferences",
-      JSON.stringify(preferenceStore)
-    );
+    secureLocalStorage.setItem("my-thynk-preferences", preferenceStore);
   }, [preferenceStore]);
 
   return (

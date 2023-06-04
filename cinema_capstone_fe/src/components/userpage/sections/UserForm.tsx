@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { fetchUser } from "../../../features/userSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 import { Button, Col, FloatingLabel, Form } from "react-bootstrap";
+import secureLocalStorage from "react-secure-storage";
 
 export const UserForm = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -66,10 +67,6 @@ export const UserForm = () => {
     }
   };
 
-  const handleLocalStorage = (propName: string, value: string) => {
-    localStorage.setItem(propName, JSON.stringify(value));
-  };
-
   const handleSessionStorage = (propName: string, value: string) => {
     sessionStorage.setItem(propName, JSON.stringify(value));
   };
@@ -110,12 +107,15 @@ export const UserForm = () => {
         response.status === 200 && notifySuccess("Credentials updated!");
         switch (userPreferences.remember) {
           case true: {
-            handleLocalStorage("user", JSON.stringify(receivedValues.username));
+            secureLocalStorage.setItem(
+              "my-thynk-username",
+              receivedValues.username
+            );
             break;
           }
           case false: {
             handleSessionStorage(
-              "user",
+              "my-thynk-username",
               JSON.stringify(receivedValues.username)
             );
             break;
@@ -143,16 +143,22 @@ export const UserForm = () => {
                   case true: {
                     let expiration = new Date();
                     expiration.setDate(expiration.getDate() + 7);
-                    handleLocalStorage("tkn", data.accessToken);
-                    handleLocalStorage(
-                      "exp",
+                    secureLocalStorage.setItem(
+                      "my-thynk-token",
+                      data.accessToken
+                    );
+                    secureLocalStorage.setItem(
+                      "my-thynk-token-expiration",
                       expiration.toISOString().slice(0, 10)
                     );
                     break;
                   }
                   case false: {
-                    handleSessionStorage("user", receivedValues.username);
-                    handleSessionStorage("tkn", data.accessToken);
+                    handleSessionStorage(
+                      "my-thynk-username",
+                      receivedValues.username
+                    );
+                    handleSessionStorage("my-thynk-token", data.accessToken);
                   }
                 }
               }
