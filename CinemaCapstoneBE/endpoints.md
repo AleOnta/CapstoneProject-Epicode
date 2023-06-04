@@ -240,4 +240,5 @@ The POST request will require 2 differents parameters such as:
 
 ### Custom / Specific GET requests:
 Please, note the endpoints described above are just the simple CRUD of the application, for further GET requests take a look to the Postman collection  
-at this path: ./CinemaCapstoneBE/src/main/resources/CinemaCollection
+at this path: `./CinemaCapstoneBE/src/main/resources/data/CapstoneProject.postman_collection`  
+Or click here [collection](./src/main/resources/data/CapstoneProject.postman_collection)
