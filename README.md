@@ -62,7 +62,7 @@
 The following is a screenshot of the Movie-focus page:
 ![Example screenshot](./cinema_capstone_fe/src/assets/imgs/movie_card.png)
 
-This is a screenshot of the Seats-selection into the check-out page:
+This is a screenshot of the Seats-selection in the check-out page:
 ![Example screenshot](./cinema_capstone_fe/src/assets/imgs/seats_selection.png)
 
 
