@@ -74,7 +74,7 @@ This is a screenshot of the Seats-selection into the check-out page:
 ### Backend setup:
 
 1. To correctly initialize the backend of the application, you will need to restore the PostgreSQL database through PG Admin 4 Dashboard and the SQL Database backup provided in the CinemaCapstone_BE folder.
-   - Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/backup.sql`
+   - Follow the next path to find it: `./CinemaCapstoneBE/src/main/resources/data/backup.sql`
 
 2. Once retrieved the file is, open PG Admin and: 
    - Create a new database with the name `CapstoneProject_cinema`.
@@ -122,7 +122,8 @@ npm start
 ## API Endpoints
   
 The current API docs can be found at this path: `./CinemaCapstoneBE/endpoints.md`  
-To get there, just follow this link [API_docs](./CinemaCapstoneBE/endpoints.md)
+To get there, just follow this link [API_docs](./CinemaCapstoneBE/endpoints.md)  
+  
 Please, also notice that a postman collection of the REST API is available at this path: `./CinemaCapstoneBE/src/main/resources/data/CapstoneProject.postman_collection`  
 Click here to reach it [Postman Collection](./CinemaCapstoneBE/src/main/resources/data/CapstoneProject.postman_collection)
 
