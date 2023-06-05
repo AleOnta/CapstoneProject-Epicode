@@ -13,6 +13,7 @@
 * [Installation](#installation)
 * [Usage](#usage)
 * [API Endpoints](#api-endpoints)
+* [Database Structure](./CinemaCapstoneBE/src/main/resources/Capstone-ERD.png)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 
