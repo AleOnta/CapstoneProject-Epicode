@@ -39,10 +39,9 @@
 - Redux Toolkit 1.9.5 - Redux toolset for efficient development
 - React Bootstrap 2.7.4 - UI framework for React applications
 - React Router DOM 6.1.1 - Routing library for React applications
-- Sass 1.62.1 - CSS extension language
 - React YouTube 10.1.0 - React component for YouTube player integration
 - React Secure-storage 1.2.2 - Third party library for secure usage of LocalStorage
-
+- Sass 1.62.1 - CSS extension language
 
 ### Additional Technologies
 
