@@ -61,7 +61,8 @@ function App() {
   useEffect(() => {
     if (
       store.programs.incoming.length > 0 &&
-      store.programs.onGoing.length > 0
+      store.programs.onGoing.length > 0 &&
+      store.movies.allMovies.length > 0
     ) {
       setTimeout(() => {
         retrieveInRoomMovies();
@@ -69,7 +70,7 @@ function App() {
       }, 250);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [store.programs.incoming, store.programs.onGoing]);
+  }, [store.programs.incoming, store.programs.onGoing, store.movies.allMovies]);
 
   useEffect(() => {
     if (store.movies.incoming.length > 0 && store.movies.inRoom.length > 0) {
