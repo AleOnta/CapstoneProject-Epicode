@@ -89,7 +89,7 @@ This is a screenshot of the Seats-selection in the check-out page:
    - Click on `Browse` and select the CinemaCapstoneBE directory in the cloned repository.
 
 4. Once completed those two steps, you are ready to run the API on `http://localhost:8080`
-   - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field   `Run As` and select `Spring Boot Application`. 
+   - To do that, right-click on the project folder in the package explorer, hover with the mouse on the field `Run As` and select `Spring Boot Application`. 
 
 
 ### Frontend setup:
