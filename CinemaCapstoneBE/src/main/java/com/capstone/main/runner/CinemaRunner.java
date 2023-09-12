@@ -54,7 +54,7 @@ public class CinemaRunner implements ApplicationRunner {
 		// TODO Auto-generated method stub
 		log.info("running cinema...");
 		
-		// elimina tutti i biglietti se ancora esistenti
+		// gets all existing tickets and delete them from database
 		List<CinemaTicket> tickets = tickets_service.findAllTickets();
 		
 		System.out.println("Deleting tickets");
@@ -62,7 +62,7 @@ public class CinemaRunner implements ApplicationRunner {
 			tickets_service.deleteTicketById(t.getId());
 		}
 		
-		// elimina tutti i programmi se ancora esistenti
+		// gets all existing programs and delete them from database
 		
 		List<CinemaProgram> programs = programs_service.findAll();
 		
@@ -71,12 +71,12 @@ public class CinemaRunner implements ApplicationRunner {
 			programs_service.deleteProgramById(p.getId());
 		}
 		
-		// prende tutti i film disponibili
+		// get all available movies
 		
-		// crea 9 programmi in maniera casuale impostando:
+		// creates 9 different programs (3-ARCHIVED, 3-ONGOING, 3-INCOMING):
 		
-					// un prezzo casuale tra i 3 disponibili
-					// la data di inizio proiezioni tra 4 giorni fa e date.now()
+					// sets the correct Stripe price ID for the respective room
+					// the ongoing programs will have ha from date property equal to today or max 4 days prior
 		
 		List<CinemaMovie> movies = movies_service.findAllMovies();
 		List<Integer> indexes = getRandomIndexes(movies);
@@ -128,7 +128,9 @@ public class CinemaRunner implements ApplicationRunner {
 		
 		
 		
-		// per ciascun programma
+		// this series of loops will create 80 tickets for each user in each program 
+		// this will help to populate the database with fresh data to improve UX UI and logic definitions
+		// total tickets created 3600
 		for (CinemaProgram p : new_programs) {
 			CinemaRoom r = p.getRoom();
 			String[] timetables = r.getTimetables().split("\\|");
@@ -140,7 +142,7 @@ public class CinemaRunner implements ApplicationRunner {
 				while (ts < 80) {
 					List<Integer> available_seats = defineRoomSeats(r);
 					if (ts < 20) {
-						// 1° giorno
+						// 1st day
 						Integer s = available_seats.get(fake.number().numberBetween(0, available_seats.size() - 1));
 						available_seats.remove(s);
 						String actualSeat = defineSeat(r, s);
@@ -155,7 +157,7 @@ public class CinemaRunner implements ApplicationRunner {
 						
 						tickets_service.persistTicket(ticket, u.getId(), p.getId());
 					} else if (ts >= 20 && ts < 40) {
-						// 2° giorno
+						// 2nd day
 						Integer s = available_seats.get(fake.number().numberBetween(0, available_seats.size() - 1));
 						available_seats.remove(s);
 						String actualSeat = defineSeat(r, s);
@@ -170,7 +172,7 @@ public class CinemaRunner implements ApplicationRunner {
 						
 						tickets_service.persistTicket(ticket, u.getId(), p.getId());
 					} else if (ts >= 40 && ts < 60) {
-						// 3° giorno
+						// 3rd day
 						Integer s = available_seats.get(fake.number().numberBetween(0, available_seats.size() - 1));
 						available_seats.remove(s);
 						String actualSeat = defineSeat(r, s);
@@ -185,7 +187,7 @@ public class CinemaRunner implements ApplicationRunner {
 						
 						tickets_service.persistTicket(ticket, u.getId(), p.getId());
 					} else {
-						// 4° giorno
+						// 4th day
 						
 						if (r.getName().equals("red")) {
 							
@@ -225,13 +227,13 @@ public class CinemaRunner implements ApplicationRunner {
 			}
 		}
 		
+		// remove all random tickets created on my account
+		User admin = users_service.findUserById(1l);
 		
-		System.out.println(new_programs.size());
-		for (CinemaProgram p : new_programs) {
-			System.out.println(p.getStatus());
+		List<CinemaTicket> user_tickets = tickets_service.findTicketByUserId(admin.getId());
+		for (CinemaTicket t : user_tickets) {
+			tickets_service.deleteTicketById(t.getId());
 		}
-		System.out.println(LocalDate.now());
-		
 		
 	}
 	
