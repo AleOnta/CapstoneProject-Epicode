@@ -42,9 +42,9 @@ public class CinemaTicketService {
 		
 		// from program get ids of related movie and room
 		CinemaMovie movie = movieService.findMovieById(program.getMovie().getId());
-		System.out.println(movie.toString());
+		
 		CinemaRoom room = roomService.findRoomById(program.getRoom().getId());
-		System.out.println(room.toString());
+		
 		
 		ticket.setOwner(owner);
 		ticket.setBoundFilm(movie);
